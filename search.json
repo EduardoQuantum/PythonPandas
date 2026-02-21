@@ -2,7 +2,7 @@
   {
     "objectID": "clase_01.html",
     "href": "clase_01.html",
-    "title": "Título de la Clase (Ej: Introducción al Oso Arturo)",
+    "title": "Título de la Clase (Ej: Introducción al Oso Ramiro)",
     "section": "",
     "text": "Introducción\nAquí puedes escribir el texto teórico que leerán los alumnos en el campus. Al usar # %% [markdown], VS Code te lo mostrará formateado en la Ventana Interactiva, y Quarto lo convertirá en párrafos HTML reales.\n\n\nCódigo\nimport pandas as pd\nimport os\n\n# Aquí comienza el Live Coding en VS Code.\n# El output de esta celda será capturado por Jupytext y renderizado por Quarto.\nprint(\"Entorno inicializado y listo.\")"
   }
