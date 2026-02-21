@@ -1,6 +1,6 @@
 # %% [markdown]
 # ---
-# title: "Título de la Clase (Ej: Introducción al Oso Cassia)"
+# title: "Título de la Clase (Ej: Introducción al Oso Cassia de Merlo)"
 # description: "Breve descripción para los alumnos."
 # ---
 
