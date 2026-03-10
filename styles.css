@@ -1,4 +1,8 @@
-/* Mis Colores FLACSO */
+/* =========================================================
+   MIS COLORES FLACSO - PROYECTO MULETO (DEFINITIVO)
+   ========================================================= */
+
+/* 1. TÍTULOS Y ENLACES GLOBALES */
 h1, h2, h3, h4 {
   color: #003366 !important;
 }
@@ -7,7 +11,67 @@ a {
   color: #003366;
 }
 
-.callout-header {
+/* 2. CAJA DE ATENCIÓN (Callout Important) */
+.callout-important.callout-style-default {
+  border-left-color: #003366 !important;
+}
+
+.callout-important .callout-header {
+  background-color: #003366 !important;
+  color: white !important;
+}
+
+/* 3. ZONA DE PROMPT (Caja gris cursiva para IA) */
+.gray-italic-box {
+  background-color: #f8f9fa;
+  border-left: 5px solid #cccccc;
+  padding: 1.2em;
+  font-style: italic;
+  color: #555555;
+  margin: 1.5em 0;
+  border-radius: 0 5px 5px 0;
+  font-family: 'Georgia', serif;
+}
+
+/* 4. ESTILO MONITOR / TERMINAL (Ultra Blindado) */
+.monitor-box {
+  background-color: #2b2b2b !important; /* Fondo oscuro obligatorio */
+  padding: 15px !important;
+  border-radius: 5px !important;
+  margin: 15px 0 !important;
+  border: 1px solid #444 !important;
+  display: block !important;
+}
+
+/* El selector '*' asegura que NADA (p, span, h, etc.) herede el azul o el tamaño grande */
+.monitor-box, 
+.monitor-box * {
+  color: #ffc66d !important;             /* Color ámbar/consola */
+  font-family: 'Consolas', 'Courier New', monospace !important;
+  font-size: 13px !important;            /* Letra chica tipo terminal */
+  line-height: 1.4 !important;
+  text-decoration: none !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Resaltado opcional: lo que pongas entre asteriscos ** se verá blanco brillante */
+.monitor-box strong, 
+.monitor-box b {
+  font-weight: bold !important;
+  color: #ffffff !important; 
+}
+
+/* 5. AJUSTES DE CAJAS DE CÓDIGO ESTÁNDAR DE QUARTO */
+.cell-code {
+  background-color: #f4f4f4 !important;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.quarto-copy-button {
   background-color: #003366 !important;
   color: white !important;
 }

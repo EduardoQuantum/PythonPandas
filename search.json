@@ -1,9 +1,44 @@
 [
   {
+    "objectID": "plantilla_quarto.html",
+    "href": "plantilla_quarto.html",
+    "title": "Clase XX: [Nombre de la Clase]",
+    "section": "",
+    "text": "Aquí puedes escribir la fundamentación teórica de lo que vas a programar. Este texto sirve para que los alumnos sigan el hilo conductor mientras tú preparas el lienzo en el .py.\n\n\nBreve explicación de la función o método que vas a aplicar a continuación.\n#| echo: true #| eval: false"
+  },
+  {
+    "objectID": "plantilla_quarto.html#introducción-o-contexto",
+    "href": "plantilla_quarto.html#introducción-o-contexto",
+    "title": "Clase XX: [Nombre de la Clase]",
+    "section": "",
+    "text": "Aquí puedes escribir la fundamentación teórica de lo que vas a programar. Este texto sirve para que los alumnos sigan el hilo conductor mientras tú preparas el lienzo en el .py.\n\n\nBreve explicación de la función o método que vas a aplicar a continuación.\n#| echo: true #| eval: false"
+  },
+  {
     "objectID": "clase_01.html",
     "href": "clase_01.html",
+    "title": "Clase 01: El Taller del Científico de Datos",
+    "section": "",
+    "text": "En esta primera sesión vamos a transformar nuestra computadora en un laboratorio de análisis de datos. No se trata solo de escribir código, sino de crear un Pipeline reproducible.\n\n\n\n\n\n\n¡Atención! Observación Crítica\n\n\n\nAntes de comenzar, asegúrate de estar parado en la carpeta raíz de tu proyecto (C:\\CursoPandas). Si la ruta en tu terminal no coincide, los comandos siguientes fallarán.\n\n\n\n\nSi tienes dudas sobre tu versión de Python, puedes usar el siguiente prompt con tu IA de confianza:\n\n“Actúa como experto en Windows. Estoy configurando un entorno virtual de Python y quiero saber si mi versión instalada es compatible con Pandas 2.0. ¿Cómo lo verifico?”\nA continaucion segumos con esto:"
+  },
+  {
+    "objectID": "clase_01.html#introducción-texto-narrativo",
+    "href": "clase_01.html#introducción-texto-narrativo",
+    "title": "Clase 01: El Taller del Científico de Datos",
+    "section": "",
+    "text": "En esta primera sesión vamos a transformar nuestra computadora en un laboratorio de análisis de datos. No se trata solo de escribir código, sino de crear un Pipeline reproducible.\n\n\n\n\n\n\n¡Atención! Observación Crítica\n\n\n\nAntes de comenzar, asegúrate de estar parado en la carpeta raíz de tu proyecto (C:\\CursoPandas). Si la ruta en tu terminal no coincide, los comandos siguientes fallarán.\n\n\n\n\nSi tienes dudas sobre tu versión de Python, puedes usar el siguiente prompt con tu IA de confianza:\n\n“Actúa como experto en Windows. Estoy configurando un entorno virtual de Python y quiero saber si mi versión instalada es compatible con Pandas 2.0. ¿Cómo lo verifico?”"
+  },
+  {
+    "objectID": "clase_01.html#configuración-técnica-caja-de-código",
+    "href": "clase_01.html#configuración-técnica-caja-de-código",
+    "title": "Clase 01: El Taller del Científico de Datos",
+    "section": "2. Configuración Técnica (Caja de Código)",
+    "text": "2. Configuración Técnica (Caja de Código)\nEs fundamental aislar nuestras librerías para que el proyecto sea estable en el tiempo. Copia estos comandos y ejecútalos en tu terminal de VS Code:"
+  },
+  {
+    "objectID": "bak/clase_01.html",
+    "href": "bak/clase_01.html",
     "title": "Título de la Clase (Ej: Introducción al Oso Cassia de Merlo)",
     "section": "",
-    "text": "Introducción\nAquí puedes escribir el texto teórico que leerán los alumnos en el campus. Al usar # %% [markdown], VS Code te lo mostrará formateado en la Ventana Interactiva, y Quarto lo convertirá en párrafos HTML reales.\n\n\nCódigo\nimport pandas as pd\nimport os\n\n# Aquí comienza el Live Coding en VS Code.\n# El output de esta celda será capturado por Jupytext y renderizado por Quarto.\nprint(\"Entorno inicializado y listo.\")"
+    "text": "Introducción\nAquí puedes escribir el texto teórico que leerán los alumnos en el campus. Al usar # %% [markdown], VS Code te lo mostrará formateado en la Ventana Interactiva, y Quarto lo convertirá en párrafos HTML reales.\n\nimport pandas as pd\nimport os\n\n# Aquí comienza el Live Coding en VS Code.\n# El output de esta celda será capturado por Jupytext y renderizado por Quarto.\nprint(\"Entorno inicializado y listo.\")"
   }
 ]
