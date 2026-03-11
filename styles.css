@@ -33,38 +33,41 @@ a {
   font-family: 'Georgia', serif;
 }
 
-/* 4. ESTILO MONITOR / TERMINAL (Ultra Blindado) */
+/* 4. EL MONITOR (ESTILO TERMINAL ÁMBAR) */
+/* La caja contenedora */
 .monitor-box {
-  background-color: #2b2b2b !important; /* Fondo oscuro obligatorio */
-  padding: 15px !important;
-  border-radius: 5px !important;
-  margin: 15px 0 !important;
-  border: 1px solid #444 !important;
-  display: block !important;
+    background-color: #000000 !important;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border-left: 8px solid #ffcc00;
 }
 
-/* El selector '*' asegura que NADA (p, span, h, etc.) herede el azul o el tamaño grande */
-.monitor-box, 
-.monitor-box * {
-  color: #ffc66d !important;             /* Color ámbar/consola */
-  font-family: 'Consolas', 'Courier New', monospace !important;
-  font-size: 13px !important;            /* Letra chica tipo terminal */
-  line-height: 1.4 !important;
-  text-decoration: none !important;
-  font-style: normal !important;
-  font-weight: normal !important;
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
+/* El bloque de código de Quarto que vive adentro del monitor */
+.monitor-box .cell-code,
+.monitor-box pre,
+.monitor-box code,
+.monitor-box .sourceCode {
+    background-color: #000000 !important; /* Fuerza fondo negro */
+    color: #ffcc00 !important;           /* Fuerza letra ámbar */
+    border: none !important;              /* Quita bordes grises */
+    box-shadow: none !important;
+    font-family: 'Consolas', monospace !important;
 }
 
-/* Resaltado opcional: lo que pongas entre asteriscos ** se verá blanco brillante */
-.monitor-box strong, 
-.monitor-box b {
-  font-weight: bold !important;
-  color: #ffffff !important; 
+/* Los "tokens" (palabras clave, números, etc.) que Quarto pinta de colores */
+.monitor-box span {
+    color: #ffcc00 !important;           /* Obliga a todos los tokens a ser ámbar */
+    background-color: transparent !important;
 }
 
-/* 5. AJUSTES DE CAJAS DE CÓDIGO ESTÁNDAR DE QUARTO */
+/* LA REGLA DEL VERDE PARA COMENTARIOS */
+.monitor-box span.co {
+    color: #00ff00 !important; /* Verde para los # comentarios */
+}
+
+
+/* 5. AJUSTES DE CAJAS DE CÓDIGO ESTÁNDAR (Fuera del monitor) */
 .cell-code {
   background-color: #f4f4f4 !important;
   border: 1px solid #ddd;

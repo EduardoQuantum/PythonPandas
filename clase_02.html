@@ -8,7 +8,7 @@
 
 <meta name="author" content="Eduardo Lencina">
 
-<title>Curso Análisis de Datos con Python + Pandas + IA - Curso Universitario de Python y Pandas</title>
+<title>Curso Análisis de Datos con Python + Pandas + IA - Clase 02: Comenzamos a trabajar</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -83,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="./index.html" rel="" target="">
  <span class="menu-text">Inicio</span></a>
   </li>  
   <li class="nav-item">
@@ -102,7 +136,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Curso Universitario de Python y Pandas</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./clase_01.html">Módulo 1: El Ecosistema</a></li><li class="breadcrumb-item"><a href="./clase_02.html">Comenzamos a trabajar</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -131,7 +165,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./clase_02.html" class="sidebar-item-text sidebar-link">
+  <a href="./clase_02.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Comenzamos a trabajar</span></a>
   </div>
 </li>
@@ -160,15 +194,25 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta clase</h2>
+   
+  <ul>
+  <li><a href="#acceso-a-vs-code-mediante-workspace" id="toc-acceso-a-vs-code-mediante-workspace" class="nav-link active" data-scroll-target="#acceso-a-vs-code-mediante-workspace">1. Acceso a VS Code mediante Workspace</a>
+  <ul class="collapse">
+  <li><a href="#qué-es-un-workspace" id="toc-qué-es-un-workspace" class="nav-link" data-scroll-target="#qué-es-un-workspace">1.1 ¿Qué es un Workspace?</a></li>
+  <li><a href="#apertura-desde-la-terminal-cmd" id="toc-apertura-desde-la-terminal-cmd" class="nav-link" data-scroll-target="#apertura-desde-la-terminal-cmd">1.2 Apertura desde la Terminal (CMD)</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Curso Universitario de Python y Pandas</h1>
-<p class="subtitle lead">Análisis de Datos Aplicado a Ciencias Sociales</p>
+<h1 class="title">Clase 02: Comenzamos a trabajar</h1>
+<p class="subtitle lead">Acceso a nuestro Stack Tecnológico</p>
 </div>
 
 
@@ -189,12 +233,139 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<style>
-  h1, h2, h3 { color: #003366 !important; }
-  .callout-header { background-color: #003366 !important; color: white !important; }
-</style>
+<section id="acceso-a-vs-code-mediante-workspace" class="level2">
+<h2 class="anchored" data-anchor-id="acceso-a-vs-code-mediante-workspace">1. Acceso a VS Code mediante Workspace</h2>
+<p>Para iniciar un proyecto de Ciencia de Datos de forma profesional, el primer paso es la correcta apertura del entorno desde la terminal del sistema. Esto garantiza que todas las rutas relativas de nuestros scripts de Python y archivos de datos funcionen correctamente.</p>
+<p>En proyectos complejos, no basta con abrir una carpeta. Utilizamos archivos de <strong>Workspace</strong> para asegurar que Visual Studio Code mantenga la configuración de paneles, variables de entorno y extensiones específicas para el procesamiento de datos.</p>
+<section id="qué-es-un-workspace" class="level3">
+<h3 class="anchored" data-anchor-id="qué-es-un-workspace">1.1 ¿Qué es un Workspace?</h3>
+<p>Es un archivo de configuración con la extensión <code>.code-workspace</code>. Es recomendable tener uno ajustado para cada proyecto. Al centralizar la configuración de Python, el Workspace asegura que el editor siempre apunte al intérprete y entorno virtual de nuestro interés, evitando conflictos entre proyectos.</p>
+</section>
+<section id="apertura-desde-la-terminal-cmd" class="level3">
+<h3 class="anchored" data-anchor-id="apertura-desde-la-terminal-cmd">1.2 Apertura desde la Terminal (CMD)</h3>
+<p>Lanzar el archivo <code>ProyectoPandas.code-workspace</code> desde la terminal es el método más avanzado: carga configuraciones específicas y rutas predefinidas de un solo golpe.</p>
+<p><strong>Instrucciones:</strong> Abrir la terminal (<strong>Tecla Win + R</strong>, escribir ‘cmd’ y <strong>Enter</strong>).</p>
+<div class="monitor-box">
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- TERMINAL DE WINDOWS (CMD) ---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Navegar a la raíz del disco C:</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>cd <span class="op">\</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Entrar a la carpeta del proyecto</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>cd C:\CursoPandas</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Lanzar el Workspace de Visual Studio Code</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>code ProyectoPandas.code<span class="op">-</span>workspace</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="gray-italic-box">
+<p>Zona de Prompting: “Actúa como experto en Windows y Ciencia de Datos. Explícame el paso a paso para ingresar a mi proyecto en Visual Studio Code desde la terminal de Windows (CMD), considerando que mi carpeta de trabajo es C:y utilizo un archivo .code-workspace.”</p>
+</div>
+<ol start="2" type="1">
+<li>Apertura de la base SAV Para trabajar con datos provenientes de software estadístico, utilizaremos el formato .sav (SPSS). En Python, la herramienta estándar es Pandas, pero para leer estos archivos necesita un motor especializado.</li>
+</ol>
+<p>2.1 Gestión del Entorno Virtual (venv) Para asegurar que nuestro proyecto sea estable, instalaremos todas las librerías exclusivamente dentro de C:. Este entorno es una copia aislada de Python que no afectará al resto del sistema.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Regla de Oro Nunca ejecutes pip install sin verificar que el entorno virtual está activo. Sabrás que está activo porque verás el prefijo (venv) al principio de la línea de comandos.</p>
+</div>
+</div>
+<div class="monitor-box">
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- GESTIÓN DE ENTORNO VIRTUAL ---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Asegurarse de estar en la carpeta del curso</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>cd C:\CursoPandas</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Activar el entorno virtual (Sintaxis CMD)</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>venv\Scripts\activate</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Actualizar el gestor de paquetes</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>python <span class="op">-</span>m pip install <span class="op">--</span>upgrade pip</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Instalar dependencias necesarias</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>pip install pandas pyreadstat</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>¿Qué es pip? pip (Pip Installs Packages) es el gestor de paquetes de Python. Nos permite descargar librerías adicionales desde el repositorio oficial (PyPI). Al usarlo dentro de nuestro venv, las librerías quedan disponibles únicamente para este proyecto.</p>
+</div>
+</div>
+<div class="monitor-box">
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- USO DE PIP EN ENTORNO VIRTUAL ---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Usamos pip para traer la herramienta de lectura SAV</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>pip install pyreadstat</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Verificamos qué librerías tenemos instaladas actualmente</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>pip <span class="bu">list</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Ingesta de Datos con Intérprete Vinculado Al usar el archivo .code-workspace, VS Code detecta automáticamente nuestro entorno en C:. Ahora podemos ejecutar nuestro script de carga.</li>
+</ol>
+<div class="monitor-box">
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- CARGA DE BASE EPH ---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Definición de ruta con Raw String (r)</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>ruta <span class="op">=</span> <span class="vs">r'c:\CursoPandas\data\input\24Q4_INDIVIDUOS.sav'</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Carga de datos utilizando el motor instalado</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_spss(ruta)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspección inicial</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>3.1 Análisis del Script de Carga Importación (import pandas as pd): Cargamos Pandas con el alias estándar pd.</p>
+<p>Rutas con “Raw Strings”: El prefijo r antes de las comillas indica que es un texto “crudo”, evitando errores con las barras invertidas en Windows.</p>
+<p>Ingesta mediante motor externo: Utilizamos la librería pyreadstat instalada en nuestro venv.</p>
+<p>Inspección de Integridad: .head() nos devuelve las primeras 5 filas para confirmar la carga exitosa en la RAM.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Importante
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Buenas Prácticas de Archivos Es fundamental que los nombres de archivos no contengan espacios. Se recomienda usar guion bajo (_) y evitar caracteres especiales.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El Objeto DataFrame Cuando asignamos la carga a df, creamos un DataFrame. Es una estructura bidimensional optimizada para procesar grandes volúmenes de información.</p>
+</div>
+</div>
+<div class="gray-italic-box">
+<p>Zona de Prompting: “Actúa como experto en Pandas. Explícame técnicamente qué es un DataFrame, con ejemplos, estoy usando VSC y Windows”</p>
+</div>
+<hr>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
