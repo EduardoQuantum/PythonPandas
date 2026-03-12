@@ -14,6 +14,48 @@
     "text": "Aquí puedes escribir la fundamentación teórica de lo que vas a programar. Este texto sirve para que los alumnos sigan el hilo conductor mientras tú preparas el lienzo en el .py.\n\n\nBreve explicación de la función o método que vas a aplicar a continuación.\n#| echo: true #| eval: false"
   },
   {
+    "objectID": "clase_03.html",
+    "href": "clase_03.html",
+    "title": "Clase 03: Exploración Progresiva con Pandas",
+    "section": "",
+    "text": "Iniciamos nuestro script asegurando la carga de la librería y el acceso a los datos de la EPH.\n\n# --- CARGA DE BASE EPH ---\n\nimport pandas as pd\n\n# Definición de ruta con Raw String (r)\nruta = r'c:\\CursoPandas\\data\\input\\24Q4_INDIVIDUOS.sav'\n\n# Carga de datos utilizando el motor instalado\ndf = pd.read_spss(ruta)\n\n# Inspección inicial\nprint(df.head())\n\n\n\n\n\n\n\nLo que estamos haciendo\n\n\n\n\nImportamos la herramienta: Traemos ‘pandas’ con el alias ‘pd’.\nEspecificamos el camino: Usamos una variable ‘ruta’ con el prefijo ‘r’ (raw string) para que Windows no confunda las barras invertidas de la dirección del archivo.\nLeemos el archivo: El comando ‘read_spss’ traduce el formato de SPSS a una tabla de Python (DataFrame).\nPrimer vistazo: ‘print(df.head())’ nos muestra las primeras 5 filas para verificar que la carga fue exitosa."
+  },
+  {
+    "objectID": "clase_03.html#cargamos-la-base-sav",
+    "href": "clase_03.html#cargamos-la-base-sav",
+    "title": "Clase 03: Exploración Progresiva con Pandas",
+    "section": "",
+    "text": "Iniciamos nuestro script asegurando la carga de la librería y el acceso a los datos de la EPH.\n\n# --- CARGA DE BASE EPH ---\n\nimport pandas as pd\n\n# Definición de ruta con Raw String (r)\nruta = r'c:\\CursoPandas\\data\\input\\24Q4_INDIVIDUOS.sav'\n\n# Carga de datos utilizando el motor instalado\ndf = pd.read_spss(ruta)\n\n# Inspección inicial\nprint(df.head())\n\n\n\n\n\n\n\nLo que estamos haciendo\n\n\n\n\nImportamos la herramienta: Traemos ‘pandas’ con el alias ‘pd’.\nEspecificamos el camino: Usamos una variable ‘ruta’ con el prefijo ‘r’ (raw string) para que Windows no confunda las barras invertidas de la dirección del archivo.\nLeemos el archivo: El comando ‘read_spss’ traduce el formato de SPSS a una tabla de Python (DataFrame).\nPrimer vistazo: ‘print(df.head())’ nos muestra las primeras 5 filas para verificar que la carga fue exitosa."
+  },
+  {
+    "objectID": "clase_03.html#comandos-de-inspección-qué-tenemos-en-la-base",
+    "href": "clase_03.html#comandos-de-inspección-qué-tenemos-en-la-base",
+    "title": "Clase 03: Exploración Progresiva con Pandas",
+    "section": "2. Comandos de Inspección: ¿Qué tenemos en la base?",
+    "text": "2. Comandos de Inspección: ¿Qué tenemos en la base?\nAntes de operar, debemos “mirar” la base para conocer la naturaleza de nuestras columnas y el tipo de dato que almacenan.\n\n# --- INSPECCIÓN INICIAL ---\n\n# 1. Diagnóstico de columnas y tipos de datos\nprint(df.info()) \n\n# 2. Dimensiones de la tabla (Filas, Columnas)\nprint(df.shape)\n\n\n\n\n\n\n\nLo que estamos haciendo\n\n\n\n\nDiagnóstico Estructural: ‘df.info()’ nos dice cuántos datos no nulos tenemos y el tipo técnico (Dtype). Es vital para saber si la “Edad” es un número o un texto.\nTamaño del objeto: ‘df.shape’ nos devuelve dos números. El primero es la cantidad de personas encuestadas y el segundo la cantidad de variables."
+  },
+  {
+    "objectID": "clase_03.html#análisis-de-variables-específicas",
+    "href": "clase_03.html#análisis-de-variables-específicas",
+    "title": "Clase 03: Exploración Progresiva con Pandas",
+    "section": "3. Análisis de Variables Específicas",
+    "text": "3. Análisis de Variables Específicas\nNos enfocaremos en dos variables clave de la EPH: ‘CH06’ (Edad) y ‘CH04’ (Sexo).\n\n# --- EXPLORANDO VARIABLES ---\n\n# Valores únicos en edad\nprint(df['CH06'].unique())\n\n# Conteo de frecuencias en sexo (1 = Varón, 2 = Mujer)\nprint(df['CH04'].value_counts())\n\n\n\n\n\n\n\nLo que estamos haciendo\n\n\n\n\nVer diversidad: Con ‘.unique()’ le pedimos a la columna Edad que nos diga todos los valores distintos que aparecen (útil para detectar errores o edades atípicas).\nContar categorías: Con ‘.value_counts()’ obtenemos la frecuencia absoluta. Nos dice exactamente cuántos registros hay de cada categoría en la variable Sexo."
+  },
+  {
+    "objectID": "clase_03.html#selección-y-filtrado-paso-a-paso",
+    "href": "clase_03.html#selección-y-filtrado-paso-a-paso",
+    "title": "Clase 03: Exploración Progresiva con Pandas",
+    "section": "4. Selección y Filtrado: Paso a Paso",
+    "text": "4. Selección y Filtrado: Paso a Paso\n\nPaso 1: Filtrar por Varones\nQueremos ver la edad solo de los varones (‘CH04’ == 1.0).\n\n# --- FILTRO SIMPLE ---\n\n# Seleccionamos filas donde sexo es varón\nvarones = df.query('CH04 == 1.0')\n\n# ¿Cuántos varones hay y cuál es su edad promedio?\nprint(f'Total varones: {len(varones)}')\nprint(f'Edad promedio varones: {varones[\"CH06\"].mean():.2f}')\n\n\n\n\n\n\n\nLo que estamos haciendo\n\n\n\n\nCreamos un subconjunto: Usamos ‘.query()’ para separar a los varones en un nuevo objeto llamado ‘varones’.\nCalculamos sobre el filtro: Usamos ‘len()’ para contar las filas resultantes y ‘.mean()’ sobre la columna edad l nuevo grupo. El ‘:.2f’ al final sirve para mostrar solo 2 decimales."
+  },
+  {
+    "objectID": "clase_03.html#resumen-de-herramientas-utilizadas",
+    "href": "clase_03.html#resumen-de-herramientas-utilizadas",
+    "title": "Clase 03: Exploración Progresiva con Pandas",
+    "section": "5. Resumen de Herramientas Utilizadas",
+    "text": "5. Resumen de Herramientas Utilizadas\n\n\n\n\n\n\n\nComando\nFunción\n\n\n\n\n.info()\nMuestra tipos de datos e integridad estructural.\n\n\n.describe()\nDevuelve medidas de tendencia central (estadística descriptiva).\n\n\n.value_counts()\nCuenta frecuencias por categoría (conteo).\n\n\n.query()\nFiltra filas según condiciones lógicas.\n\n\n\n\nZona de Prompting: “Actúa como profesor de estadística con Python. Explícame por qué el método .describe() se comporta diferente si lo aplico a una columna de números versus una de texto.”"
+  },
+  {
     "objectID": "clase_01.html",
     "href": "clase_01.html",
     "title": "Clase 01: El Taller del Científico de Datos",
@@ -40,5 +82,103 @@
     "title": "Título de la Clase (Ej: Introducción al Oso Cassia de Merlo)",
     "section": "",
     "text": "Introducción\nAquí puedes escribir el texto teórico que leerán los alumnos en el campus. Al usar # %% [markdown], VS Code te lo mostrará formateado en la Ventana Interactiva, y Quarto lo convertirá en párrafos HTML reales.\n\nimport pandas as pd\nimport os\n\n# Aquí comienza el Live Coding en VS Code.\n# El output de esta celda será capturado por Jupytext y renderizado por Quarto.\nprint(\"Entorno inicializado y listo.\")"
+  },
+  {
+    "objectID": "clase_02.html",
+    "href": "clase_02.html",
+    "title": "Clase 02: Comenzamos a trabajar",
+    "section": "",
+    "text": "Para iniciar un proyecto de Ciencia de Datos de forma profesional, el primer paso es la correcta apertura del entorno desde la terminal del sistema. Esto garantiza que todas las rutas relativas de nuestros scripts de Python y archivos de datos funcionen correctamente.\nEn proyectos complejos, no basta con abrir una carpeta. Utilizamos archivos de Workspace para asegurar que Visual Studio Code mantenga la configuración de paneles, variables de entorno y extensiones específicas para el procesamiento de datos.\n\n\nEs un archivo de configuración con la extensión ‘.code-workspace’. Es recomendable tener uno ajustado para cada proyecto. Al centralizar la configuración de Python, el Workspace asegura que el editor siempre apunte al intérprete y entorno virtual de nuestro interés, evitando conflictos entre proyectos.\n\n\n\nLanzar el archivo ‘ProyectoPandas.code-workspace’ desde la terminal es el método más avanzado: carga configuraciones específicas y rutas predefinidas de un solo golpe.\nInstrucciones: Abrir la terminal (Tecla Win + R, escribir ‘cmd’ y Enter).\n\n# --- TERMINAL DE WINDOWS (CMD) ---\n\n# 1. Navegar a la raíz del disco C:\ncd \\\n\n# 2. Entrar a la carpeta del proyecto\ncd C:\\CursoPandas\n\n# 3. Lanzar el Workspace de Visual Studio Code\ncode ProyectoPandas.code-workspace\n\n\n\n\n\n\n\nLo que estamos haciendo\n\n\n\n\nNavegación: Usamos ‘cd ' para ir a la base del disco y luego ’cd C:’ para entrar en nuestra carpeta de trabajo.\nLanzamiento: El comando ‘code’ abre VS Code, y al pasarle el nombre del archivo ‘.code-workspace’, el editor se abre con todas nuestras preferencias ya cargadas.\n\n\n\n\nZona de Prompting: “Actúa como experto en Windows y Ciencia de Datos. Explícame el paso a paso para ingresar a mi proyecto en Visual Studio Code desde la terminal de Windows (CMD), considerando que mi carpeta de trabajo es C:y utilizo un archivo .code-workspace.”"
+  },
+  {
+    "objectID": "clase_02.html#acceso-a-vs-code-mediante-workspace",
+    "href": "clase_02.html#acceso-a-vs-code-mediante-workspace",
+    "title": "Clase 02: Comenzamos a trabajar",
+    "section": "",
+    "text": "Para iniciar un proyecto de Ciencia de Datos de forma profesional, el primer paso es la correcta apertura del entorno desde la terminal del sistema. Esto garantiza que todas las rutas relativas de nuestros scripts de Python y archivos de datos funcionen correctamente.\nEn proyectos complejos, no basta con abrir una carpeta. Utilizamos archivos de Workspace para asegurar que Visual Studio Code mantenga la configuración de paneles, variables de entorno y extensiones específicas para el procesamiento de datos.\n\n\nEs un archivo de configuración con la extensión ‘.code-workspace’. Es recomendable tener uno ajustado para cada proyecto. Al centralizar la configuración de Python, el Workspace asegura que el editor siempre apunte al intérprete y entorno virtual de nuestro interés, evitando conflictos entre proyectos.\n\n\n\nLanzar el archivo ‘ProyectoPandas.code-workspace’ desde la terminal es el método más avanzado: carga configuraciones específicas y rutas predefinidas de un solo golpe.\nInstrucciones: Abrir la terminal (Tecla Win + R, escribir ‘cmd’ y Enter).\n\n# --- TERMINAL DE WINDOWS (CMD) ---\n\n# 1. Navegar a la raíz del disco C:\ncd \\\n\n# 2. Entrar a la carpeta del proyecto\ncd C:\\CursoPandas\n\n# 3. Lanzar el Workspace de Visual Studio Code\ncode ProyectoPandas.code-workspace\n\n\n\n\n\n\n\nLo que estamos haciendo\n\n\n\n\nNavegación: Usamos ‘cd ' para ir a la base del disco y luego ’cd C:’ para entrar en nuestra carpeta de trabajo.\nLanzamiento: El comando ‘code’ abre VS Code, y al pasarle el nombre del archivo ‘.code-workspace’, el editor se abre con todas nuestras preferencias ya cargadas.\n\n\n\n\nZona de Prompting: “Actúa como experto en Windows y Ciencia de Datos. Explícame el paso a paso para ingresar a mi proyecto en Visual Studio Code desde la terminal de Windows (CMD), considerando que mi carpeta de trabajo es C:y utilizo un archivo .code-workspace.”"
+  },
+  {
+    "objectID": "clase_02.html#apertura-de-la-base-sav",
+    "href": "clase_02.html#apertura-de-la-base-sav",
+    "title": "Clase 02: Comenzamos a trabajar",
+    "section": "2. Apertura de la base SAV",
+    "text": "2. Apertura de la base SAV\nPara trabajar con datos provenientes de software estadístico, utilizaremos el formato ‘.sav’ (SPSS). En Python, la herramienta estándar es Pandas, pero para leer estos archivos necesita un motor especializado llamado ‘pyreadstat’.\n\n2.1 Gestión del Entorno Virtual (venv)\nPara asegurar que nuestro proyecto sea estable, instalaremos todas las librerías exclusivamente dentro de ’C:'. Este entorno es una copia aislada de Python que no afectará al resto del sistema.\n\n\n\n\n\n\nRegla de Oro\n\n\n\nNunca ejecutes ‘pip install’ sin verificar que el entorno virtual está activo. Sabrás que está activo porque verás el prefijo (venv) al principio de la línea de comandos.\n\n\n\n# --- GESTIÓN DE ENTORNO VIRTUAL ---\n\n# 1. Asegurarse de estar en la carpeta del curso\ncd C:\\CursoPandas\n\n# 2. Activar el entorno virtual (Sintaxis CMD)\nvenv\\Scripts\\activate\n\n# 3. Actualizar el gestor de paquetes\npython -m pip install --upgrade pip\n\n# 4. Instalar dependencias necesarias\npip install pandas pyreadstat\n\n\n\n\n\n\n\nLo que estamos haciendo\n\n\n\n\nActivación: Al ejecutar el script ‘activate’, le decimos a la computadora que use el Python que está dentro de nuestra carpeta ‘venv’.\nActualización: Ponemos al día ‘pip’ (el instalador) para evitar errores de compatibilidad.\nInstalación: Descargamos e instalamos ‘pandas’ (para tablas) y ‘pyreadstat’ (para archivos de SPSS).\n\n\n\n\n\n\n\n\n\n¿Qué es pip?\n\n\n\npip (Pip Installs Packages) es el gestor de paquetes de Python. Nos permite descargar librerías adicionales desde el repositorio oficial (PyPI). Al usarlo dentro de nuestro ‘venv’, las librerías quedan disponibles únicamente para este proyecto."
+  },
+  {
+    "objectID": "clase_02.html#ingesta-de-datos-con-intérprete-vinculado",
+    "href": "clase_02.html#ingesta-de-datos-con-intérprete-vinculado",
+    "title": "Clase 02: Comenzamos a trabajar",
+    "section": "3. Ingesta de Datos con Intérprete Vinculado",
+    "text": "3. Ingesta de Datos con Intérprete Vinculado\nAl usar el archivo ‘.code-workspace’, VS Code detecta automáticamente nuestro entorno en ’C:'. Ahora podemos ejecutar nuestro script de carga.\n\n# --- CARGA DE BASE EPH ---\n\nimport pandas as pd\n\n# Definición de ruta con Raw String (r)\nruta = r'c:\\CursoPandas\\data\\input\\24Q4_INDIVIDUOS.sav'\n\n# Carga de datos utilizando el motor instalado\ndf = pd.read_spss(ruta)\n\n# Inspección inicial\nprint(df.head())\n\n\n\n\n\n\n\nLo que estamos haciendo\n\n\n\n\nImportación: Cargamos la librería bajo el apodo ‘pd’.\nRuta Cruda: Usamos el prefijo ‘r’ en la ruta para que Python no se confunda con las barras ’' de Windows.\nLectura: El comando ‘read_spss’ busca el archivo y lo transforma en un DataFrame llamado ‘df’.\nVerificación: ‘.head()’ nos muestra las primeras 5 filas para confirmar que todo se ve bien.\n\n\n\n\n3.1 Análisis Técnico\n\nImportación (‘import pandas as pd’): Cargamos Pandas con el alias estándar ‘pd’.\nRutas con “Raw Strings”: El prefijo ‘r’ antes de las comillas indica que es un texto “crudo”, evitando errores con las barras invertidas en Windows.\nIngesta mediante motor externo: Utilizamos la librería ‘pyreadstat’ instalada en nuestro venv.\nInspección de Integridad: ‘.head()’ nos devuelve las primeras 5 filas para confirmar la carga exitosa en la RAM.\n\n\n\n\n\n\n\nBuenas Prácticas de Archivos\n\n\n\nEs fundamental que los nombres de archivos no contengan espacios. Se recomienda usar guion bajo (’_’) y evitar caracteres especiales.\n\n\n\n\n\n\n\n\nEl Objeto DataFrame\n\n\n\nCuando asignamos la carga a ‘df’, creamos un DataFrame. Es una estructura bidimensional optimizada para procesar grandes volúmenes de información que superan las capacidades de una planilla de cálculo tradicional.\n\n\n\nZona de Prompting: “Actúa como experto en Pandas. Explícame técnicamente qué es un DataFrame, con ejemplos, estoy usando VSC y Windows”"
+  },
+  {
+    "objectID": "clase_04.html",
+    "href": "clase_04.html",
+    "title": "Clase 04: Herramientas de Selección",
+    "section": "",
+    "text": "En esta clase aprenderemos a navegar y extraer información específica de nuestro DataFrame. Seleccionar no es solo “recortar”; es el proceso de aislar las variables (columnas) y los casos (filas) que realmente responden a nuestra pregunta de investigación."
+  },
+  {
+    "objectID": "clase_04.html#el-método-.filter",
+    "href": "clase_04.html#el-método-.filter",
+    "title": "Clase 04: Herramientas de Selección",
+    "section": "1.1 El método .filter()",
+    "text": "1.1 El método .filter()\nEs la forma más elegante y explícita de elegir múltiples columnas. Permite mantener el código organizado, especialmente cuando la lista de variables es extensa.\n\n# Selección de columnas específicas\ncolumnas_interes = ['CH04', 'CH06', 'P21']\n\n# Aplicamos el filtro y visualizamos\ndf_reducido = df.filter(items=columnas_interes)\nprint(df_reducido.head())\n\n\n\n\n\n\n\nLo que estamos haciendo\n\n\n\n\nDefinimos una lista: Creamos ‘columnas_interes’ con los nombres técnicos.\nFiltramos: ‘.filter(items=…)’ genera una nueva tabla solo con esas columnas.\nMostramos: Agregamos ‘print(df_reducido.head())’ para que el alumno pueda ver en la terminal cómo quedó su tabla recortada."
+  },
+  {
+    "objectID": "clase_04.html#el-método-.query",
+    "href": "clase_04.html#el-método-.query",
+    "title": "Clase 04: Herramientas de Selección",
+    "section": "2.1 El método .query()",
+    "text": "2.1 El método .query()\nEs la herramienta preferida para filtrar registros mediante una consulta lógica legible.\n\n# Seleccionamos solo a las personas mayores de 18 años\nadultos = df.query('CH06 &gt;= 18')\n\n# Verificamos el resultado\nprint(adultos['CH06'].min())\n\n\n\n\n\n\n\nLo que estamos haciendo\n\n\n\n\nConsulta: Le pedimos a la base los registros donde la edad (‘CH06’) sea mayor o igual a 18.\nVerificación: Al hacer ‘print(adultos[’CH06’].min())’, el alumno confirma que el valor más bajo en su nueva tabla es efectivamente 18."
+  },
+  {
+    "objectID": "clase_04.html#localización-por-etiquetas-.loc",
+    "href": "clase_04.html#localización-por-etiquetas-.loc",
+    "title": "Clase 04: Herramientas de Selección",
+    "section": "3.1 Localización por etiquetas (.loc)",
+    "text": "3.1 Localización por etiquetas (.loc)\nSe usa cuando queremos filtrar filas y columnas simultáneamente usando sus nombres.\n\n# Seleccionar personas de sexo 1 (Varones) y solo ver su Edad\nedades_varones = df.loc[df['CH04'] == 1, 'CH06']\nprint(edades_varones.head())"
+  },
+  {
+    "objectID": "clase_04.html#localización-por-posición-.iloc",
+    "href": "clase_04.html#localización-por-posición-.iloc",
+    "title": "Clase 04: Herramientas de Selección",
+    "section": "3.2 Localización por posición (.iloc)",
+    "text": "3.2 Localización por posición (.iloc)\nÚtil cuando no conocemos los nombres pero sí la ubicación (índice) de los datos.\n\n# Traer las primeras 10 filas y las primeras 3 columnas\nrecorte_posicional = df.iloc[0:10, 0:3]\nprint(recorte_posicional)\n\n\n\n\n\n\n\nLo que estamos haciendo\n\n\n\n\n.loc: Trabaja con nombres. Filtramos filas (donde sexo es 1) y elegimos la columna ‘CH06’.\n.iloc: Trabaja con posiciones numéricas. El rango ‘0:10’ trae las filas de la 0 a la 9, y ‘0:3’ las primeras tres columnas."
+  },
+  {
+    "objectID": "clase_04.html#los-corchetes-acceso-directo",
+    "href": "clase_04.html#los-corchetes-acceso-directo",
+    "title": "Clase 04: Herramientas de Selección",
+    "section": "4.1 Los Corchetes [] (Acceso Directo)",
+    "text": "4.1 Los Corchetes [] (Acceso Directo)\nSe utilizan para señalar o entrar a una parte del objeto. Piensa en ellos como el dedo que señala un cajón.\n\n# Acceso directo a una sola columna\ncolumna_sexo = df['CH04']\nprint(columna_sexo.unique())\n\n\n\n\n\n\n\nLo que estamos haciendo\n\n\n\nAccedemos al contenido de ‘’CH04’’ y con ‘.unique()’ imprimimos los valores que contiene para asegurar que estamos en la variable correcta."
+  },
+  {
+    "objectID": "clase_04.html#los-paréntesis-acciones-métodos",
+    "href": "clase_04.html#los-paréntesis-acciones-métodos",
+    "title": "Clase 04: Herramientas de Selección",
+    "section": "4.2 Los Paréntesis () (Acciones / Métodos)",
+    "text": "4.2 Los Paréntesis () (Acciones / Métodos)\nSon el “disparador” de una acción. Siempre que veas paréntesis, Pandas está trabajando para darte un resultado nuevo.\n\n# Ejecutamos la acción de calcular el promedio\nprint(df['CH06'].mean())"
+  },
+  {
+    "objectID": "modelo_00.html",
+    "href": "modelo_00.html",
+    "title": "Clase 01: El Taller del Científico de Datos",
+    "section": "",
+    "text": "En esta primera sesión vamos a transformar nuestra computadora en un laboratorio de análisis de datos. No se trata solo de escribir código, sino de crear un Pipeline reproducible.\n\n\n\n\n\n\n¡Atención! Observación Crítica\n\n\n\nAntes de comenzar, asegúrate de estar parado en la carpeta raíz de tu proyecto (C:\\CursoPandas). Si la ruta en tu terminal no coincide, los comandos siguientes fallarán.\n\n\n\n\nSi tienes dudas sobre tu versión de Python, puedes usar el siguiente prompt con tu IA de confianza:\n\n“Actúa como experto en Windows. Estoy configurando un entorno virtual de Python y quiero saber si mi versión instalada es compatible con Pandas 2.0. ¿Cómo lo verifico?”\nA continaucion segumos con esto:"
+  },
+  {
+    "objectID": "modelo_00.html#introducción-texto-narrativo",
+    "href": "modelo_00.html#introducción-texto-narrativo",
+    "title": "Clase 01: El Taller del Científico de Datos",
+    "section": "",
+    "text": "En esta primera sesión vamos a transformar nuestra computadora en un laboratorio de análisis de datos. No se trata solo de escribir código, sino de crear un Pipeline reproducible.\n\n\n\n\n\n\n¡Atención! Observación Crítica\n\n\n\nAntes de comenzar, asegúrate de estar parado en la carpeta raíz de tu proyecto (C:\\CursoPandas). Si la ruta en tu terminal no coincide, los comandos siguientes fallarán.\n\n\n\n\nSi tienes dudas sobre tu versión de Python, puedes usar el siguiente prompt con tu IA de confianza:\n\n“Actúa como experto en Windows. Estoy configurando un entorno virtual de Python y quiero saber si mi versión instalada es compatible con Pandas 2.0. ¿Cómo lo verifico?”"
+  },
+  {
+    "objectID": "modelo_00.html#configuración-técnica-caja-de-código",
+    "href": "modelo_00.html#configuración-técnica-caja-de-código",
+    "title": "Clase 01: El Taller del Científico de Datos",
+    "section": "2. Configuración Técnica (Caja de Código)",
+    "text": "2. Configuración Técnica (Caja de Código)\nEs fundamental aislar nuestras librerías para que el proyecto sea estable en el tiempo. Copia estos comandos y ejecútalos en tu terminal de VS Code:"
   }
 ]

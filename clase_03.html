@@ -186,6 +186,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Exploración Progresiva</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clase_04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Limpieza y Filtros</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -199,26 +205,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#cargamos-la-base-sav" id="toc-cargamos-la-base-sav" class="nav-link active" data-scroll-target="#cargamos-la-base-sav">1. Cargamos la base SAV</a></li>
-  <li><a href="#comandos-de-inspección-qué-tenemos-en-la-base" id="toc-comandos-de-inspección-qué-tenemos-en-la-base" class="nav-link" data-scroll-target="#comandos-de-inspección-qué-tenemos-en-la-base">2. Comandos de Inspección: ¿Qué tenemos en la base?</a>
-  <ul class="collapse">
-  <li><a href="#análisis-de-los-comandos-de-inspección" id="toc-análisis-de-los-comandos-de-inspección" class="nav-link" data-scroll-target="#análisis-de-los-comandos-de-inspección">2.1 Análisis de los Comandos de Inspección</a></li>
-  </ul></li>
-  <li><a href="#profundización-técnica-atributos-vs.-métodos" id="toc-profundización-técnica-atributos-vs.-métodos" class="nav-link" data-scroll-target="#profundización-técnica-atributos-vs.-métodos">3. Profundización Técnica: Atributos vs.&nbsp;Métodos</a>
-  <ul class="collapse">
-  <li><a href="#los-atributos-descripciones" id="toc-los-atributos-descripciones" class="nav-link" data-scroll-target="#los-atributos-descripciones">3.1 Los Atributos (Descripciones)</a></li>
-  <li><a href="#los-métodos-acciones" id="toc-los-métodos-acciones" class="nav-link" data-scroll-target="#los-métodos-acciones">3.2 Los Métodos (Acciones)</a></li>
-  </ul></li>
-  <li><a href="#análisis-de-variables-específicas" id="toc-análisis-de-variables-específicas" class="nav-link" data-scroll-target="#análisis-de-variables-específicas">4. Análisis de Variables Específicas</a>
-  <ul class="collapse">
-  <li><a href="#la-columna-edad-ch06" id="toc-la-columna-edad-ch06" class="nav-link" data-scroll-target="#la-columna-edad-ch06">4.1 La columna “Edad” (CH06)</a></li>
-  <li><a href="#la-columna-sexo-ch04" id="toc-la-columna-sexo-ch04" class="nav-link" data-scroll-target="#la-columna-sexo-ch04">4.2 La columna “Sexo” (CH04)</a></li>
-  </ul></li>
-  <li><a href="#selección-y-filtrado-paso-a-paso" id="toc-selección-y-filtrado-paso-a-paso" class="nav-link" data-scroll-target="#selección-y-filtrado-paso-a-paso">5. Selección y Filtrado: Paso a Paso</a>
+  <li><a href="#comandos-de-inspección-qué-tenemos-en-la-base" id="toc-comandos-de-inspección-qué-tenemos-en-la-base" class="nav-link" data-scroll-target="#comandos-de-inspección-qué-tenemos-en-la-base">2. Comandos de Inspección: ¿Qué tenemos en la base?</a></li>
+  <li><a href="#análisis-de-variables-específicas" id="toc-análisis-de-variables-específicas" class="nav-link" data-scroll-target="#análisis-de-variables-específicas">3. Análisis de Variables Específicas</a></li>
+  <li><a href="#selección-y-filtrado-paso-a-paso" id="toc-selección-y-filtrado-paso-a-paso" class="nav-link" data-scroll-target="#selección-y-filtrado-paso-a-paso">4. Selección y Filtrado: Paso a Paso</a>
   <ul class="collapse">
   <li><a href="#paso-1-filtrar-por-varones" id="toc-paso-1-filtrar-por-varones" class="nav-link" data-scroll-target="#paso-1-filtrar-por-varones">Paso 1: Filtrar por Varones</a></li>
-  <li><a href="#paso-2-filtro-combinado-varones-región" id="toc-paso-2-filtro-combinado-varones-región" class="nav-link" data-scroll-target="#paso-2-filtro-combinado-varones-región">Paso 2: Filtro Combinado (Varones + Región)</a></li>
   </ul></li>
-  <li><a href="#resumen-de-herramientas-utilizadas" id="toc-resumen-de-herramientas-utilizadas" class="nav-link" data-scroll-target="#resumen-de-herramientas-utilizadas">6. Resumen de Herramientas Utilizadas</a></li>
+  <li><a href="#resumen-de-herramientas-utilizadas" id="toc-resumen-de-herramientas-utilizadas" class="nav-link" data-scroll-target="#resumen-de-herramientas-utilizadas">5. Resumen de Herramientas Utilizadas</a></li>
   </ul>
 </nav>
     </div>
@@ -253,15 +246,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="cargamos-la-base-sav">1. Cargamos la base SAV</h2>
 <p>Iniciamos nuestro script asegurando la carga de la librería y el acceso a los datos de la EPH.</p>
 <div class="monitor-box">
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="co"># --- CARGA DE BASE EPH ---**</span></span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- CARGA DE BASE EPH ---</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Definición de ruta con Raw String (r)</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>ruta <span class="op">=</span> <span class="vs">r'c:\CursoPandas\data\input\24Q4_INDIVIDUOS.sav'</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Carga de datos utilizando el motor instalado</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_spss(ruta)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspección inicial</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Definición de ruta con Raw String (r)</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>ruta <span class="op">=</span> <span class="vs">r'c:\CursoPandas\data\input\24Q4_INDIVIDUOS.sav'</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Carga de datos utilizando el motor instalado</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_spss(ruta)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspección inicial</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -269,215 +265,146 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Comentarios: El uso de # vs ““”
+Lo que estamos haciendo
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Antes de avanzar, reparen en el uso de los comentarios. En Python, existen dos formas principales de documentar nuestro código y cada una tiene un propósito distinto:</p>
 <ol type="1">
-<li><strong>El numeral (#):</strong> Se utiliza para comentarios de una sola línea. Es ideal para explicaciones breves. Python ignora todo lo que escribas a la derecha del <strong>#</strong>.
-<ul>
-<li><em>Ejemplo:</em> <code>df.head() # Muestra las primeras 5 filas</code></li>
-</ul></li>
-<li><strong>Las triples comillas (“““):</strong> Se conocen como <em>docstrings</em> o comentarios multilínea. Se usan para bloques de texto extensos o para desactivar temporalmente varias líneas de código.</li>
+<li><strong>Importamos la herramienta:</strong> Traemos ‘pandas’ con el alias ‘pd’.</li>
+<li><strong>Especificamos el camino:</strong> Usamos una variable ‘ruta’ con el prefijo ‘r’ (raw string) para que Windows no confunda las barras invertidas de la dirección del archivo.</li>
+<li><strong>Leemos el archivo:</strong> El comando ‘read_spss’ traduce el formato de SPSS a una tabla de Python (DataFrame).</li>
+<li><strong>Primer vistazo:</strong> ‘print(df.head())’ nos muestra las primeras 5 filas para verificar que la carga fue exitosa.</li>
 </ol>
-<p>Usaremos ambos todo el tiempo para comentar, especificar y organizar nuestro flujo de trabajo.</p>
 </div>
 </div>
-<p>::: {.monitor-box}</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">Este bloque de código realiza la limpieza </span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">de la base EPH filtrando por edad y sexo</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">antes de exportar a Excel.</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <hr>
 </section>
 <section id="comandos-de-inspección-qué-tenemos-en-la-base" class="level2">
 <h2 class="anchored" data-anchor-id="comandos-de-inspección-qué-tenemos-en-la-base">2. Comandos de Inspección: ¿Qué tenemos en la base?</h2>
-<p>Antes de operar, debemos “mirar” la base. El primer paso es conocer la naturaleza de nuestras columnas (variables) y el tipo de dato que almacenan.</p>
+<p>Antes de operar, debemos “mirar” la base para conocer la naturaleza de nuestras columnas y el tipo de dato que almacenan.</p>
 <div class="monitor-box">
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="co"># --- INSPECCIÓN INICIAL ---**</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. ¿Cómo se llaman las columnas y qué tipo de datos son?</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.info()) </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. ¿Qué aspecto tienen los datos? (Primeras 5 filas)</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. ¿Cuántas filas y columnas tiene el archivo total?</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.shape)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- INSPECCIÓN INICIAL ---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Diagnóstico de columnas y tipos de datos</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.info()) </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Dimensiones de la tabla (Filas, Columnas)</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.shape)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="análisis-de-los-comandos-de-inspección" class="level3">
-<h3 class="anchored" data-anchor-id="análisis-de-los-comandos-de-inspección">2.1 Análisis de los Comandos de Inspección</h3>
-<p>Estos tres comandos son el “estetoscopio” del científico de datos para entender la estructura del DataFrame.</p>
-<section id="el-diagnóstico-estructural-.info" class="level4">
-<h4 class="anchored" data-anchor-id="el-diagnóstico-estructural-.info">1. El Diagnóstico Estructural: <strong>.info()</strong></h4>
-<p><code>print(df.info())</code></p>
-<ul>
-<li><strong>Sintaxis:</strong> Es un <strong>método</strong>. Lleva paréntesis al final porque realiza una acción de procesamiento.</li>
-<li><strong>Qué devuelve:</strong> El listado de columnas, valores no nulos y el <strong>Dtype</strong> (tipo de dato técnico).
-<ul>
-<li><code>float64</code> o <code>int64</code>: Números (Edad, Ingresos).</li>
-<li><code>object</code> o <code>category</code>: Texto o etiquetas.</li>
-</ul></li>
-<li><strong>Importancia:</strong> Nos asegura que las variables numéricas sean reconocidas como tales para poder hacer cálculos.</li>
-</ul>
-</section>
-<section id="la-vista-previa-.head" class="level4">
-<h4 class="anchored" data-anchor-id="la-vista-previa-.head">2. La Vista Previa: <strong>.head()</strong></h4>
-<p><code>print(df.head())</code></p>
-<ul>
-<li><strong>Sintaxis:</strong> Método con paréntesis. Por defecto muestra 5 filas; <code>df.head(10)</code> mostraría diez.</li>
-<li><strong>Qué devuelve:</strong> Una tabla reducida para verificar visualmente que la carga fue exitosa.</li>
-</ul>
-</section>
-<section id="la-dimensión-del-objeto-.shape" class="level4">
-<h4 class="anchored" data-anchor-id="la-dimensión-del-objeto-.shape">3. La Dimensión del Objeto: <strong>.shape</strong></h4>
-<p><code>print(df.shape)</code></p>
-<ul>
-<li><strong>Sintaxis:</strong> Es un <strong>atributo</strong>, por eso no lleva paréntesis. Representa una propiedad física del objeto.</li>
-<li><strong>Qué devuelve:</strong> Una “tupla” con dos números: <code>(filas, columnas)</code>.</li>
-</ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Diferencia Técnica: Método vs Atributo
+Lo que estamos haciendo
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Es un error común intentar usar <code>df.shape()</code>. Recordar:</p>
-<ul>
-<li><strong>Acción (procesar/calcular):</strong> Lleva paréntesis: <strong>.info()</strong>, <strong>.head()</strong>.</li>
-<li><strong>Descripción física:</strong> No los lleva: <strong>.shape</strong>, <strong>.columns</strong>.</li>
-</ul>
+<ol type="1">
+<li><strong>Diagnóstico Estructural:</strong> ‘df.info()’ nos dice cuántos datos no nulos tenemos y el tipo técnico (Dtype). Es vital para saber si la “Edad” es un número o un texto.</li>
+<li><strong>Tamaño del objeto:</strong> ‘df.shape’ nos devuelve dos números. El primero es la cantidad de personas encuestadas y el segundo la cantidad de variables.</li>
+</ol>
 </div>
 </div>
 <hr>
-</section>
-</section>
-</section>
-<section id="profundización-técnica-atributos-vs.-métodos" class="level2">
-<h2 class="anchored" data-anchor-id="profundización-técnica-atributos-vs.-métodos">3. Profundización Técnica: Atributos vs.&nbsp;Métodos</h2>
-<p>En Python, un objeto como nuestro <code>df</code> tiene características (atributos) y habilidades (métodos).</p>
-<section id="los-atributos-descripciones" class="level3">
-<h3 class="anchored" data-anchor-id="los-atributos-descripciones">3.1 Los Atributos (Descripciones)</h3>
-<p><strong>Un atributo es una variable interna del objeto que guarda información sobre él.</strong> El objeto ya la conoce, por lo que no realiza cálculos, solo “la muestra”.</p>
-<ul>
-<li><strong>Sintaxis:</strong> <code>objeto.atributo</code> (Sin paréntesis).</li>
-<li><strong>Ejemplos:</strong> <strong>.shape</strong>, <strong>.columns</strong>, <strong>.index</strong>.</li>
-</ul>
-</section>
-<section id="los-métodos-acciones" class="level3">
-<h3 class="anchored" data-anchor-id="los-métodos-acciones">3.2 Los Métodos (Acciones)</h3>
-<p><strong>Un método es una función que pertenece al objeto. Representa una acción que el objeto debe ejecutar.</strong> Los paréntesis disparan esa ejecución.</p>
-<ul>
-<li><strong>Sintaxis:</strong> <code>objeto.metodo()</code> (Con paréntesis).</li>
-<li><strong>Ejemplos:</strong> <strong>.head()</strong>, <strong>.info()</strong>, <strong>.describe()</strong>.</li>
-</ul>
-<div class="gray-italic-box">
-<p><strong>Zona de Prompting:</strong> “Actúa como experto en arquitectura de datos en Python. Explícame la diferencia entre el método <strong>.info()</strong> y los atributos <strong>.index</strong> y <strong>.columns</strong>.”</p>
-</div>
-<hr>
-</section>
 </section>
 <section id="análisis-de-variables-específicas" class="level2">
-<h2 class="anchored" data-anchor-id="análisis-de-variables-específicas">4. Análisis de Variables Específicas</h2>
-<p>Nos enfocaremos en <strong>‘CH06’</strong> (Edad) y <strong>‘CH04’</strong> (Sexo).</p>
-<section id="la-columna-edad-ch06" class="level3">
-<h3 class="anchored" data-anchor-id="la-columna-edad-ch06">4.1 La columna “Edad” (CH06)</h3>
+<h2 class="anchored" data-anchor-id="análisis-de-variables-específicas">3. Análisis de Variables Específicas</h2>
+<p>Nos enfocaremos en dos variables clave de la EPH: <strong>‘CH06’</strong> (Edad) y <strong>‘CH04’</strong> (Sexo).</p>
 <div class="monitor-box">
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="co"># --- EXPLORANDO EDAD ---**</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿Qué hay en edad? (Ver los valores únicos)</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">'CH06'</span>].unique())</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Medidas de tendencia central (Promedio, Mediana, Mínimo, Máximo)</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">'CH06'</span>].describe())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- EXPLORANDO VARIABLES ---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Valores únicos en edad</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">'CH06'</span>].unique())</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Conteo de frecuencias en sexo (1 = Varón, 2 = Mujer)</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">'CH04'</span>].value_counts())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="la-columna-sexo-ch04" class="level3">
-<h3 class="anchored" data-anchor-id="la-columna-sexo-ch04">4.2 La columna “Sexo” (CH04)</h3>
-<div class="monitor-box">
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="co"># --- EXPLORANDO SEXO ---**</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Frecuencias absolutas (Conteo: 1 = Varón, 2 = Mujer)</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">'CH04'</span>].value_counts())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lo que estamos haciendo
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>Ver diversidad:</strong> Con ‘.unique()’ le pedimos a la columna Edad que nos diga todos los valores distintos que aparecen (útil para detectar errores o edades atípicas).</li>
+<li><strong>Contar categorías:</strong> Con ‘.value_counts()’ obtenemos la frecuencia absoluta. Nos dice exactamente cuántos registros hay de cada categoría en la variable Sexo.</li>
+</ol>
+</div>
 </div>
 <hr>
 </section>
-</section>
 <section id="selección-y-filtrado-paso-a-paso" class="level2">
-<h2 class="anchored" data-anchor-id="selección-y-filtrado-paso-a-paso">5. Selección y Filtrado: Paso a Paso</h2>
+<h2 class="anchored" data-anchor-id="selección-y-filtrado-paso-a-paso">4. Selección y Filtrado: Paso a Paso</h2>
 <section id="paso-1-filtrar-por-varones" class="level3">
 <h3 class="anchored" data-anchor-id="paso-1-filtrar-por-varones">Paso 1: Filtrar por Varones</h3>
 <p>Queremos ver la edad solo de los varones (<strong>‘CH04’</strong> == 1.0).</p>
 <div class="monitor-box">
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="co"># --- FILTRO SIMPLE ---**</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionamos filas donde sexo es varón</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>varones <span class="op">=</span> df.query(<span class="st">'CH04 == 1.0'</span>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿Cuántos varones hay y cuál es su edad promedio?</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Total varones: </span><span class="sc">{</span><span class="bu">len</span>(varones)<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Edad promedio varones: </span><span class="sc">{</span>varones[<span class="st">"CH06"</span>]<span class="sc">.</span>mean()<span class="sc">:.2f}</span><span class="ss">'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- FILTRO SIMPLE ---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionamos filas donde sexo es varón</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>varones <span class="op">=</span> df.query(<span class="st">'CH04 == 1.0'</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿Cuántos varones hay y cuál es su edad promedio?</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Total varones: </span><span class="sc">{</span><span class="bu">len</span>(varones)<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Edad promedio varones: </span><span class="sc">{</span>varones[<span class="st">"CH06"</span>]<span class="sc">.</span>mean()<span class="sc">:.2f}</span><span class="ss">'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="paso-2-filtro-combinado-varones-región" class="level3">
-<h3 class="anchored" data-anchor-id="paso-2-filtro-combinado-varones-región">Paso 2: Filtro Combinado (Varones + Región)</h3>
-<p>Filtramos Varones de la Región GBA (<strong>‘REGION’</strong> == 1.0).</p>
-<div class="monitor-box">
-<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="op">**</span><span class="co"># --- FILTRO COMPUESTO ---**</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtramos por dos condiciones</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>varones_gba <span class="op">=</span> df.query(<span class="st">'CH04 == 1.0 and REGION == 1.0'</span>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Cuantificamos el resultado</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Varones en GBA: </span><span class="sc">{</span><span class="bu">len</span>(varones_gba)<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Edad promedio en GBA: </span><span class="sc">{</span>varones_gba[<span class="st">"CH06"</span>]<span class="sc">.</span>mean()<span class="sc">:.2f}</span><span class="ss">'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lo que estamos haciendo
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>Creamos un subconjunto:</strong> Usamos ‘.query()’ para separar a los varones en un nuevo objeto llamado ‘varones’.</li>
+<li><strong>Calculamos sobre el filtro:</strong> Usamos ‘len()’ para contar las filas resultantes y ‘.mean()’ sobre la columna edad l nuevo grupo. El ‘:.2f’ al final sirve para mostrar solo 2 decimales.</li>
+</ol>
+</div>
 </div>
 <hr>
 </section>
 </section>
 <section id="resumen-de-herramientas-utilizadas" class="level2">
-<h2 class="anchored" data-anchor-id="resumen-de-herramientas-utilizadas">6. Resumen de Herramientas Utilizadas</h2>
+<h2 class="anchored" data-anchor-id="resumen-de-herramientas-utilizadas">5. Resumen de Herramientas Utilizadas</h2>
 <table class="table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
 <thead>
 <tr class="header">
-<th>Comando</th>
-<th>Función</th>
+<th style="text-align: left;">Comando</th>
+<th style="text-align: left;">Función</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>.info()</code></td>
-<td>Muestra tipos de datos e integridad.</td>
+<td style="text-align: left;"><strong>.info()</strong></td>
+<td style="text-align: left;">Muestra tipos de datos e integridad estructural.</td>
 </tr>
 <tr class="even">
-<td><code>.describe()</code></td>
-<td>Devuelve medidas de tendencia central.</td>
+<td style="text-align: left;"><strong>.describe()</strong></td>
+<td style="text-align: left;">Devuelve medidas de tendencia central (estadística descriptiva).</td>
 </tr>
 <tr class="odd">
-<td><code>.value_counts()</code></td>
-<td>Cuenta frecuencias por categoría.</td>
+<td style="text-align: left;"><strong>.value_counts()</strong></td>
+<td style="text-align: left;">Cuenta frecuencias por categoría (conteo).</td>
 </tr>
 <tr class="even">
-<td><code>.query()</code></td>
-<td>Filtra filas según condiciones lógicas.</td>
+<td style="text-align: left;"><strong>.query()</strong></td>
+<td style="text-align: left;">Filtra filas según condiciones lógicas.</td>
 </tr>
 </tbody>
 </table>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip del Profesor
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>‘CH06’</strong> (Edad) es <strong>numérica</strong> (podemos calcular promedios). <strong>‘CH04’</strong> (Sexo) es <strong>categórica</strong> (lo más útil es el conteo de frecuencias).</p>
-</div>
-</div>
 <div class="gray-italic-box">
 <p><strong>Zona de Prompting:</strong> “Actúa como profesor de estadística con Python. Explícame por qué el método <strong>.describe()</strong> se comporta diferente si lo aplico a una columna de números versus una de texto.”</p>
 </div>

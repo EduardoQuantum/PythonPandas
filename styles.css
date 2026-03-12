@@ -55,6 +55,16 @@ a {
     font-family: 'Consolas', monospace !important;
 }
 
+/* Color verde para comentarios # y también para docstrings """ */
+.monitor-box span.co, 
+.monitor-box span.st,
+.monitor-box code .co,
+.monitor-box code .st {
+    color: #00ff00 !important; /* Verde Neón */
+    font-style: italic;
+}
+
+
 /* Los "tokens" (palabras clave, números, etc.) que Quarto pinta de colores */
 .monitor-box span {
     color: #ffcc00 !important;           /* Obliga a todos los tokens a ser ámbar */

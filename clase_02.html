@@ -186,6 +186,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Exploración Progresiva</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clase_04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Limpieza y Filtros</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -202,6 +208,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#qué-es-un-workspace" id="toc-qué-es-un-workspace" class="nav-link" data-scroll-target="#qué-es-un-workspace">1.1 ¿Qué es un Workspace?</a></li>
   <li><a href="#apertura-desde-la-terminal-cmd" id="toc-apertura-desde-la-terminal-cmd" class="nav-link" data-scroll-target="#apertura-desde-la-terminal-cmd">1.2 Apertura desde la Terminal (CMD)</a></li>
+  </ul></li>
+  <li><a href="#apertura-de-la-base-sav" id="toc-apertura-de-la-base-sav" class="nav-link" data-scroll-target="#apertura-de-la-base-sav">2. Apertura de la base SAV</a>
+  <ul class="collapse">
+  <li><a href="#gestión-del-entorno-virtual-venv" id="toc-gestión-del-entorno-virtual-venv" class="nav-link" data-scroll-target="#gestión-del-entorno-virtual-venv">2.1 Gestión del Entorno Virtual (venv)</a></li>
+  </ul></li>
+  <li><a href="#ingesta-de-datos-con-intérprete-vinculado" id="toc-ingesta-de-datos-con-intérprete-vinculado" class="nav-link" data-scroll-target="#ingesta-de-datos-con-intérprete-vinculado">3. Ingesta de Datos con Intérprete Vinculado</a>
+  <ul class="collapse">
+  <li><a href="#análisis-técnico" id="toc-análisis-técnico" class="nav-link" data-scroll-target="#análisis-técnico">3.1 Análisis Técnico</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -239,39 +253,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>En proyectos complejos, no basta con abrir una carpeta. Utilizamos archivos de <strong>Workspace</strong> para asegurar que Visual Studio Code mantenga la configuración de paneles, variables de entorno y extensiones específicas para el procesamiento de datos.</p>
 <section id="qué-es-un-workspace" class="level3">
 <h3 class="anchored" data-anchor-id="qué-es-un-workspace">1.1 ¿Qué es un Workspace?</h3>
-<p>Es un archivo de configuración con la extensión <code>.code-workspace</code>. Es recomendable tener uno ajustado para cada proyecto. Al centralizar la configuración de Python, el Workspace asegura que el editor siempre apunte al intérprete y entorno virtual de nuestro interés, evitando conflictos entre proyectos.</p>
+<p>Es un archivo de configuración con la extensión ‘.code-workspace’. Es recomendable tener uno ajustado para cada proyecto. Al centralizar la configuración de Python, el Workspace asegura que el editor siempre apunte al intérprete y entorno virtual de nuestro interés, evitando conflictos entre proyectos.</p>
 </section>
 <section id="apertura-desde-la-terminal-cmd" class="level3">
 <h3 class="anchored" data-anchor-id="apertura-desde-la-terminal-cmd">1.2 Apertura desde la Terminal (CMD)</h3>
-<p>Lanzar el archivo <code>ProyectoPandas.code-workspace</code> desde la terminal es el método más avanzado: carga configuraciones específicas y rutas predefinidas de un solo golpe.</p>
+<p>Lanzar el archivo ‘ProyectoPandas.code-workspace’ desde la terminal es el método más avanzado: carga configuraciones específicas y rutas predefinidas de un solo golpe.</p>
 <p><strong>Instrucciones:</strong> Abrir la terminal (<strong>Tecla Win + R</strong>, escribir ‘cmd’ y <strong>Enter</strong>).</p>
 <div class="monitor-box">
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- TERMINAL DE WINDOWS (CMD) ---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Navegar a la raíz del disco C:</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>cd <span class="op">\</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Entrar a la carpeta del proyecto</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>cd C:\CursoPandas</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Lanzar el Workspace de Visual Studio Code</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>code ProyectoPandas.code<span class="op">-</span>workspace</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Navegar a la raíz del disco C:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>cd <span class="op">\</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Entrar a la carpeta del proyecto</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>cd C:\CursoPandas</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Lanzar el Workspace de Visual Studio Code</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>code ProyectoPandas.code<span class="op">-</span>workspace</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lo que estamos haciendo
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>Navegación:</strong> Usamos ‘cd ' para ir a la base del disco y luego ’cd C:’ para entrar en nuestra carpeta de trabajo.</li>
+<li><strong>Lanzamiento:</strong> El comando ‘code’ abre VS Code, y al pasarle el nombre del archivo ‘.code-workspace’, el editor se abre con todas nuestras preferencias ya cargadas.</li>
+</ol>
+</div>
 </div>
 <div class="gray-italic-box">
-<p>Zona de Prompting: “Actúa como experto en Windows y Ciencia de Datos. Explícame el paso a paso para ingresar a mi proyecto en Visual Studio Code desde la terminal de Windows (CMD), considerando que mi carpeta de trabajo es C:y utilizo un archivo .code-workspace.”</p>
+<p><strong>Zona de Prompting:</strong> “Actúa como experto en Windows y Ciencia de Datos. Explícame el paso a paso para ingresar a mi proyecto en Visual Studio Code desde la terminal de Windows (CMD), considerando que mi carpeta de trabajo es C:y utilizo un archivo .code-workspace.”</p>
 </div>
-<ol start="2" type="1">
-<li>Apertura de la base SAV Para trabajar con datos provenientes de software estadístico, utilizaremos el formato .sav (SPSS). En Python, la herramienta estándar es Pandas, pero para leer estos archivos necesita un motor especializado.</li>
-</ol>
-<p>2.1 Gestión del Entorno Virtual (venv) Para asegurar que nuestro proyecto sea estable, instalaremos todas las librerías exclusivamente dentro de C:. Este entorno es una copia aislada de Python que no afectará al resto del sistema.</p>
+<hr>
+</section>
+</section>
+<section id="apertura-de-la-base-sav" class="level2">
+<h2 class="anchored" data-anchor-id="apertura-de-la-base-sav">2. Apertura de la base SAV</h2>
+<p>Para trabajar con datos provenientes de software estadístico, utilizaremos el formato ‘.sav’ (SPSS). En Python, la herramienta estándar es <strong>Pandas</strong>, pero para leer estos archivos necesita un motor especializado llamado ‘pyreadstat’.</p>
+<section id="gestión-del-entorno-virtual-venv" class="level3">
+<h3 class="anchored" data-anchor-id="gestión-del-entorno-virtual-venv">2.1 Gestión del Entorno Virtual (venv)</h3>
+<p>Para asegurar que nuestro proyecto sea estable, instalaremos todas las librerías exclusivamente dentro de ’C:'. Este entorno es una copia aislada de Python que no afectará al resto del sistema.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Importante
+Regla de Oro
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Regla de Oro Nunca ejecutes pip install sin verificar que el entorno virtual está activo. Sabrás que está activo porque verás el prefijo (venv) al principio de la línea de comandos.</p>
+<p>Nunca ejecutes ‘pip install’ sin verificar que el entorno virtual está activo. Sabrás que está activo porque verás el prefijo <strong>(venv)</strong> al principio de la línea de comandos.</p>
 </div>
 </div>
 <div class="monitor-box">
@@ -289,60 +327,93 @@ Importante
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Instalar dependencias necesarias</span></span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>pip install pandas pyreadstat</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Importante
+Lo que estamos haciendo
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>¿Qué es pip? pip (Pip Installs Packages) es el gestor de paquetes de Python. Nos permite descargar librerías adicionales desde el repositorio oficial (PyPI). Al usarlo dentro de nuestro venv, las librerías quedan disponibles únicamente para este proyecto.</p>
-</div>
-</div>
-<div class="monitor-box">
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- USO DE PIP EN ENTORNO VIRTUAL ---</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Usamos pip para traer la herramienta de lectura SAV</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>pip install pyreadstat</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Verificamos qué librerías tenemos instaladas actualmente</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>pip <span class="bu">list</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ol start="3" type="1">
-<li>Ingesta de Datos con Intérprete Vinculado Al usar el archivo .code-workspace, VS Code detecta automáticamente nuestro entorno en C:. Ahora podemos ejecutar nuestro script de carga.</li>
+<ol type="1">
+<li><strong>Activación:</strong> Al ejecutar el script ‘activate’, le decimos a la computadora que use el Python que está dentro de nuestra carpeta ‘venv’.</li>
+<li><strong>Actualización:</strong> Ponemos al día ‘pip’ (el instalador) para evitar errores de compatibilidad.</li>
+<li><strong>Instalación:</strong> Descargamos e instalamos ‘pandas’ (para tablas) y ‘pyreadstat’ (para archivos de SPSS).</li>
 </ol>
-<div class="monitor-box">
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- CARGA DE BASE EPH ---</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Definición de ruta con Raw String (r)</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>ruta <span class="op">=</span> <span class="vs">r'c:\CursoPandas\data\input\24Q4_INDIVIDUOS.sav'</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Carga de datos utilizando el motor instalado</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_spss(ruta)</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspección inicial</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>3.1 Análisis del Script de Carga Importación (import pandas as pd): Cargamos Pandas con el alias estándar pd.</p>
-<p>Rutas con “Raw Strings”: El prefijo r antes de las comillas indica que es un texto “crudo”, evitando errores con las barras invertidas en Windows.</p>
-<p>Ingesta mediante motor externo: Utilizamos la librería pyreadstat instalada en nuestro venv.</p>
-<p>Inspección de Integridad: .head() nos devuelve las primeras 5 filas para confirmar la carga exitosa en la RAM.</p>
+</div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Importante
+¿Qué es pip?
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Buenas Prácticas de Archivos Es fundamental que los nombres de archivos no contengan espacios. Se recomienda usar guion bajo (_) y evitar caracteres especiales.</p>
+<p><strong>pip</strong> (Pip Installs Packages) es el gestor de paquetes de Python. Nos permite descargar librerías adicionales desde el repositorio oficial (PyPI). Al usarlo dentro de nuestro ‘venv’, las librerías quedan disponibles únicamente para este proyecto.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="ingesta-de-datos-con-intérprete-vinculado" class="level2">
+<h2 class="anchored" data-anchor-id="ingesta-de-datos-con-intérprete-vinculado">3. Ingesta de Datos con Intérprete Vinculado</h2>
+<p>Al usar el archivo ‘.code-workspace’, VS Code detecta automáticamente nuestro entorno en ’C:'. Ahora podemos ejecutar nuestro script de carga.</p>
+<div class="monitor-box">
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- CARGA DE BASE EPH ---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Definición de ruta con Raw String (r)</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>ruta <span class="op">=</span> <span class="vs">r'c:\CursoPandas\data\input\24Q4_INDIVIDUOS.sav'</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Carga de datos utilizando el motor instalado</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_spss(ruta)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspección inicial</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lo que estamos haciendo
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>Importación:</strong> Cargamos la librería bajo el apodo ‘pd’.</li>
+<li><strong>Ruta Cruda:</strong> Usamos el prefijo ‘r’ en la ruta para que Python no se confunda con las barras ’' de Windows.</li>
+<li><strong>Lectura:</strong> El comando ‘read_spss’ busca el archivo y lo transforma en un <strong>DataFrame</strong> llamado ‘df’.</li>
+<li><strong>Verificación:</strong> ‘.head()’ nos muestra las primeras 5 filas para confirmar que todo se ve bien.</li>
+</ol>
+</div>
+</div>
+<section id="análisis-técnico" class="level3">
+<h3 class="anchored" data-anchor-id="análisis-técnico">3.1 Análisis Técnico</h3>
+<ol type="1">
+<li><strong>Importación (‘import pandas as pd’):</strong> Cargamos Pandas con el alias estándar ‘pd’.</li>
+<li><strong>Rutas con “Raw Strings”:</strong> El prefijo <strong>‘r’</strong> antes de las comillas indica que es un texto “crudo”, evitando errores con las barras invertidas en Windows.</li>
+<li><strong>Ingesta mediante motor externo:</strong> Utilizamos la librería ‘pyreadstat’ instalada en nuestro venv.</li>
+<li><strong>Inspección de Integridad:</strong> ‘.head()’ nos devuelve las primeras 5 filas para confirmar la carga exitosa en la RAM.</li>
+</ol>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Buenas Prácticas de Archivos
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Es fundamental que los nombres de archivos <strong>no contengan espacios</strong>. Se recomienda usar guion bajo (’_’) y evitar caracteres especiales.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -351,17 +422,16 @@ Importante
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Nota
+El Objeto DataFrame
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>El Objeto DataFrame Cuando asignamos la carga a df, creamos un DataFrame. Es una estructura bidimensional optimizada para procesar grandes volúmenes de información.</p>
+<p>Cuando asignamos la carga a ‘df’, creamos un <strong>DataFrame</strong>. Es una estructura bidimensional optimizada para procesar grandes volúmenes de información que superan las capacidades de una planilla de cálculo tradicional.</p>
 </div>
 </div>
 <div class="gray-italic-box">
-<p>Zona de Prompting: “Actúa como experto en Pandas. Explícame técnicamente qué es un DataFrame, con ejemplos, estoy usando VSC y Windows”</p>
+<p><strong>Zona de Prompting:</strong> “Actúa como experto en Pandas. Explícame técnicamente qué es un DataFrame, con ejemplos, estoy usando VSC y Windows”</p>
 </div>
-<hr>
 
 
 </section>
