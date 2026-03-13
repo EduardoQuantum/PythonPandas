@@ -204,7 +204,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">En esta clase</h2>
    
   <ul>
-  <li><a href="#cargamos-la-base-sav" id="toc-cargamos-la-base-sav" class="nav-link active" data-scroll-target="#cargamos-la-base-sav">1. Cargamos la base SAV</a></li>
+  <li><a href="#cargamos-la-base-sav" id="toc-cargamos-la-base-sav" class="nav-link active" data-scroll-target="#cargamos-la-base-sav">1. Cargamos la base SAV</a>
+  <ul class="collapse">
+  <li><a href="#cargamos-una-base-de-ejempo-excel" id="toc-cargamos-una-base-de-ejempo-excel" class="nav-link" data-scroll-target="#cargamos-una-base-de-ejempo-excel">1.1 Cargamos una base de ejempo excel</a></li>
+  </ul></li>
   <li><a href="#comandos-de-inspección-qué-tenemos-en-la-base" id="toc-comandos-de-inspección-qué-tenemos-en-la-base" class="nav-link" data-scroll-target="#comandos-de-inspección-qué-tenemos-en-la-base">2. Comandos de Inspección: ¿Qué tenemos en la base?</a></li>
   <li><a href="#análisis-de-variables-específicas" id="toc-análisis-de-variables-específicas" class="nav-link" data-scroll-target="#análisis-de-variables-específicas">3. Análisis de Variables Específicas</a></li>
   <li><a href="#selección-y-filtrado-paso-a-paso" id="toc-selección-y-filtrado-paso-a-paso" class="nav-link" data-scroll-target="#selección-y-filtrado-paso-a-paso">4. Selección y Filtrado: Paso a Paso</a>
@@ -278,18 +281,78 @@ Lo que estamos haciendo
 </div>
 </div>
 <hr>
+<section id="cargamos-una-base-de-ejempo-excel" class="level3">
+<h3 class="anchored" data-anchor-id="cargamos-una-base-de-ejempo-excel">1.1 Cargamos una base de ejempo excel</h3>
+<p>Es una digresión, sólo para ver las similitudes:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/vista_excel1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Vista del Excel</figcaption>
+</figure>
+</div>
+<div class="monitor-box">
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># --- INSTALACIÓN DEL MOTOR PARA EXCEL ---</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Desde la terminal (con el venv activo):</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># pip install openpyxl</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># --- CARGA DE BASE DESDE EXCEL ---</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Definición de ruta</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>ruta_excel <span class="op">=</span> <span class="vs">r'c:\CursoPandas\data\input\base_excel_ejemplo1.xlsx'</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Carga de datos especificando el motor (engine)</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Aunque Pandas suele detectarlo solo, es buena práctica conocerlo</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>df_excel <span class="op">=</span> pd.read_excel(ruta_excel, engine<span class="op">=</span><span class="st">'openpyxl'</span>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspección inicial</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Comando: df_excel.head()"</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_excel.head())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Librerías invisibles: Los “Motores” de Pandas
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Es fundamental entender que <code>import pandas</code> nos da las funciones de análisis, pero Pandas delega la lectura de archivos específicos a otros “especialistas” o motores que debemos instalar en nuestro <code>venv</code>:</p>
+<ol type="1">
+<li><strong>Para archivos <code>.sav</code> (SPSS):</strong> El especialista es <strong>pyreadstat</strong>.
+<ul>
+<li>Instalación: <code>pip install pyreadstat</code></li>
+</ul></li>
+<li><strong>Para archivos <code>.xlsx</code> (Excel):</strong> El especialista es <strong>openpyxl</strong>.
+<ul>
+<li>Instalación: <code>pip install openpyxl</code></li>
+</ul></li>
+<li><strong>Para archivos <code>.csv</code>:</strong> No requiere motor externo, Pandas lo lee de forma nativa.</li>
+</ol>
+<p>Sin estos motores instalados, los comandos <code>read_spss</code> o <code>read_excel</code> devolverán un error de sistema.</p>
+</div>
+</div>
+</section>
 </section>
 <section id="comandos-de-inspección-qué-tenemos-en-la-base" class="level2">
 <h2 class="anchored" data-anchor-id="comandos-de-inspección-qué-tenemos-en-la-base">2. Comandos de Inspección: ¿Qué tenemos en la base?</h2>
 <p>Antes de operar, debemos “mirar” la base para conocer la naturaleza de nuestras columnas y el tipo de dato que almacenan.</p>
 <div class="monitor-box">
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- INSPECCIÓN INICIAL ---</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Diagnóstico de columnas y tipos de datos</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.info()) </span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Dimensiones de la tabla (Filas, Columnas)</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.shape)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- INSPECCIÓN INICIAL ---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Diagnóstico de columnas y tipos de datos</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Comando: df.info()"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.info()) </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Dimensiones de la tabla (Filas, Columnas)</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Comando: df.shape"</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.shape)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -313,13 +376,15 @@ Lo que estamos haciendo
 <h2 class="anchored" data-anchor-id="análisis-de-variables-específicas">3. Análisis de Variables Específicas</h2>
 <p>Nos enfocaremos en dos variables clave de la EPH: <strong>‘CH06’</strong> (Edad) y <strong>‘CH04’</strong> (Sexo).</p>
 <div class="monitor-box">
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- EXPLORANDO VARIABLES ---</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Valores únicos en edad</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">'CH06'</span>].unique())</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Conteo de frecuencias en sexo (1 = Varón, 2 = Mujer)</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">'CH04'</span>].value_counts())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- EXPLORANDO VARIABLES ---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Valores únicos en edad</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Comando: df['CH06'].unique()"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">'CH06'</span>].unique())</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Conteo de frecuencias en sexo</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Comando: df['CH04'].value_counts()"</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">'CH04'</span>].value_counts())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -332,8 +397,9 @@ Lo que estamos haciendo
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li><strong>Ver diversidad:</strong> Con ‘.unique()’ le pedimos a la columna Edad que nos diga todos los valores distintos que aparecen (útil para detectar errores o edades atípicas).</li>
-<li><strong>Contar categorías:</strong> Con ‘.value_counts()’ obtenemos la frecuencia absoluta. Nos dice exactamente cuántos registros hay de cada categoría en la variable Sexo.</li>
+<li><strong>Etiquetado:</strong> Agregamos un <code>print()</code> previo que contiene el nombre del comando como texto. Esto ayuda al alumno a identificar qué instrucción generó cada salida en la pantalla negra.</li>
+<li><strong>Salto de línea:</strong> Usamos <code>\n</code> al inicio del segundo cartel para dejar un espacio en blanco y que los resultados no queden “pegoteados”.</li>
+<li><strong>Ejecución:</strong> Debajo de cada cartel, el comando real de Pandas (<code>.unique()</code> o <code>.value_counts()</code>) muestra los datos procesados.</li>
 </ol>
 </div>
 </div>
@@ -345,14 +411,14 @@ Lo que estamos haciendo
 <h3 class="anchored" data-anchor-id="paso-1-filtrar-por-varones">Paso 1: Filtrar por Varones</h3>
 <p>Queremos ver la edad solo de los varones (<strong>‘CH04’</strong> == 1.0).</p>
 <div class="monitor-box">
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- FILTRO SIMPLE ---</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionamos filas donde sexo es varón</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>varones <span class="op">=</span> df.query(<span class="st">'CH04 == 1.0'</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿Cuántos varones hay y cuál es su edad promedio?</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Total varones: </span><span class="sc">{</span><span class="bu">len</span>(varones)<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Edad promedio varones: </span><span class="sc">{</span>varones[<span class="st">"CH06"</span>]<span class="sc">.</span>mean()<span class="sc">:.2f}</span><span class="ss">'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- FILTRO SIMPLE ---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionamos filas donde sexo es varón</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>varones <span class="op">=</span> df.query(<span class="st">'CH04 == 1.0'</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿Cuántos varones hay y cuál es su edad promedio?</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Total varones: </span><span class="sc">{</span><span class="bu">len</span>(varones)<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Edad promedio varones: </span><span class="sc">{</span>varones[<span class="st">"CH06"</span>]<span class="sc">.</span>mean()<span class="sc">:.2f}</span><span class="ss">'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
