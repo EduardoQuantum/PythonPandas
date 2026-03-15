@@ -204,7 +204,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">En esta clase</h2>
    
   <ul>
-  <li><a href="#acceso-a-vs-code-mediante-workspace" id="toc-acceso-a-vs-code-mediante-workspace" class="nav-link active" data-scroll-target="#acceso-a-vs-code-mediante-workspace">1. Acceso a VS Code mediante Workspace</a>
+  <li><a href="#acceso-a-visual-studio-code-mediante-workspace" id="toc-acceso-a-visual-studio-code-mediante-workspace" class="nav-link active" data-scroll-target="#acceso-a-visual-studio-code-mediante-workspace">1. Acceso a Visual Studio Code mediante Workspace</a>
   <ul class="collapse">
   <li><a href="#qué-es-un-workspace" id="toc-qué-es-un-workspace" class="nav-link" data-scroll-target="#qué-es-un-workspace">1.1 ¿Qué es un Workspace?</a></li>
   <li><a href="#apertura-desde-la-terminal-cmd" id="toc-apertura-desde-la-terminal-cmd" class="nav-link" data-scroll-target="#apertura-desde-la-terminal-cmd">1.2 Apertura desde la Terminal (CMD)</a></li>
@@ -247,29 +247,71 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="acceso-a-vs-code-mediante-workspace" class="level2">
-<h2 class="anchored" data-anchor-id="acceso-a-vs-code-mediante-workspace">1. Acceso a VS Code mediante Workspace</h2>
+<section id="acceso-a-visual-studio-code-mediante-workspace" class="level2">
+<h2 class="anchored" data-anchor-id="acceso-a-visual-studio-code-mediante-workspace">1. Acceso a Visual Studio Code mediante Workspace</h2>
 <p>Para iniciar un proyecto de Ciencia de Datos de forma profesional, el primer paso es la correcta apertura del entorno desde la terminal del sistema. Esto garantiza que todas las rutas relativas de nuestros scripts de Python y archivos de datos funcionen correctamente.</p>
 <p>En proyectos complejos, no basta con abrir una carpeta. Utilizamos archivos de <strong>Workspace</strong> para asegurar que Visual Studio Code mantenga la configuración de paneles, variables de entorno y extensiones específicas para el procesamiento de datos.</p>
 <section id="qué-es-un-workspace" class="level3">
 <h3 class="anchored" data-anchor-id="qué-es-un-workspace">1.1 ¿Qué es un Workspace?</h3>
 <p>Es un archivo de configuración con la extensión ‘.code-workspace’. Es recomendable tener uno ajustado para cada proyecto. Al centralizar la configuración de Python, el Workspace asegura que el editor siempre apunte al intérprete y entorno virtual de nuestro interés, evitando conflictos entre proyectos.</p>
+<p>Aqui abajo un detalle de la configuracion ‘.code-workspace’</p>
+<div class="monitor-box">
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>    <span class="co">"settings"</span>: {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="op">//</span> Interprete de Python apuntando al venv local de CursoPandas</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">"python.defaultInterpreterPath"</span>: <span class="st">"$</span><span class="sc">{workspaceFolder}</span><span class="st">/venv/Scripts/python.exe"</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">"code-runner.runInTerminal"</span>: true,</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🆘 Mesa de Ayuda:
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El archivo <code>.code-workspace</code> es un archivo de extensión JSON de configuración y es un poco “tiquismiquis” con las sangrias y los espacios. Una buena practica es pedirl a la IA que ajuste el archivo <code>.code-workspace</code> por nosotros.</p>
+</div>
+</div>
+<hr>
+<div class="gray-italic-box">
+<p><strong>Zona de Prompting:</strong> “Actúa como experto en Windows y Visual Studio Code. Genera el contenido para un archivo <code>ProyectoPandas.code-workspace</code>. Mi carpeta de proyecto es <code>C:\CursoPandas</code> y mi entorno virtual está en <code>C:\CursoPandas\venv\</code>. Asegúrate de que el <code>python.defaultInterpreterPath</code> apunte correctamente a <code>Scripts/python.exe</code> y que el terminal reconozca el venv automáticamente al abrir el espacio de trabajo. Devuélveme el código en formato JSON.”</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🆘 Mesa de Ayuda: El Workspace no reconoce mi venv
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si después de usar el prompt y crear el archivo, VS Code no activa el entorno automáticamente:</p>
+<ol type="1">
+<li><strong>Cierra y abre:</strong> VS Code a veces necesita un “reinicio” para leer los cambios del workspace.</li>
+<li><strong>Selección Manual:</strong> Presiona <code>Ctrl + Shift + P</code>, busca “Python: Select Interpreter” y elige el que está dentro de la carpeta <code>venv</code>.</li>
+<li><strong>Rutas:</strong> Verifica que en el archivo no haya quedado ninguna barra invertida simple (<code>\</code>). En los archivos de configuración de VS Code, se deben usar barras inclinadas (<code>/</code>) o doble barra (<code>\\</code>).</li>
+</ol>
+</div>
+</div>
 </section>
 <section id="apertura-desde-la-terminal-cmd" class="level3">
 <h3 class="anchored" data-anchor-id="apertura-desde-la-terminal-cmd">1.2 Apertura desde la Terminal (CMD)</h3>
 <p>Lanzar el archivo ‘ProyectoPandas.code-workspace’ desde la terminal es el método más avanzado: carga configuraciones específicas y rutas predefinidas de un solo golpe.</p>
 <p><strong>Instrucciones:</strong> Abrir la terminal (<strong>Tecla Win + R</strong>, escribir ‘cmd’ y <strong>Enter</strong>).</p>
 <div class="monitor-box">
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- TERMINAL DE WINDOWS (CMD) ---</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Navegar a la raíz del disco C:</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>cd <span class="op">\</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Entrar a la carpeta del proyecto</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>cd C:\CursoPandas</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Lanzar el Workspace de Visual Studio Code</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>code ProyectoPandas.code<span class="op">-</span>workspace</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- TERMINAL DE WINDOWS (CMD) ---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Navegar a la raíz del disco C:</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>cd <span class="op">\</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Entrar a la carpeta del proyecto</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>cd C:\CursoPandas</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Lanzar el Workspace de Visual Studio Code</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>code ProyectoPandas.code<span class="op">-</span>workspace</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -313,19 +355,19 @@ Regla de Oro
 </div>
 </div>
 <div class="monitor-box">
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- GESTIÓN DE ENTORNO VIRTUAL ---</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Asegurarse de estar en la carpeta del curso</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>cd C:\CursoPandas</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Activar el entorno virtual (Sintaxis CMD)</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>venv\Scripts\activate</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Actualizar el gestor de paquetes</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>python <span class="op">-</span>m pip install <span class="op">--</span>upgrade pip</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Instalar dependencias necesarias</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>pip install pandas pyreadstat</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- GESTIÓN DE ENTORNO VIRTUAL ---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Asegurarse de estar en la carpeta del curso</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>cd C:\CursoPandas</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Activar el entorno virtual (Sintaxis CMD)</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>venv\Scripts\activate</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Actualizar el gestor de paquetes</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>python <span class="op">-</span>m pip install <span class="op">--</span>upgrade pip</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Instalar dependencias necesarias</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>pip install pandas pyreadstat</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -364,18 +406,18 @@ Lo que estamos haciendo
 <h2 class="anchored" data-anchor-id="ingesta-de-datos-con-intérprete-vinculado">3. Ingesta de Datos con Intérprete Vinculado</h2>
 <p>Al usar el archivo ‘.code-workspace’, VS Code detecta automáticamente nuestro entorno en ’C:'. Ahora podemos ejecutar nuestro script de carga.</p>
 <div class="monitor-box">
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- CARGA DE BASE EPH ---</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Definición de ruta con Raw String (r)</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>ruta <span class="op">=</span> <span class="vs">r'c:\CursoPandas\data\input\24Q4_INDIVIDUOS.sav'</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Carga de datos utilizando el motor instalado</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_spss(ruta)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspección inicial</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- CARGA DE BASE EPH ---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Definición de ruta con Raw String (r)</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>ruta <span class="op">=</span> <span class="vs">r'c:\CursoPandas\data\input\24Q4_INDIVIDUOS.sav'</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Carga de datos utilizando el motor instalado</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_spss(ruta)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspección inicial</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">

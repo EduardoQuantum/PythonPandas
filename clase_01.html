@@ -8,7 +8,7 @@
 
 <meta name="author" content="Eduardo Lencina">
 
-<title>Curso Análisis de Datos con Python + Pandas + IA - Clase 01: El Taller del Científico de Datos</title>
+<title>Curso Análisis de Datos con Python + Pandas + IA - Clase 01: El Ecosistema de Trabajo</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -170,11 +204,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">En esta clase</h2>
    
   <ul>
-  <li><a href="#introducción-texto-narrativo" id="toc-introducción-texto-narrativo" class="nav-link active" data-scroll-target="#introducción-texto-narrativo">1. Introducción (Texto Narrativo)</a>
+  <li><a href="#el-editor-visual-studio-code-vsc" id="toc-el-editor-visual-studio-code-vsc" class="nav-link active" data-scroll-target="#el-editor-visual-studio-code-vsc">1. El Editor: Visual Studio Code (VSC)</a>
   <ul class="collapse">
-  <li><a href="#zona-de-prompting" id="toc-zona-de-prompting" class="nav-link" data-scroll-target="#zona-de-prompting">Zona de Prompting</a></li>
+  <li><a href="#instalación-y-extensiones" id="toc-instalación-y-extensiones" class="nav-link" data-scroll-target="#instalación-y-extensiones">1.1 Instalación y Extensiones</a></li>
   </ul></li>
-  <li><a href="#configuración-técnica-caja-de-código" id="toc-configuración-técnica-caja-de-código" class="nav-link" data-scroll-target="#configuración-técnica-caja-de-código">2. Configuración Técnica (Caja de Código)</a></li>
+  <li><a href="#el-motor-python-3.x" id="toc-el-motor-python-3.x" class="nav-link" data-scroll-target="#el-motor-python-3.x">2. El Motor: Python 3.x</a></li>
+  <li><a href="#preparando-la-carpeta-y-las-librerías" id="toc-preparando-la-carpeta-y-las-librerías" class="nav-link" data-scroll-target="#preparando-la-carpeta-y-las-librerías">3. Preparando la carpeta y las Librerías</a></li>
+  <li><a href="#instalando-las-herramientas-de-datos" id="toc-instalando-las-herramientas-de-datos" class="nav-link" data-scroll-target="#instalando-las-herramientas-de-datos">4. Instalando las herramientas de datos</a></li>
+  <li><a href="#mesa-de-ayuda-y-prompting" id="toc-mesa-de-ayuda-y-prompting" class="nav-link" data-scroll-target="#mesa-de-ayuda-y-prompting">5. Mesa de Ayuda y Prompting</a></li>
   </ul>
 </nav>
     </div>
@@ -183,8 +220,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Clase 01: El Taller del Científico de Datos</h1>
-<p class="subtitle lead">Ecosistema de Trabajo</p>
+<h1 class="title">Clase 01: El Ecosistema de Trabajo</h1>
+<p class="subtitle lead">Instalación de VS Code, Python y Librerías</p>
 </div>
 
 
@@ -205,71 +242,126 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="introducción-texto-narrativo" class="level2">
-<h2 class="anchored" data-anchor-id="introducción-texto-narrativo">1. Introducción (Texto Narrativo)</h2>
-<p>En esta primera sesión vamos a transformar nuestra computadora en un laboratorio de análisis de datos. No se trata solo de escribir código, sino de crear un <strong>Pipeline</strong> reproducible.</p>
+<p>En esta clase instalaremos las herramientas base que nos acompañarán durante todo el curso. El objetivo es que los estudiantes logren autonomia técnica. La IA es el asistente y el experto. Comencemos</p>
+<hr>
+<section id="el-editor-visual-studio-code-vsc" class="level1">
+<h1>1. El Editor: Visual Studio Code (VSC)</h1>
+<p>El editor es nuestro lienzo. Elegimos VSC porque es el estándar de la industria y tiene extensiones que nos facilitan la vida.</p>
+<section id="instalación-y-extensiones" class="level2">
+<h2 class="anchored" data-anchor-id="instalación-y-extensiones">1.1 Instalación y Extensiones</h2>
+<ol type="1">
+<li>Descargá el instalador para Windows en <a href="https://code.visualstudio.com/">code.visualstudio.com</a>.</li>
+<li>Una vez instalado, ve al icono de cuadrados en la barra lateral izquierda (<strong>Extensions</strong>).</li>
+<li>Busca e instala: <strong>Python</strong> (de Microsoft) y <strong>Spanish Language Pack</strong> (interfaz en castellano).</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="el-motor-python-3.x" class="level1">
+<h1>2. El Motor: Python 3.x</h1>
+<p>Python es el lenguaje, pero necesitamos instalar el intérprete en Windows para que la computadora entienda nuestras órdenes.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-¡Atención! Observación Crítica
+Durante la instalación de Python
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Antes de comenzar, asegúrate de estar parado en la carpeta raíz de tu proyecto (<code>C:\CursoPandas</code>). Si la ruta en tu terminal no coincide, los comandos siguientes fallarán.</p>
+<p>Es <strong>VITAL</strong> marcar la casilla que dice <strong>“Add Python to PATH”</strong> al inicio del instalador. Si no lo haces, VS Code no encontrará a Python y nada funcionará.</p>
 </div>
 </div>
-<section id="zona-de-prompting" class="level3">
-<h3 class="anchored" data-anchor-id="zona-de-prompting">Zona de Prompting</h3>
-<p>Si tienes dudas sobre tu versión de Python, puedes usar el siguiente prompt con tu IA de confianza:</p>
+<hr>
+</section>
+<section id="preparando-la-carpeta-y-las-librerías" class="level1">
+<h1>3. Preparando la carpeta y las Librerías</h1>
+<p>No instalamos cosas “al voleo”. Vamos a crear una carpeta organizada y un entorno virtual para que nuestro proyecto sea prolijo.</p>
+<div class="monitor-box">
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- CONFIGURACIÓN INICIAL EN LA TERMINAL ---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Crear nuestra carpeta de estudio</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>mkdir C:\CursoPandas</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>cd C:\CursoPandas</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Crear el Entorno Virtual (nuestro laboratorio aislado)</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>python <span class="op">-</span>m venv venv</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Activar el entorno</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>venv\Scripts\activate</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lo que estamos haciendo
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong><code>mkdir</code></strong>: Crea la carpeta en el disco C. Es mejor no usar carpetas con espacios en el nombre.</li>
+<li><strong><code>venv</code></strong>: Crea una copia de Python dentro de tu carpeta. Así, lo que instalemos aquí no romperá otras cosas de tu PC.</li>
+<li><strong><code>activate</code></strong>: Enciende ese Python local. Notarás que aparece un <code>(venv)</code> al principio de tu línea de comandos.</li>
+</ol>
+</div>
+</div>
+<hr>
+</section>
+<section id="instalando-las-herramientas-de-datos" class="level1">
+<h1>4. Instalando las herramientas de datos</h1>
+<p>Ahora instalaremos Pandas y los “motores” para leer archivos de Excel y SPSS que usaremos en las próximas clases.</p>
+<div class="monitor-box">
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- INSTALACIÓN DE LIBRERÍAS ---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Actualizamos el instalador</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>python <span class="op">-</span>m pip install <span class="op">--</span>upgrade pip</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Instalamos el trío fundamental</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>pip install pandas openpyxl pyreadstat</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lo que estamos haciendo
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>pandas</strong>: Nuestra herramienta principal para manejar tablas.</li>
+<li><strong>openpyxl</strong>: El motor que permite a Pandas leer y escribir archivos <code>.xlsx</code>.</li>
+<li><strong>pyreadstat</strong>: El motor que permite a Pandas abrir bases de SPSS (<code>.sav</code>).</li>
+</ol>
+</div>
+</div>
+<hr>
+</section>
+<section id="mesa-de-ayuda-y-prompting" class="level1">
+<h1>5. Mesa de Ayuda y Prompting</h1>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🆘 Mesa de Ayuda: “Python no se reconoce como comando”
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si al poner <code>python</code> en la terminal recibes un error, es probable que no hayas marcado la casilla <strong>“Add to PATH”</strong> durante la instalación. <strong>Solución:</strong> Vuelve a ejecutar el instalador de Python, elige “Modify” y asegúrate de marcar esa opción. Luego reinicia VS Code.</p>
+</div>
+</div>
 <div class="gray-italic-box">
-<p><em>“Actúa como experto en Windows. Estoy configurando un entorno virtual de Python y quiero saber si mi versión instalada es compatible con Pandas 2.0. ¿Cómo lo verifico?”</em></p>
-</div>
-</section>
-</section>
-<section id="configuración-técnica-caja-de-código" class="level2">
-<h2 class="anchored" data-anchor-id="configuración-técnica-caja-de-código">2. Configuración Técnica (Caja de Código)</h2>
-<p>Es fundamental aislar nuestras librerías para que el proyecto sea estable en el tiempo. Copia estos comandos y ejecútalos en tu terminal de VS Code:</p>
-</section>
-<div class="monitor-box">
-<section id="comandos-para-la-terminal" class="level1">
-<h1>— COMANDOS PARA LA TERMINAL —</h1>
-</section>
-<section id="crear-el-entorno-virtual" class="level1">
-<h1>1. Crear el entorno virtual</h1>
-</section>
-<section id="python--m-venv-venv" class="level1">
-<h1>python -m venv venv</h1>
-</section>
-<section id="activar-el-entorno-windows" class="level1">
-<h1>2. Activar el entorno (Windows)</h1>
-</section>
-<section id="venv" class="level1">
-<h1>venv</h1>
-</section>
-<section id="instalar-librerías-necesarias" class="level1">
-<h1>3. Instalar librerías necesarias</h1>
-</section>
-<section id="pip-install-pandas-pyreadstat" class="level1">
-<h1>pip install pandas pyreadstat</h1>
-</section>
-</div>
-<p>A continaucion segumos con esto:</p>
-<div class="monitor-box">
-<section id="lencina" class="level1">
-<h1>— lencina —</h1>
-</section>
-<section id="crear-el-entorno-virtual-1" class="level1">
-<h1>1. Crear el entorno virtual</h1>
-</section>
-<section id="python--m-venv-venv-1" class="level1">
-<h1>python -m venv venv</h1>
-</section>
+<p><strong>Zona de Prompting:</strong> “Actúa como experto en soporte técnico de Python. Estoy en Windows 11 intentando instalar pandas mediante pip dentro de un entorno virtual, pero recibo un error de ‘permisos’ o ‘acceso denegado’. ¿Cómo puedo solucionarlo?”</p>
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -259,8 +259,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Carga de datos utilizando el motor instalado</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_spss(ruta)</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspección inicial</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejecutamos el interprete con Ctrl + Alt + N</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspección inicial</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -277,6 +279,26 @@ Lo que estamos haciendo
 <li><strong>Especificamos el camino:</strong> Usamos una variable ‘ruta’ con el prefijo ‘r’ (raw string) para que Windows no confunda las barras invertidas de la dirección del archivo.</li>
 <li><strong>Leemos el archivo:</strong> El comando ‘read_spss’ traduce el formato de SPSS a una tabla de Python (DataFrame).</li>
 <li><strong>Primer vistazo:</strong> ‘print(df.head())’ nos muestra las primeras 5 filas para verificar que la carga fue exitosa.</li>
+</ol>
+</div>
+</div>
+<hr>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🆘 Mesa de Ayuda: ¿No sale el resultado?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ejecutamos el interprete con Ctrl + Alt + N</p>
+<p>Si al ejecutar el código la terminal se queda en blanco o te da un error, revisa estos tres puntos clave:</p>
+<ol type="1">
+<li><strong>El nombre de la base:</strong> Asegúrate de que el archivo <code>.sav</code> o <code>.xlsx</code> esté realmente en la carpeta <code>data/input/</code>. Si el nombre tiene un error de ortografía, Python no lo encontrará.</li>
+<li><strong>El entorno activo:</strong> Verifica que en la terminal de VS Code veas el prefijo <strong>(venv)</strong>. Si no está, las librerías como Pandas no funcionarán.</li>
+<li><strong>Las comillas y paréntesis:</strong> Recuerda que los textos siempre van entre comillas <code>' '</code> y las acciones (métodos) siempre terminan en <code>()</code>.</li>
 </ol>
 </div>
 </div>
@@ -409,16 +431,17 @@ Lo que estamos haciendo
 <h2 class="anchored" data-anchor-id="selección-y-filtrado-paso-a-paso">4. Selección y Filtrado: Paso a Paso</h2>
 <section id="paso-1-filtrar-por-varones" class="level3">
 <h3 class="anchored" data-anchor-id="paso-1-filtrar-por-varones">Paso 1: Filtrar por Varones</h3>
-<p>Queremos ver la edad solo de los varones (<strong>‘CH04’</strong> == 1.0).</p>
+<p>Queremos ver la edad solo de los varones (‘CH04 == “Varón”’).</p>
 <div class="monitor-box">
 <div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- FILTRO SIMPLE ---</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionamos filas donde sexo es varón</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>varones <span class="op">=</span> df.query(<span class="st">'CH04 == 1.0'</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>varones <span class="op">=</span> df.query(<span class="st">'CH04 == "Varón"'</span>)  <span class="co"># ver que esta entre comillas dobles!</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿Cuántos varones hay y cuál es su edad promedio?</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Total varones: </span><span class="sc">{</span><span class="bu">len</span>(varones)<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Edad promedio varones: </span><span class="sc">{</span>varones[<span class="st">"CH06"</span>]<span class="sc">.</span>mean()<span class="sc">:.2f}</span><span class="ss">'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿Cuántos varones hay y cuál es su edad promedio?</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Total varones: </span><span class="sc">{</span><span class="bu">len</span>(varones)<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Edad promedio varones: </span><span class="sc">{</span>varones[<span class="st">"CH06"</span>]<span class="sc">.</span>mean()<span class="sc">:.2f}</span><span class="ss">'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
