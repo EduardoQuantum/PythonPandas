@@ -42,18 +42,130 @@
     "text": "5. Resumen de Herramientas Utilizadas\n\n\n\n\n\n\n\nComando\nFunción\n\n\n\n\n.info()\nMuestra tipos de datos e integridad estructural.\n\n\n.describe()\nDevuelve medidas de tendencia central (estadística descriptiva).\n\n\n.value_counts()\nCuenta frecuencias por categoría (conteo).\n\n\n.query()\nFiltra filas según condiciones lógicas.\n\n\n\n\nZona de Prompting: “Actúa como profesor de estadística con Python. Explícame por qué el método .describe() se comporta diferente si lo aplico a una columna de números versus una de texto.”"
   },
   {
+    "objectID": "clase_01.qmd_bak.html",
+    "href": "clase_01.qmd_bak.html",
+    "title": "Clase 01: El Ecosistema de Trabajo",
+    "section": "",
+    "text": "A continuación presentamanos una guia de instalación de las herramientas que nos acompañarán durante todo el curso. El objetivo es que los estudiantes logren autonomía técnica. La IA oficiará como asistente y como experto.\nAsumimos que somos usuarios de Windows 11 y que contamos con permisos de administradores de nuestros equipos, caso contrario no podremos avanzar.\nEn la web y en la IA existen una enorme cantidad de formas de llegar más o menos al mismo resultado depende del estilo, necesidades y gusto de cada usuario. La que sigue es una guía “minimalista” que persigue el objetivo de contar con un entorno operativo que puede ir creciendo a medida de nuestras necesidades y no antes.\nEste es un material “vivo” que se ajusta y modifica según las necesidades: La tecnologia nos permite esta ventaja con poco esfuerzo: revisar, modificar y publicar en una misma acción. ¡Bienvenida/o a este sitio!\nTodos las instrucciones y los links fueron probadas, para el caso de algún fallo puede deberse a una errata y/o a un cambio posterior a la creación de este material, en ese caso se agradecerá reportar el evento a eduardo.lencina@gmail.com para su evaluación y/o corrección."
+  },
+  {
+    "objectID": "clase_01.qmd_bak.html#instalación-y-extensiones",
+    "href": "clase_01.qmd_bak.html#instalación-y-extensiones",
+    "title": "Clase 01: El Ecosistema de Trabajo",
+    "section": "1.1 Instalación y Extensiones",
+    "text": "1.1 Instalación y Extensiones\n\nDescargá el instalador para Windows en code.visualstudio.com.\nUna vez instalado, ve al icono de cuadrados en la barra lateral izquierda (Extensions).\nBusca e instala las siguientes extensiones:\n\nPython (de Microsoft): Vital para que el editor entienda nuestro código.\nSpanish Language Pack: Para tener la interfaz en castellano.\nGitHub Theme: Permite configurar fondos y colores, similar a como se hace en el mundo windows.\n\n\n\nNota sobre las extensiones: Son paquetes que permiten dotar a VSC de nuevas capacidades. Normalmente, si queremos que VSC haga algo nuevo, necesitamos instalar la extensión correspondiente.\n\n\n\n\n\n\n\nUna buena idea es…\n\n\n\nPedirle a la IA que nos explique más: “Respondeme como experto en Python, pandas y en Visual Estudio Code, estoy dando mis primeros pasos en el mundo Python+Pandas y quiero saber más sobre extensiones para VSC: ¿cómo se instalan?, ¿cómo sé si la tengo instalada?, ¿cómo se desinstalan?”. Es una excelente forma de familiarizarse con el entorno y con el modo de interactuar con la IA."
+  },
+  {
+    "objectID": "clase_01.qmd_bak.html#pasos-críticos-para-una-instalación-exitosa",
+    "href": "clase_01.qmd_bak.html#pasos-críticos-para-una-instalación-exitosa",
+    "title": "Clase 01: El Ecosistema de Trabajo",
+    "section": "2.1 Pasos críticos para una instalación exitosa",
+    "text": "2.1 Pasos críticos para una instalación exitosa\n\nDescarga: Ve a python.org y busca el link Download Windows installer (64-bit). Este es el recomendado porque instala Python y el gestor de paquetes pip.\nLa Pantalla de Configuración (Punto Crítico): Ejecuta el archivo descargado. ¡ALTO! No hagas clic en “Install Now” todavía. Debes marcar estas casillas en la parte inferior:\n\nMarcar “Add python.exe to PATH”: Si no se marca, Windows no sabrá qué es “python” cuando lo escribas en la consola.\nMarcar “Use admin privileges when installing py.exe”: Asegura los permisos necesarios en el sistema.\nHaz clic en “Customize installation”.\n\nCaracterísticas Opcionales (Optional Features): Asegúrate de que todas estén marcadas, especialmente pip y tcl/tk. Haz clic en Next.\nOpciones Avanzadas (Advanced Options): Aquí configuraremos una ruta limpia:\n\nMarca “Install Python 3.13 for all users”.\nFUERTE RECOMENDACIÓN: En “Customize install location”, cambia la ruta a algo simple como C:\\Python313. Anota esta ruta en un sitio que podamos consultar despues.\nHaz clic en Install.\n\nEl paso final: “Disable path length limit”: Al terminar la barra de progreso, aparecerá una pantalla de éxito. Haz clic en el enlace que dice “Disable path length limit”. Esto elimina la restricción de 260 caracteres en Windows, evitando errores de rutas largas."
+  },
+  {
+    "objectID": "clase_01.qmd_bak.html#verificando-la-instalación",
+    "href": "clase_01.qmd_bak.html#verificando-la-instalación",
+    "title": "Clase 01: El Ecosistema de Trabajo",
+    "section": "2.2 Verificando la instalación",
+    "text": "2.2 Verificando la instalación\nVamos a ir a la terminal cmd. Vamos a trabajar mucho con la terminal, para desplazarnos dentro de ella debemos aprender algunos comandos, le podemos pedir a la IA, es una lista muy pequeña.\n\n# Abre la terminal (Windows + R, escribe 'cmd' y presiona Enter):\n\nC:\\Users\\Admin&gt;python --version\nPython 3.13.x\n\n\n¿Qué significa todos esto? que tenemos instalada la versión Python 3.13.x y que está activa, caso contrario tenemos que comenzar de nuevo."
+  },
+  {
+    "objectID": "clase_01.qmd_bak.html#comandos-para-armar-el-laboratorio",
+    "href": "clase_01.qmd_bak.html#comandos-para-armar-el-laboratorio",
+    "title": "Clase 01: El Ecosistema de Trabajo",
+    "section": "3.1 Comandos para armar el laboratorio",
+    "text": "3.1 Comandos para armar el laboratorio\nAbrí la terminal en VS Code (Terminal -&gt; New Terminal) y ejecutá estos comandos en orden:\n\n# 1. Vamos a la carpeta que creamos previamente:\ncd C:\\CursoPandas\n\n# 2. Creamos el Entorno Virtual (la burbuja)\npython -m venv venv\n\n# 3. Activamos el entorno (encendemos la burbuja)\n.\\venv\\Scripts\\activate\n\n\n\n\n\n\n\nLo que estamos haciendo\n\n\n\n\ncd C:\\: Nos movemos a la raíz del disco para evitar rutas con espacios.\nmkdir: Creamos el contenedor de nuestro proyecto.\npython -m venv venv: Crea una copia aislada de Python dentro de tu carpeta.\nactivate: Notarás que aparece un (venv) al inicio de la línea de comandos. Indica que el laboratorio está activo.\nPodemos tener varios Entorno Virtual (venv) pero en esta etapa de iniciación no lo recomendamos: preferimos tener uno instalado y que nuestros proyectos apunten siempre a la misma carpeta, en nuestro caso C:\\CursoPandas\\venv. Cuando tengamos más preyectos activos y más complejos, la necesidad de contar con un (venv)** personalizado surgirá sola o no."
+  },
+  {
+    "objectID": "clase_01.qmd_bak.html#el-venv-rebelde",
+    "href": "clase_01.qmd_bak.html#el-venv-rebelde",
+    "title": "Clase 01: El Ecosistema de Trabajo",
+    "section": "5.1 El (venv) Rebelde",
+    "text": "5.1 El (venv) Rebelde\nEn la instalación el (venv) puede negarse a estar activo desde la primera vez… tenemos que convivir con ello.\nEl paso manual: Presiona Ctrl + Shift + P.\nEscribe: Python: Select Interpreter (con que escribas “interpreter”aparecerá la opción).\nSelecciona esa opción. Verás una lista de todos los Python que VS Code encontró en tu sistema.\nSi no ves el de tu carpeta C:\\CursoPandas\\venv, haz clic en la primera opción de la lista: + Enter interpreter path….\nHaz clic en Find… (esto abrirá el explorador de archivos de Windows).\nBusca y selecciona el archivo ejecutable en esta ruta exacta: C:\\CursoPandas\\venv\\Scripts\\python.exe\nEsto debería funcionar y además indicarle a VSC que esa y no otra es tu elección\nOtra buena práctica después de hacer este ajuste:\nPresiona Ctrl + Shift + P. Escribe: Recargar ventana\nEso le indica a VSC que “vuelva a cargar el workspace”"
+  },
+  {
+    "objectID": "clase_01.qmd_bak.html#la-burbuja-muy-rebelde",
+    "href": "clase_01.qmd_bak.html#la-burbuja-muy-rebelde",
+    "title": "Clase 01: El Ecosistema de Trabajo",
+    "section": "5.2 La burbuja MUY rebelde",
+    "text": "5.2 La burbuja MUY rebelde\nSi la burbuja sigue en modo “rebelde” simpre podemos activarla manualmente:\n\n\n# 1. Presiona Ctrl + ñ. Deberiamos estar en la ruta de interes, pero si no vamos con el comando `cd` \n# (regla memotécnica \"cd = cambio de directorio\") :\n\ncd C:\\CursoPandas\n\n# 3. Activamos el entorno (encendemos la burbuja)\n.\\venv\\Scripts\\activate\n\n\n\n\n\n\n\n¿Qué acabamos de hacer?\n\n\n\n\n** Dejamos listo nuestro stack de trabajo y aprendimos varias opciones para activar el interprete y la librarias que son el núcleo de nuestro ecosistema\n\n\n\n\n\nZona de Prompting: “Actúa como experto en Windows, Python y Visual Studio Code. Este es mi”workspace” (subirlo al chat) ayudame a activar el (venv) en forma manual"
+  },
+  {
     "objectID": "clase_01.html",
     "href": "clase_01.html",
     "title": "Clase 01: El Ecosistema de Trabajo",
     "section": "",
-    "text": "En esta clase instalaremos las herramientas base que nos acompañarán durante todo el curso. El objetivo es que los estudiantes logren autonomia técnica. La IA es el asistente y el experto. Comencemos"
+    "text": "A continuación, presentamos una guía de instalación de las herramientas que nos acompañarán durante todo el curso. El objetivo es que los estudiantes logren autonomía técnica. La IA oficiará como asistente y como experto.\nAsumimos que somos usuarios de Windows 11 y que contamos con permisos de administrador en nuestros equipos; caso contrario, no podremos avanzar.\nEn la web y en la IA existen una enorme cantidad de formas de llegar más o menos al mismo resultado, dependiendo del estilo, necesidades y gusto de cada usuario. La que sigue es una guía “minimalista” que persigue el objetivo de contar con un entorno operativo que pueda ir creciendo a medida de nuestras necesidades, y no antes.\nEste es un material “vivo” que se ajusta y modifica según las necesidades. La tecnología nos permite esta ventaja con poco esfuerzo: revisar, modificar y publicar en una misma acción. ¡Bienvenida/o a este sitio!\nTodas las instrucciones y los links fueron probados. En caso de algún fallo, puede deberse a una errata y/o a un cambio posterior a la creación de este material; en ese caso, se agradecerá reportar el evento a eduardo.lencina@gmail.com para su evaluación y/o corrección."
   },
   {
     "objectID": "clase_01.html#instalación-y-extensiones",
     "href": "clase_01.html#instalación-y-extensiones",
     "title": "Clase 01: El Ecosistema de Trabajo",
     "section": "1.1 Instalación y Extensiones",
-    "text": "1.1 Instalación y Extensiones\n\nDescargá el instalador para Windows en code.visualstudio.com.\nUna vez instalado, ve al icono de cuadrados en la barra lateral izquierda (Extensions).\nBusca e instala: Python (de Microsoft) y Spanish Language Pack (interfaz en castellano)."
+    "text": "1.1 Instalación y Extensiones\n\nDescargá el instalador para Windows en code.visualstudio.com.\nUna vez instalado, ve al icono de cuadrados en la barra lateral izquierda (Extensions).\nBusca e instala las siguientes extensiones:\n\nPython (de Microsoft): Vital para que el editor entienda nuestro código.\nSpanish Language Pack: Para tener la interfaz en castellano.\nGitHub Theme: Permite configurar fondos y colores, similar a como se hace en el mundo Windows.\n\n\n\nNota sobre las extensiones: Son paquetes que permiten dotar a VSC de nuevas capacidades. Normalmente, si queremos que VSC haga algo nuevo, necesitamos instalar la extensión correspondiente.\n\n\n\n\n\n\n\nUna buena idea es…\n\n\n\nPedirle a la IA que nos explique más: “Respondeme como experto en Python, pandas y en Visual Studio Code. Estoy dando mis primeros pasos en el mundo Python+Pandas y quiero saber más sobre extensiones para VSC: ¿cómo se instalan?, ¿cómo sé si la tengo instalada?, ¿cómo se desinstalan?”. Es una excelente forma de familiarizarse con el entorno y con el modo de interactuar con la IA."
+  },
+  {
+    "objectID": "clase_01.html#pasos-críticos-para-una-instalación-exitosa",
+    "href": "clase_01.html#pasos-críticos-para-una-instalación-exitosa",
+    "title": "Clase 01: El Ecosistema de Trabajo",
+    "section": "2.1 Pasos críticos para una instalación exitosa",
+    "text": "2.1 Pasos críticos para una instalación exitosa\n\nDescarga: Ve a python.org y busca el link Download Windows installer (64-bit). Este es el recomendado porque instala Python y el gestor de paquetes pip.\nLa Pantalla de Configuración (Punto Crítico): Ejecuta el archivo descargado. ¡ALTO! No hagas clic en “Install Now” todavía. Debes marcar estas casillas en la parte inferior:\n\nMarcar “Add python.exe to PATH”: Si no se marca, Windows no sabrá qué es “python” cuando lo escribas en la consola.\nMarcar “Use admin privileges when installing py.exe”: Asegura los permisos necesarios en el sistema.\nHaz clic en “Customize installation”.\n\nCaracterísticas Opcionales (Optional Features): Asegúrate de que todas estén marcadas, especialmente pip y tcl/tk. Haz clic en Next.\nOpciones Avanzadas (Advanced Options): Aquí configuraremos una ruta limpia:\n\nMarca “Install Python 3.13 for all users”.\nFUERTE RECOMENDACIÓN: En “Customize install location”, cambia la ruta a algo simple como C:\\Python313. Anota esta ruta en un sitio que podamos consultar después.\nHaz clic en Install.\n\nEl paso final: “Disable path length limit”: Al terminar la barra de progreso, aparecerá una pantalla de éxito. Haz clic en el enlace que dice “Disable path length limit”. Esto elimina la restricción de 260 caracteres en Windows, evitando errores de rutas largas."
+  },
+  {
+    "objectID": "clase_01.html#verificando-la-instalación",
+    "href": "clase_01.html#verificando-la-instalación",
+    "title": "Clase 01: El Ecosistema de Trabajo",
+    "section": "2.2 Verificando la instalación",
+    "text": "2.2 Verificando la instalación\nVamos a ir a la terminal cmd. Vamos a trabajar mucho con la terminal; para desplazarnos dentro de ella debemos aprender algunos comandos. Le podemos pedir a la IA una lista, es muy pequeña.\n\n# Abre la terminal (Windows + R, escribe 'cmd' y presiona Enter):\n\nC:\\Users\\Admin&gt;python --version\nPython 3.13.x\n\n¿Qué significa todo esto? Que tenemos instalada la versión Python 3.13.x y que está activa; caso contrario, tenemos que comenzar de nuevo."
+  },
+  {
+    "objectID": "clase_01.html#comandos-para-armar-el-laboratorio",
+    "href": "clase_01.html#comandos-para-armar-el-laboratorio",
+    "title": "Clase 01: El Ecosistema de Trabajo",
+    "section": "3.1 Comandos para armar el laboratorio",
+    "text": "3.1 Comandos para armar el laboratorio\nAbrí la terminal en VS Code (Terminal -&gt; New Terminal) y ejecutá estos comandos en orden:\n\n# 1. Creamos la carpeta (si no la creaste antes manualmente)\nmkdir C:\\CursoPandas\n\n# 2. Vamos a la carpeta:\ncd C:\\CursoPandas\n\n# 3. Creamos el Entorno Virtual (la burbuja)\npython -m venv venv\n\n# 4. Activamos el entorno (encendemos la burbuja)\n.\\venv\\Scripts\\activate\n\n\n\n\nLibrearias instaladas\n\n\n\n\n\n\n\n\nLo que estamos haciendo\n\n\n\n\nmkdir: Creamos el contenedor de nuestro proyecto.\ncd C:\\CursoPandas: Nos movemos a la carpeta de trabajo.\npython -m venv venv: Crea una copia aislada de Python dentro de tu carpeta.\nactivate: Notarás que aparece un (venv) al inicio de la línea de comandos. Indica que el laboratorio está activo.\nPodemos tener varios Entorno Virtual (venv), pero en esta etapa de iniciación no lo recomendamos: preferimos tener uno instalado y que nuestros proyectos apunten siempre a la misma carpeta, en nuestro caso C:\\CursoPandas\\venv."
+  },
+  {
+    "objectID": "clase_01.html#el-venv-rebelde",
+    "href": "clase_01.html#el-venv-rebelde",
+    "title": "Clase 01: El Ecosistema de Trabajo",
+    "section": "5.1 El (venv) Rebelde",
+    "text": "5.1 El (venv) Rebelde\nEn la instalación, el (venv) puede negarse a estar activo desde la primera vez. Es algo con lo que debemos convivir.\nEl paso manual: 1. Presiona Ctrl + Shift + P. 2. Escribe: Python: Select Interpreter. 3. Selecciona la opción. Verás una lista de los Python encontrados. 4. Si no ves el de C:\\CursoPandas\\venv, haz clic en + Enter interpreter path…. 5. Haz clic en Find… y selecciona el ejecutable en: C:\\CursoPandas\\venv\\Scripts\\python.exe.\nOtra buena práctica: & 1. Presiona Ctrl + Shift + P. 2. Escribe: Recargar ventana. Esto fuerza a VSC a leer nuevamente el workspace."
+  },
+  {
+    "objectID": "clase_01.html#la-burbuja-muy-rebelde",
+    "href": "clase_01.html#la-burbuja-muy-rebelde",
+    "title": "Clase 01: El Ecosistema de Trabajo",
+    "section": "5.2 La burbuja MUY rebelde",
+    "text": "5.2 La burbuja MUY rebelde\nSi sigue sin activarse, siempre podemos hacerlo manualmente en la terminal:\n\n# 1. Presiona Ctrl + ñ. \n# 2. Asegúrate de estar en la ruta (si no, usa cd):\ncd C:\\CursoPandas\n\n# 3. Activamos manualmente:\n.\\venv\\Scripts\\activate\n\n\n\nZona de Prompting: “Actúa como experto en Windows, Python y Visual Studio Code. Este es mi ‘workspace’ (subir archivo). Ayúdame a verificar la configuración para asegurar que el entorno virtual se active automáticamente al abrir la carpeta.”"
+  },
+  {
+    "objectID": "clase_01.html#opción-a-el-camino-del-mouse-visual",
+    "href": "clase_01.html#opción-a-el-camino-del-mouse-visual",
+    "title": "Clase 01: El Ecosistema de Trabajo",
+    "section": "7.1 Opción A: El camino del Mouse (Visual)",
+    "text": "7.1 Opción A: El camino del Mouse (Visual)\nEs la forma más intuitiva al empezar.\n\n1. Abre tu archivo test.py en el editor.\n2. Busca en la esquina superior derecha un pequeño icono de “Play” (un triángulo hacia la derecha).\n3. Haz clic allí. VSC abrirá la terminal automáticamente y ejecutará el código."
+  },
+  {
+    "objectID": "clase_01.html#opción-b-el-atajo-de-teclado-velocidad",
+    "href": "clase_01.html#opción-b-el-atajo-de-teclado-velocidad",
+    "title": "Clase 01: El Ecosistema de Trabajo",
+    "section": "7.2 Opción B: El Atajo de Teclado (Velocidad)",
+    "text": "7.2 Opción B: El Atajo de Teclado (Velocidad)\nCuando estés procesando datos, no querrás soltar el teclado. Este es el método que usan los expertos:\n\nAtajo: Presiona la tecla Ctrl + F5 .\nResultado: El código se dispara instantáneamente. El favorito."
+  },
+  {
+    "objectID": "clase_01.html#opción-c-directo-desde-la-terminal-control-total",
+    "href": "clase_01.html#opción-c-directo-desde-la-terminal-control-total",
+    "title": "Clase 01: El Ecosistema de Trabajo",
+    "section": "7.3 Opción C: Directo desde la Terminal (Control Total)",
+    "text": "7.3 Opción C: Directo desde la Terminal (Control Total)\nEsta es la forma más “pura” y la que mejor te permite entender qué está pasando. Aquí tú tienes el mando.\n\n# 1. Asegúrate de estar en la carpeta correcta:\n(venv) C:\\CursoPandas&gt;\n\n# 2. Escribe el nombre del intérprete seguido del nombre del archivo:\npython test.py\n\n\n\n\n\n\n\nLo que estamos haciendo\n\n\n\n\npython: Es el comando que llama al motor que instalamos en la Clase 01.\ntest.py: Es el “papel” con las instrucciones que el motor debe leer, el archivo que acabamos de escribir.\nSi el archivo estuviera en otra carpeta, tendrías que navegar con cd antes de lanzarlo."
+  },
+  {
+    "objectID": "clase_01.html#como-debería-verse-una-vez-ejecutado-test.py",
+    "href": "clase_01.html#como-debería-verse-una-vez-ejecutado-test.py",
+    "title": "Clase 01: El Ecosistema de Trabajo",
+    "section": "7.5 Como debería verse una vez ejecutado test.py :",
+    "text": "7.5 Como debería verse una vez ejecutado test.py :\n\n\n\nLibrearias instaladas"
   },
   {
     "objectID": "clase_02.html",
