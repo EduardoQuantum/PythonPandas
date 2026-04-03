@@ -8,7 +8,7 @@
 
 <meta name="author" content="Eduardo Lencina">
 
-<title>Análisis de Datos con Python + Pandas + IA - Clase 02: Comenzamos a trabajar</title>
+<title>Análisis de Datos con Python + Pandas + IA - Clase 02: Primeros comandos con Python + Pandas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -136,7 +136,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./clase_02.html">Clase 02: Comenzamos a trabajar</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./clase_02.html">Clase 02: Primeros comandos con Python + Pandas</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -157,13 +157,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./clase_02.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Clase 02: Comenzamos a trabajar</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./clase_03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Clase 03: Exploración Progresiva con Pandas</span></a>
+ <span class="menu-text">Clase 02: Primeros comandos con Python + Pandas</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -182,19 +176,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">En esta clase</h2>
    
   <ul>
-  <li><a href="#acceso-a-visual-studio-code-mediante-workspace" id="toc-acceso-a-visual-studio-code-mediante-workspace" class="nav-link active" data-scroll-target="#acceso-a-visual-studio-code-mediante-workspace">1. Acceso a Visual Studio Code mediante Workspace</a>
+  <li><a href="#manos-a-la-obra" id="toc-manos-a-la-obra" class="nav-link active" data-scroll-target="#manos-a-la-obra">1. Manos a la obra</a>
   <ul class="collapse">
-  <li><a href="#qué-es-un-workspace" id="toc-qué-es-un-workspace" class="nav-link" data-scroll-target="#qué-es-un-workspace">1.1 ¿Qué es un Workspace?</a></li>
-  <li><a href="#apertura-desde-la-terminal-cmd" id="toc-apertura-desde-la-terminal-cmd" class="nav-link" data-scroll-target="#apertura-desde-la-terminal-cmd">1.2 Apertura desde la Terminal (CMD)</a></li>
+  <li><a href="#cargamos-la-base-sav" id="toc-cargamos-la-base-sav" class="nav-link" data-scroll-target="#cargamos-la-base-sav">1.1 Cargamos la base SAV</a></li>
+  <li><a href="#cargamos-una-base-de-ejemplo-excel" id="toc-cargamos-una-base-de-ejemplo-excel" class="nav-link" data-scroll-target="#cargamos-una-base-de-ejemplo-excel">1.1 Cargamos una base de ejemplo Excel</a></li>
   </ul></li>
-  <li><a href="#apertura-de-la-base-sav" id="toc-apertura-de-la-base-sav" class="nav-link" data-scroll-target="#apertura-de-la-base-sav">2. Apertura de la base SAV</a>
+  <li><a href="#comandos-de-inspección-qué-tenemos-en-la-base" id="toc-comandos-de-inspección-qué-tenemos-en-la-base" class="nav-link" data-scroll-target="#comandos-de-inspección-qué-tenemos-en-la-base">2. Comandos de Inspección: ¿Qué tenemos en la base?</a></li>
+  <li><a href="#análisis-de-variables-específicas" id="toc-análisis-de-variables-específicas" class="nav-link" data-scroll-target="#análisis-de-variables-específicas">3. Análisis de Variables Específicas</a></li>
+  <li><a href="#ejemplo-de-selección-y-filtrado" id="toc-ejemplo-de-selección-y-filtrado" class="nav-link" data-scroll-target="#ejemplo-de-selección-y-filtrado">4. Ejemplo de selección y filtrado</a>
   <ul class="collapse">
-  <li><a href="#gestión-del-entorno-virtual-venv" id="toc-gestión-del-entorno-virtual-venv" class="nav-link" data-scroll-target="#gestión-del-entorno-virtual-venv">2.1 Gestión del Entorno Virtual (venv)</a></li>
+  <li><a href="#filtrar-por-varones" id="toc-filtrar-por-varones" class="nav-link" data-scroll-target="#filtrar-por-varones">4.1 Filtrar por Varones</a></li>
+  <li><a href="#anatomía-de-una-f-string-lenvarones" id="toc-anatomía-de-una-f-string-lenvarones" class="nav-link" data-scroll-target="#anatomía-de-una-f-string-lenvarones">4.2 Anatomía de una f-string: {len(varones)}</a></li>
   </ul></li>
-  <li><a href="#ingesta-de-datos-con-intérprete-vinculado" id="toc-ingesta-de-datos-con-intérprete-vinculado" class="nav-link" data-scroll-target="#ingesta-de-datos-con-intérprete-vinculado">3. Ingesta de Datos con Intérprete Vinculado</a>
+  <li><a href="#desglose-del-comando" id="toc-desglose-del-comando" class="nav-link" data-scroll-target="#desglose-del-comando">Desglose del comando:</a></li>
+  <li><a href="#estructura-de-datos-dtypes-y-niveles-de-medición" id="toc-estructura-de-datos-dtypes-y-niveles-de-medición" class="nav-link" data-scroll-target="#estructura-de-datos-dtypes-y-niveles-de-medición">5. Estructura de Datos: dtypes y Niveles de Medición</a></li>
+  <li><a href="#el-ciclo-de-datos-completo-carga-filtro-y-exportación" id="toc-el-ciclo-de-datos-completo-carga-filtro-y-exportación" class="nav-link" data-scroll-target="#el-ciclo-de-datos-completo-carga-filtro-y-exportación">6. El Ciclo de Datos Completo: Carga, Filtro y Exportación</a></li>
+  <li><a href="#representación-gráfica-de-la-frecuencia-al-histograma" id="toc-representación-gráfica-de-la-frecuencia-al-histograma" class="nav-link" data-scroll-target="#representación-gráfica-de-la-frecuencia-al-histograma">7. Representación Gráfica: De la Frecuencia al Histograma</a>
   <ul class="collapse">
-  <li><a href="#análisis-técnico" id="toc-análisis-técnico" class="nav-link" data-scroll-target="#análisis-técnico">3.1 Análisis Técnico</a></li>
+  <li><a href="#preparación-del-entorno" id="toc-preparación-del-entorno" class="nav-link" data-scroll-target="#preparación-del-entorno">7.1 Preparación del Entorno</a></li>
+  <li><a href="#ejecución-del-gráfico-de-frecuencias" id="toc-ejecución-del-gráfico-de-frecuencias" class="nav-link" data-scroll-target="#ejecución-del-gráfico-de-frecuencias">7.2 Ejecución del Gráfico de Frecuencias</a></li>
   </ul></li>
+  <li><a href="#resumen-de-herramientas-utilizadas" id="toc-resumen-de-herramientas-utilizadas" class="nav-link" data-scroll-target="#resumen-de-herramientas-utilizadas">8. Resumen de Herramientas Utilizadas</a></li>
   </ul>
 </nav>
     </div>
@@ -203,8 +205,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Clase 02: Comenzamos a trabajar</h1>
-<p class="subtitle lead">Acceso a nuestro Stack Tecnológico</p>
+<h1 class="title">Clase 02: Primeros comandos con Python + Pandas</h1>
+<p class="subtitle lead">Experimentamos con nuestro ecosistema de trabajo</p>
 </div>
 
 
@@ -225,71 +227,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="acceso-a-visual-studio-code-mediante-workspace" class="level2">
-<h2 class="anchored" data-anchor-id="acceso-a-visual-studio-code-mediante-workspace">1. Acceso a Visual Studio Code mediante Workspace</h2>
-<p>Para iniciar un proyecto de Ciencia de Datos de forma profesional, el primer paso es la correcta apertura del entorno desde la terminal del sistema. Esto garantiza que todas las rutas relativas de nuestros scripts de Python y archivos de datos funcionen correctamente.</p>
-<p>En proyectos complejos, no basta con abrir una carpeta. Utilizamos archivos de <strong>Workspace</strong> para asegurar que Visual Studio Code mantenga la configuración de paneles, variables de entorno y extensiones específicas para el procesamiento de datos.</p>
-<section id="qué-es-un-workspace" class="level3">
-<h3 class="anchored" data-anchor-id="qué-es-un-workspace">1.1 ¿Qué es un Workspace?</h3>
-<p>Es un archivo de configuración con la extensión ‘.code-workspace’. Es recomendable tener uno ajustado para cada proyecto. Al centralizar la configuración de Python, el Workspace asegura que el editor siempre apunte al intérprete y entorno virtual de nuestro interés, evitando conflictos entre proyectos.</p>
-<p>Aqui abajo un detalle de la configuracion ‘.code-workspace’</p>
+<section id="manos-a-la-obra" class="level2">
+<h2 class="anchored" data-anchor-id="manos-a-la-obra">1. Manos a la obra</h2>
+<p>El enfoque de este capítulo es familiarizarse con algunos comandos y acciones comunes al procesamiento y analisis de datos, ganar confianze e introducirse en los temas.</p>
+<section id="cargamos-la-base-sav" class="level3">
+<h3 class="anchored" data-anchor-id="cargamos-la-base-sav">1.1 Cargamos la base SAV</h3>
+<p>Iniciamos nuestro script asegurando la carga de la librería y el acceso a los datos de la EPH.</p>
 <div class="monitor-box">
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>    <span class="co">"settings"</span>: {</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="op">//</span> Interprete de Python apuntando al venv local de CursoPandas</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">"python.defaultInterpreterPath"</span>: <span class="st">"$</span><span class="sc">{workspaceFolder}</span><span class="st">/venv/Scripts/python.exe"</span>,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">"code-runner.runInTerminal"</span>: true,</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-🆘 Mesa de Ayuda:
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>El archivo <code>.code-workspace</code> es un archivo de extensión JSON de configuración y es un poco “tiquismiquis” con las sangrias y los espacios. Una buena practica es pedirl a la IA que ajuste el archivo <code>.code-workspace</code> por nosotros.</p>
-</div>
-</div>
-<hr>
-<div class="gray-italic-box">
-<p><strong>Zona de Prompting:</strong> “Actúa como experto en Windows y Visual Studio Code. Genera el contenido para un archivo <code>ProyectoPandas.code-workspace</code>. Mi carpeta de proyecto es <code>C:\CursoPandas</code> y mi entorno virtual está en <code>C:\CursoPandas\venv\</code>. Asegúrate de que el <code>python.defaultInterpreterPath</code> apunte correctamente a <code>Scripts/python.exe</code> y que el terminal reconozca el venv automáticamente al abrir el espacio de trabajo. Devuélveme el código en formato JSON.”</p>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-🆘 Mesa de Ayuda: El Workspace no reconoce mi venv
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Si después de usar el prompt y crear el archivo, VS Code no activa el entorno automáticamente:</p>
-<ol type="1">
-<li><strong>Cierra y abre:</strong> VS Code a veces necesita un “reinicio” para leer los cambios del workspace.</li>
-<li><strong>Selección Manual:</strong> Presiona <code>Ctrl + Shift + P</code>, busca “Python: Select Interpreter” y elige el que está dentro de la carpeta <code>venv</code>.</li>
-<li><strong>Rutas:</strong> Verifica que en el archivo no haya quedado ninguna barra invertida simple (<code>\</code>). En los archivos de configuración de VS Code, se deben usar barras inclinadas (<code>/</code>) o doble barra (<code>\\</code>).</li>
-</ol>
-</div>
-</div>
-</section>
-<section id="apertura-desde-la-terminal-cmd" class="level3">
-<h3 class="anchored" data-anchor-id="apertura-desde-la-terminal-cmd">1.2 Apertura desde la Terminal (CMD)</h3>
-<p>Lanzar el archivo ‘ProyectoPandas.code-workspace’ desde la terminal es el método más avanzado: carga configuraciones específicas y rutas predefinidas de un solo golpe.</p>
-<p><strong>Instrucciones:</strong> Abrir la terminal (<strong>Tecla Win + R</strong>, escribir ‘cmd’ y <strong>Enter</strong>).</p>
-<div class="monitor-box">
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- TERMINAL DE WINDOWS (CMD) ---</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Navegar a la raíz del disco C:</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>cd <span class="op">\</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Entrar a la carpeta del proyecto</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>cd C:\CursoPandas</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Lanzar el Workspace de Visual Studio Code</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>code ProyectoPandas.code<span class="op">-</span>workspace</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- CARGA DE BASE EPH ---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Definición de ruta con Raw String (r)</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>ruta <span class="op">=</span> <span class="vs">r'c:\CursoPandas\data\input\24Q4_INDIVIDUOS.sav'</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Carga de datos utilizando el motor instalado</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_spss(ruta)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspección inicial</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -302,50 +258,106 @@ Lo que estamos haciendo
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li><strong>Navegación:</strong> Usamos ‘cd ' para ir a la base del disco y luego ’cd C:’ para entrar en nuestra carpeta de trabajo.</li>
-<li><strong>Lanzamiento:</strong> El comando ‘code’ abre VS Code, y al pasarle el nombre del archivo ‘.code-workspace’, el editor se abre con todas nuestras preferencias ya cargadas.</li>
+<li><strong>Importamos la herramienta:</strong> Traemos ‘pandas’ con el alias ‘pd’.</li>
+<li><strong>Especificamos el camino:</strong> Usamos una variable ‘ruta’ con el prefijo ‘r’ (raw string) para que Windows no confunda las barras invertidas de la dirección del archivo.</li>
+<li><strong>Leemos el archivo:</strong> El comando <code>read_spss</code> traduce el formato de SPSS a una tabla de Python (DataFrame).</li>
+<li><strong>Primer vistazo:</strong> <code>print(df.head())</code> nos muestra las primeras 5 filas para verificar que la carga fue exitosa.</li>
 </ol>
 </div>
 </div>
-<div class="gray-italic-box">
-<p><strong>Zona de Prompting:</strong> “Actúa como experto en Windows y Ciencia de Datos. Explícame el paso a paso para ingresar a mi proyecto en Visual Studio Code desde la terminal de Windows (CMD), considerando que mi carpeta de trabajo es C:y utilizo un archivo .code-workspace.”</p>
+<hr>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🆘 Mesa de Ayuda: ¿No sale el resultado?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si al ejecutar el código la terminal se queda en blanco o te da un error, revisa estos tres puntos clave:</p>
+<ol type="1">
+<li><strong>El nombre de la base:</strong> Asegúrate de que el archivo <code>.sav</code> o <code>.xlsx</code> esté realmente en la carpeta <code>data/input/</code>. Si el nombre tiene un error de ortografía, Python no lo encontrará.</li>
+<li><strong>El entorno activo:</strong> Verifica que en la terminal de VS Code veas el prefijo <strong>(venv)</strong>. Si no está, las librerías como Pandas no funcionarán.</li>
+<li><strong>Las comillas y paréntesis:</strong> Recuerda que los textos siempre van entre comillas <code>' '</code> y las acciones (métodos) siempre terminan en <code>()</code>.</li>
+</ol>
+</div>
 </div>
 <hr>
 </section>
-</section>
-<section id="apertura-de-la-base-sav" class="level2">
-<h2 class="anchored" data-anchor-id="apertura-de-la-base-sav">2. Apertura de la base SAV</h2>
-<p>Para trabajar con datos provenientes de software estadístico, utilizaremos el formato ‘.sav’ (SPSS). En Python, la herramienta estándar es <strong>Pandas</strong>, pero para leer estos archivos necesita un motor especializado llamado ‘pyreadstat’.</p>
-<section id="gestión-del-entorno-virtual-venv" class="level3">
-<h3 class="anchored" data-anchor-id="gestión-del-entorno-virtual-venv">2.1 Gestión del Entorno Virtual (venv)</h3>
-<p>Para asegurar que nuestro proyecto sea estable, instalaremos todas las librerías exclusivamente dentro de ’C:'. Este entorno es una copia aislada de Python que no afectará al resto del sistema.</p>
+<section id="cargamos-una-base-de-ejemplo-excel" class="level3">
+<h3 class="anchored" data-anchor-id="cargamos-una-base-de-ejemplo-excel">1.1 Cargamos una base de ejemplo Excel</h3>
+<p>Es una digresión, solo para ver las similitudes:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/vista_excel1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Vista del Excel</figcaption>
+</figure>
+</div>
+<div class="monitor-box">
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- INSTALACIÓN DEL MOTOR PARA EXCEL ---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Desde la terminal (con el venv activo):</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># pip install openpyxl</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># --- CARGA DE BASE DESDE EXCEL ---</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Definición de ruta</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>ruta_excel <span class="op">=</span> <span class="vs">r'c:\CursoPandas\data\input\base_excel_ejemplo1.xlsx'</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Carga de datos especificando el motor (engine)</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>df_excel <span class="op">=</span> pd.read_excel(ruta_excel, engine<span class="op">=</span><span class="st">'openpyxl'</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspección inicial</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Comando: df_excel.head()"</span>)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_excel.head())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Regla de Oro
+Librerías invisibles: Los “Motores” de Pandas
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Nunca ejecutes ‘pip install’ sin verificar que el entorno virtual está activo. Sabrás que está activo porque verás el prefijo <strong>(venv)</strong> al principio de la línea de comandos.</p>
+<p>Es fundamental entender que <code>import pandas</code> nos da las funciones de análisis, pero Pandas delega la lectura de archivos específicos a otros “especialistas” o motores que debemos instalar en nuestro <code>venv</code>:</p>
+<ol type="1">
+<li><strong>Para archivos .sav (SPSS):</strong> El especialista es <strong>pyreadstat</strong>.</li>
+<li><strong>Para archivos .xlsx (Excel):</strong> El especialista es <strong>openpyxl</strong>.</li>
+<li><strong>Para archivos .csv:</strong> No requiere motor externo, Pandas lo lee de forma nativa.</li>
+</ol>
+<p>Sin estos motores instalados, los comandos <code>read_spss</code> o <code>read_excel</code> devolverán un error de sistema.</p>
 </div>
 </div>
+<hr>
+</section>
+</section>
+<section id="comandos-de-inspección-qué-tenemos-en-la-base" class="level2">
+<h2 class="anchored" data-anchor-id="comandos-de-inspección-qué-tenemos-en-la-base">2. Comandos de Inspección: ¿Qué tenemos en la base?</h2>
+<p>Antes de operar, debemos “mirar” la base para conocer la naturaleza de nuestras columnas y el tipo de dato que almacenan.</p>
 <div class="monitor-box">
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- GESTIÓN DE ENTORNO VIRTUAL ---</span></span>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Asegurarse de estar en la carpeta del curso</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>cd C:\CursoPandas</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Definición de ruta con Raw String (r)</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>ruta <span class="op">=</span> <span class="vs">r'c:\CursoPandas\data\input\24Q4_INDIVIDUOS.sav'</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Activar el entorno virtual (Sintaxis CMD)</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>venv\Scripts\activate</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Carga de datos utilizando el motor instalado</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_spss(ruta)</span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Actualizar el gestor de paquetes</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>python <span class="op">-</span>m pip install <span class="op">--</span>upgrade pip</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># --- INSPECCIÓN INICIAL ---</span></span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Instalar dependencias necesarias</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>pip install pandas pyreadstat</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Diagnóstico de columnas y tipos de datos</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Comando: df.info()"</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.info()) </span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Dimensiones de la tabla (Filas, Columnas)</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Comando: df.shape"</span>)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.shape)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -358,103 +370,323 @@ Lo que estamos haciendo
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li><strong>Activación:</strong> Al ejecutar el script ‘activate’, le decimos a la computadora que use el Python que está dentro de nuestra carpeta ‘venv’.</li>
-<li><strong>Actualización:</strong> Ponemos al día ‘pip’ (el instalador) para evitar errores de compatibilidad.</li>
-<li><strong>Instalación:</strong> Descargamos e instalamos ‘pandas’ (para tablas) y ‘pyreadstat’ (para archivos de SPSS).</li>
+<li><strong>Diagnóstico Estructural:</strong> <code>df.info()</code> nos dice cuántos datos no nulos tenemos y el tipo técnico (Dtype). Es vital para saber si la “Edad” es un número o un texto.</li>
+<li><strong>Tamaño del objeto:</strong> <code>df.shape</code> nos devuelve dos números. El primero es la cantidad de registros y el segundo la cantidad de variables.</li>
 </ol>
-</div>
-</div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-¿Qué es pip?
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>pip</strong> (Pip Installs Packages) es el gestor de paquetes de Python. Nos permite descargar librerías adicionales desde el repositorio oficial (PyPI). Al usarlo dentro de nuestro ‘venv’, las librerías quedan disponibles únicamente para este proyecto.</p>
 </div>
 </div>
 <hr>
 </section>
-</section>
-<section id="ingesta-de-datos-con-intérprete-vinculado" class="level2">
-<h2 class="anchored" data-anchor-id="ingesta-de-datos-con-intérprete-vinculado">3. Ingesta de Datos con Intérprete Vinculado</h2>
-<p>Al usar el archivo ‘.code-workspace’, VS Code detecta automáticamente nuestro entorno en ’C:'. Ahora podemos ejecutar nuestro script de carga.</p>
+<section id="análisis-de-variables-específicas" class="level2">
+<h2 class="anchored" data-anchor-id="análisis-de-variables-específicas">3. Análisis de Variables Específicas</h2>
+<p>Nos enfocaremos en dos variables clave de la EPH: <strong>‘CH06’</strong> (Edad) y <strong>‘CH04’</strong> (Sexo).</p>
 <div class="monitor-box">
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- CARGA DE BASE EPH ---</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Definición de ruta con Raw String (r)</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>ruta <span class="op">=</span> <span class="vs">r'c:\CursoPandas\data\input\24Q4_INDIVIDUOS.sav'</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Carga de datos utilizando el motor instalado</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_spss(ruta)</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspección inicial</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- EXPLORANDO VARIABLES ---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Definición de ruta con Raw String (r)</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>ruta <span class="op">=</span> <span class="vs">r'c:\CursoPandas\data\input\24Q4_INDIVIDUOS.sav'</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Carga de datos utilizando el motor instalado</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_spss(ruta)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Valores únicos en edad</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Comando: df['CH06'].unique()"</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">'CH06'</span>].unique())</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Conteo de frecuencias en sexo</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Comando: df['CH04'].value_counts()"</span>)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">'CH04'</span>].value_counts())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<hr>
+</section>
+<section id="ejemplo-de-selección-y-filtrado" class="level2">
+<h2 class="anchored" data-anchor-id="ejemplo-de-selección-y-filtrado">4. Ejemplo de selección y filtrado</h2>
+<p>En muchos sentidos procesar y analizar datos consiste en obtner métricas de un subconjunto de datos. Aqui nuestro ‘query’ de ejemplo.</p>
+<section id="filtrar-por-varones" class="level3">
+<h3 class="anchored" data-anchor-id="filtrar-por-varones">4.1 Filtrar por Varones</h3>
+<p>Queremos ver la edad solo de los varones (‘CH04 == “Varón”’).</p>
+<div class="monitor-box">
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- FILTRO SIMPLE ---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Definición de ruta con Raw String (r)</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>ruta <span class="op">=</span> <span class="vs">r'c:\CursoPandas\data\input\24Q4_INDIVIDUOS.sav'</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Carga de datos utilizando el motor instalado</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_spss(ruta)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionamos filas donde sexo es varón</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>varones <span class="op">=</span> df.query(<span class="st">'CH04 == "Varón"'</span>)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co"># ¿Cuántos varones hay y cuál es su edad promedio?</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Total varones: </span><span class="sc">{</span><span class="bu">len</span>(varones)<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Edad promedio varones: </span><span class="sc">{</span>varones[<span class="st">"CH06"</span>]<span class="sc">.</span>mean()<span class="sc">:.2f}</span><span class="ss">'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+</section>
+<section id="anatomía-de-una-f-string-lenvarones" class="level3">
+<h3 class="anchored" data-anchor-id="anatomía-de-una-f-string-lenvarones">4.2 Anatomía de una f-string: {len(varones)}</h3>
+<p>Esta línea de código es un ejemplo fundamental de cómo Python comunica resultados numéricos mediante texto legible. En programación, esto se denomina <strong>f-string</strong> (Formatted String Literal).</p>
+<div class="monitor-box">
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># La 'f' antes de las comillas activa el modo interactivo</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Total varones: </span><span class="sc">{</span><span class="bu">len</span>(varones)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="desglose-del-comando" class="level2">
+<h2 class="anchored" data-anchor-id="desglose-del-comando">Desglose del comando:</h2>
+<ol type="1">
+<li><strong>La letra <code>f</code></strong>: Al anteponer una <code>f</code> a las comillas, le indicamos a Python que el texto contendrá “agujeros” (llaves <code>{}</code>) que deben ser rellenados con valores calculados en tiempo real.</li>
+<li><strong>Las llaves <code>{ }</code></strong>: Todo lo que escribamos dentro de las llaves será ejecutado como código vivo antes de mostrarse en pantalla.</li>
+<li><strong>La función <code>len()</code></strong>: Es la abreviatura de <em>length</em> (longitud). Cuando se aplica a un DataFrame de Pandas (como nuestro objeto <code>varones</code>), su función es <strong>contar la cantidad total de filas</strong> que sobrevivieron al filtro.</li>
+</ol>
+<hr>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Lo que estamos haciendo
+De dato a información
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ol type="1">
-<li><strong>Importación:</strong> Cargamos la librería bajo el apodo ‘pd’.</li>
-<li><strong>Ruta Cruda:</strong> Usamos el prefijo ‘r’ en la ruta para que Python no se confunda con las barras ’' de Windows.</li>
-<li><strong>Lectura:</strong> El comando ‘read_spss’ busca el archivo y lo transforma en un <strong>DataFrame</strong> llamado ‘df’.</li>
-<li><strong>Verificación:</strong> ‘.head()’ nos muestra las primeras 5 filas para confirmar que todo se ve bien.</li>
-</ol>
+<p>Si ejecutáramos simplemente <code>print(len(varones))</code>, la terminal nos devolvería un número suelto (ej: <code>8420</code>). Para un analista, ese dato carece de contexto. Al usar la f-string, transformamos un valor crudo en <strong>información interpretable</strong>: “Total varones: 8420”.</p>
 </div>
 </div>
-<section id="análisis-técnico" class="level3">
-<h3 class="anchored" data-anchor-id="análisis-técnico">3.1 Análisis Técnico</h3>
-<ol type="1">
-<li><strong>Importación (‘import pandas as pd’):</strong> Cargamos Pandas con el alias estándar ‘pd’.</li>
-<li><strong>Rutas con “Raw Strings”:</strong> El prefijo <strong>‘r’</strong> antes de las comillas indica que es un texto “crudo”, evitando errores con las barras invertidas en Windows.</li>
-<li><strong>Ingesta mediante motor externo:</strong> Utilizamos la librería ‘pyreadstat’ instalada en nuestro venv.</li>
-<li><strong>Inspección de Integridad:</strong> ‘.head()’ nos devuelve las primeras 5 filas para confirmar la carga exitosa en la RAM.</li>
-</ol>
+<hr>
+<div class="gray-italic-box">
+<p><strong>Zona de Prompting:</strong> “Actúa como experto en Python. Explícame la diferencia técnica entre usar <strong>len(df)</strong> y <strong>df.shape[0]</strong> para contar registros en un DataFrame de Pandas. ¿Cuál es más eficiente cuando trabajamos con bases de datos de gran volumen como la EPH?”</p>
+</div>
+</section>
+<section id="estructura-de-datos-dtypes-y-niveles-de-medición" class="level2">
+<h2 class="anchored" data-anchor-id="estructura-de-datos-dtypes-y-niveles-de-medición">5. Estructura de Datos: dtypes y Niveles de Medición</h2>
+<p>En el análisis con Pandas, la naturaleza técnica del dato determina las operaciones permitidas. No basta con “ver” un número; es necesario que el intérprete lo reconozca bajo un tipo de dato (Dtype) específico para evitar errores de tipo (TypeError).</p>
+<table class="table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Concepto Estadístico</th>
+<th style="text-align: left;">Tipo en Pandas (Dtype)</th>
+<th style="text-align: left;">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Numérica</strong></td>
+<td style="text-align: left;"><code>int64</code> o <code>float64</code></td>
+<td style="text-align: left;">Variables para cálculo matemático (Edad, Ingresos).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Nominal (Texto)</strong></td>
+<td style="text-align: left;"><code>object</code> o <code>string</code></td>
+<td style="text-align: left;">Etiquetas alfanuméricas sin orden intrínseco.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Categorizada</strong></td>
+<td style="text-align: left;"><code>category</code></td>
+<td style="text-align: left;">Variables con valores fijos (Nivel Educativo, Sexo).</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+El tipo ‘category’: Eficiencia y Orden
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El tipo de dato <code>category</code> es una de las funciones potentes de Pandas. A diferencia del tipo <code>object</code>, permite definir un <strong>orden lógico</strong> (por ejemplo: Primario &lt; Secundario &lt; Universitario), vital para el análisis de variables ordinales.</p>
+</div>
+</div>
+<div class="monitor-box">
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- DIAGNÓSTICO DE TIPOS ---</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Definición de ruta con Raw String (r)</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>ruta <span class="op">=</span> <span class="vs">r'c:\CursoPandas\data\input\24Q4_INDIVIDUOS.sav'</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Carga de datos utilizando el motor instalado</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_spss(ruta)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificamos la estructura técnica de las primeras 15 columnas</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Resumen de Tipos de Datos (Dtypes):"</span>)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.dtypes.head(<span class="dv">15</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+</section>
+<section id="el-ciclo-de-datos-completo-carga-filtro-y-exportación" class="level2">
+<h2 class="anchored" data-anchor-id="el-ciclo-de-datos-completo-carga-filtro-y-exportación">6. El Ciclo de Datos Completo: Carga, Filtro y Exportación</h2>
+<p>Es habitual usar Excel como un “visualizador de resultados”. Permite “ver” y compartir de forma sencilla. En este ejemplo realizamos el proceso completo: extraemos de SPSS, aislamos una subpoblación y generamos un reporte.</p>
+<div class="monitor-box">
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- PROCESO AUTÓNOMO DE EXPORTACIÓN ---</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. DEFINICIÓN DE RUTAS</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>ruta_entrada <span class="op">=</span> <span class="vs">r'c:\CursoPandas\data\input\24Q4_INDIVIDUOS.sav'</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>ruta_salida <span class="op">=</span> <span class="vs">r'c:\CursoPandas\data\output\eph_varones_filtrados.xlsx'</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. CARGA DE DATOS</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Leyendo base original..."</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_spss(ruta_entrada)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. PROCESAMIENTO (Consulta)</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtramos varones (CH04) con ingresos positivos (P21 &gt; 0)</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>consulta_ejemplo <span class="op">=</span> <span class="st">'CH04 == "Varón" and P21 &gt; 0'</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>df_resultado <span class="op">=</span> df.query(consulta_ejemplo)</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. EXPORTACIÓN</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>df_resultado.to_excel(ruta_salida, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-"</span> <span class="op">*</span> <span class="dv">30</span>)</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Proceso finalizado con éxito."</span>)</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Registros procesados: </span><span class="sc">{</span><span class="bu">len</span>(df_resultado)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Archivo disponible en: </span><span class="sc">{</span>ruta_salida<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/salida_excel_1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Nuestro Excel</figcaption>
+</figure>
+</div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Buenas Prácticas de Archivos
+El parámetro index=False
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Es fundamental que los nombres de archivos <strong>no contengan espacios</strong>. Se recomienda usar guion bajo (’_’) y evitar caracteres especiales.</p>
+<p>Por defecto, Pandas intenta guardar una columna extra con los números de fila. Al usar <code>index=False</code>, nos aseguramos de que el Excel sea una réplica exacta de nuestras variables.</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<hr>
+</section>
+<section id="representación-gráfica-de-la-frecuencia-al-histograma" class="level2">
+<h2 class="anchored" data-anchor-id="representación-gráfica-de-la-frecuencia-al-histograma">7. Representación Gráfica: De la Frecuencia al Histograma</h2>
+<p>La visualización es una herramienta de diagnóstico. Pandas utiliza internamente la librería <strong>Matplotlib</strong> para generar gráficos directamente desde los objetos.</p>
+<section id="preparación-del-entorno" class="level3">
+<h3 class="anchored" data-anchor-id="preparación-del-entorno">7.1 Preparación del Entorno</h3>
+<p>Instalamos la librería (solo la primera vez) desde la terminal de VS Code:</p>
+<div class="monitor-box">
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Con el (venv) activo:</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install matplotlib</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout-title-container flex-fill">
-El Objeto DataFrame
+</section>
+<section id="ejecución-del-gráfico-de-frecuencias" class="level3">
+<h3 class="anchored" data-anchor-id="ejecución-del-gráfico-de-frecuencias">7.2 Ejecución del Gráfico de Frecuencias</h3>
+<p>Transformaremos el conteo de la variable <code>CH04</code> (Sexo) en un gráfico de barras.</p>
+<div class="monitor-box">
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- VISUALIZACIÓN EXPLORATORIA ---</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># DEFINICIÓN DE RUTAS</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>ruta_entrada <span class="op">=</span> <span class="vs">r'c:\CursoPandas\data\input\24Q4_INDIVIDUOS.sav'</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>carpeta_output <span class="op">=</span> <span class="vs">r'c:\CursoPandas\data\output'</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>os.makedirs(carpeta_output, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co"># CARGA Y PROCESO</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_spss(ruta_entrada)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>conteo_sexo <span class="op">=</span> df[<span class="st">'CH04'</span>].value_counts()</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co"># GENERACIÓN Y GUARDADO DEL GRÁFICO</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>conteo_sexo.plot(kind<span class="op">=</span><span class="st">'bar'</span>, </span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>                 title<span class="op">=</span><span class="st">'Distribución por Sexo - EPH'</span>, </span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>                 color<span class="op">=</span>[<span class="st">'skyblue'</span>, <span class="st">'salmon'</span>])</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>ruta_grafico <span class="op">=</span> os.path.join(carpeta_output, <span class="st">'grafico_sexo.png'</span>)</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>plt.savefig(ruta_grafico)</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Gráfico exportado con éxito en: </span><span class="sc">{</span>ruta_grafico<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Cuando asignamos la carga a ‘df’, creamos un <strong>DataFrame</strong>. Es una estructura bidimensional optimizada para procesar grandes volúmenes de información que superan las capacidades de una planilla de cálculo tradicional.</p>
-</div>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="imagenes/grafico_sexo.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Nuestro Grafico de ejemplo</figcaption>
+</figure>
 </div>
 <div class="gray-italic-box">
-<p><strong>Zona de Prompting:</strong> “Actúa como experto en Pandas. Explícame técnicamente qué es un DataFrame, con ejemplos, estoy usando VSC y Windows”</p>
+<p><strong>Zona de Prompting:</strong> “Actúa como experto en arquitectura de datos. Explícame la relación técnica entre Pandas y Matplotlib. ¿Por qué es necesario instalar Matplotlib por separado si el comando .plot() pertenece a Pandas?”</p>
 </div>
-
-
+<hr>
 </section>
+</section>
+<section id="resumen-de-herramientas-utilizadas" class="level1">
+<h1>8. Resumen de Herramientas Utilizadas</h1>
+<p>En esta sesión hemos integrado funciones de lectura, inspección, filtrado y salida. Este es el “kit de supervivencia” básico para cualquier analista de datos sociales:</p>
+<table class="table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Comando / Librería</th>
+<th style="text-align: left;">Función Principal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>pd.read_spss()</strong></td>
+<td style="text-align: left;">Traduce el formato cerrado de SPSS a un DataFrame de Python.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>pd.read_excel()</strong></td>
+<td style="text-align: left;">Carga planillas de cálculo tradicionales vinculando el motor <code>openpyxl</code>.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>df.info()</strong></td>
+<td style="text-align: left;">Provee un diagnóstico de integridad (datos no nulos) y memoria.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>df.dtypes</strong></td>
+<td style="text-align: left;">Revela la naturaleza técnica (Dtype) de cada columna de la base.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>df.shape</strong></td>
+<td style="text-align: left;">Devuelve las dimensiones de la tabla (cantidad de casos y variables).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>df.unique()</strong></td>
+<td style="text-align: left;">Lista los valores sin repetir de una columna (ideal para ver categorías).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>df.value_counts()</strong></td>
+<td style="text-align: left;">Genera una tabla de frecuencias de una variable nominal u ordinal.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>df.query()</strong></td>
+<td style="text-align: left;">Ejecuta segmentaciones de la base mediante condiciones lógicas.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>df.to_excel()</strong></td>
+<td style="text-align: left;">Exporta los resultados procesados a un archivo externo compatible.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>plt.savefig()</strong></td>
+<td style="text-align: left;">Captura la visualización activa y la persiste como un archivo de imagen.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+
+
 </section>
 
 </main> <!-- /main -->

@@ -157,13 +157,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./clase_02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Clase 02: Comenzamos a trabajar</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./clase_03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Clase 03: Exploración Progresiva con Pandas</span></a>
+ <span class="menu-text">Clase 02: Primeros comandos con Python + Pandas</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -198,8 +192,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#instalando-las-herramientas-de-datos" id="toc-instalando-las-herramientas-de-datos" class="nav-link" data-scroll-target="#instalando-las-herramientas-de-datos">4. Instalando las herramientas de datos</a></li>
   <li><a href="#el-archivo-code-workspace-cursopandas.code-workspace" id="toc-el-archivo-code-workspace-cursopandas.code-workspace" class="nav-link" data-scroll-target="#el-archivo-code-workspace-cursopandas.code-workspace">5. El archivo code-workspace: <code>CursoPandas.code-workspace</code></a>
   <ul class="collapse">
-  <li><a href="#el-venv-rebelde" id="toc-el-venv-rebelde" class="nav-link" data-scroll-target="#el-venv-rebelde">5.1 El <code>(venv)</code> Rebelde</a></li>
-  <li><a href="#la-burbuja-muy-rebelde" id="toc-la-burbuja-muy-rebelde" class="nav-link" data-scroll-target="#la-burbuja-muy-rebelde">5.2 La burbuja MUY rebelde</a></li>
+  <li><a href="#apertura-desde-la-terminal-cmd" id="toc-apertura-desde-la-terminal-cmd" class="nav-link" data-scroll-target="#apertura-desde-la-terminal-cmd">5.1 Apertura desde la Terminal (CMD)</a></li>
+  <li><a href="#el-venv-rebelde" id="toc-el-venv-rebelde" class="nav-link" data-scroll-target="#el-venv-rebelde">5.2 El <code>(venv)</code> Rebelde</a></li>
+  <li><a href="#la-burbuja-muy-rebelde" id="toc-la-burbuja-muy-rebelde" class="nav-link" data-scroll-target="#la-burbuja-muy-rebelde">5.3 La burbuja MUY rebelde</a></li>
   </ul></li>
   <li><a href="#verificación-final-de-librerías" id="toc-verificación-final-de-librerías" class="nav-link" data-scroll-target="#verificación-final-de-librerías">6. Verificación Final de Librerías</a></li>
   <li><a href="#formas-de-ejecutar-nuestro-script-test.py" id="toc-formas-de-ejecutar-nuestro-script-test.py" class="nav-link" data-scroll-target="#formas-de-ejecutar-nuestro-script-test.py">7. Formas de ejecutar nuestro script “test.py”</a>
@@ -248,12 +243,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Este es un material “vivo” que se ajusta y modifica según las necesidades. La tecnología nos permite esta ventaja con poco esfuerzo: revisar, modificar y publicar en una misma acción. ¡Bienvenida/o a este sitio!</p>
 <p>Todas las instrucciones y los links fueron probados. En caso de algún fallo, puede deberse a una errata y/o a un cambio posterior a la creación de este material; en ese caso, se agradecerá reportar el evento a <code>eduardo.lencina@gmail.com</code> para su evaluación y/o corrección.</p>
 <hr>
-<section id="el-editor-visual-studio-code-vsc" class="level1">
-<h1>1. El Editor: Visual Studio Code (VSC)</h1>
+<section id="el-editor-visual-studio-code-vsc" class="level2">
+<h2 class="anchored" data-anchor-id="el-editor-visual-studio-code-vsc">1. El Editor: Visual Studio Code (VSC)</h2>
 <p>El editor es nuestro lienzo de trabajo. Allí escribiremos código o copiaremos y pegaremos el código que le hayamos solicitado a la IA. Elegimos VSC porque es el estándar de la industria y el que se ajusta a los objetivos de establecer con solidez un pipeline de trabajo. Existen otras herramientas populares para aprender o enseñar, como <code>Jupyter Notebook</code> —YouTube está lleno de tutoriales donde los ejemplos se desarrollan allí— pero, a juicio de este curso, eso dificulta dar el salto a un <em>pipeline</em> profesional.</p>
 <p>VSC no es tan vistoso al principio ni es tan fácil para dar los primeros pasos, pero en cambio, cuando se dominan media docena de comandos de entorno y de conceptos, estamos listos para lo que viene en el mundo real del análisis y procesamiento de datos.</p>
-<section id="instalación-y-extensiones" class="level2">
-<h2 class="anchored" data-anchor-id="instalación-y-extensiones">1.1 Instalación y Extensiones</h2>
+<section id="instalación-y-extensiones" class="level3">
+<h3 class="anchored" data-anchor-id="instalación-y-extensiones">1.1 Instalación y Extensiones</h3>
 <ol type="1">
 <li><p>Descargá el instalador para Windows en <a href="https://code.visualstudio.com/download/">code.visualstudio.com</a>.</p></li>
 <li><p>Una vez instalado, ve al icono de cuadrados en la barra lateral izquierda (<strong>Extensions</strong>).</p></li>
@@ -283,11 +278,11 @@ Una buena idea es…
 <hr>
 </section>
 </section>
-<section id="el-motor-python-3.x" class="level1">
-<h1>2. El Motor: Python 3.x</h1>
+<section id="el-motor-python-3.x" class="level2">
+<h2 class="anchored" data-anchor-id="el-motor-python-3.x">2. El Motor: Python 3.x</h2>
 <p>Python es el lenguaje, pero para que tu computadora lo “hable”, necesitas instalar el <strong>Intérprete</strong> contenido en el instalador: <code>python-3.13.x-amd64.exe</code> (Windows installer 64-bit).</p>
-<section id="pasos-críticos-para-una-instalación-exitosa" class="level2">
-<h2 class="anchored" data-anchor-id="pasos-críticos-para-una-instalación-exitosa">2.1 Pasos críticos para una instalación exitosa</h2>
+<section id="pasos-críticos-para-una-instalación-exitosa" class="level3">
+<h3 class="anchored" data-anchor-id="pasos-críticos-para-una-instalación-exitosa">2.1 Pasos críticos para una instalación exitosa</h3>
 <ol type="1">
 <li><strong>Descarga:</strong> Ve a <a href="https://www.python.org/downloads/windows/">python.org</a> y busca el link <code>Download Windows installer (64-bit)</code>. Este es el recomendado porque instala Python y el gestor de paquetes <code>pip</code>.</li>
 <li><strong>La Pantalla de Configuración (Punto Crítico):</strong> Ejecuta el archivo descargado. <strong>¡ALTO! No hagas clic en “Install Now” todavía.</strong> Debes marcar estas casillas en la parte inferior:
@@ -306,8 +301,8 @@ Una buena idea es…
 <li><strong>El paso final: “Disable path length limit”:</strong> Al terminar la barra de progreso, aparecerá una pantalla de éxito. Haz clic en el enlace que dice <strong>“Disable path length limit”</strong>. Esto elimina la restricción de 260 caracteres en Windows, evitando errores de rutas largas.</li>
 </ol>
 </section>
-<section id="verificando-la-instalación" class="level2">
-<h2 class="anchored" data-anchor-id="verificando-la-instalación">2.2 Verificando la instalación</h2>
+<section id="verificando-la-instalación" class="level3">
+<h3 class="anchored" data-anchor-id="verificando-la-instalación">2.2 Verificando la instalación</h3>
 <p>Vamos a ir a la terminal <code>cmd</code>. Vamos a trabajar mucho con la terminal; para desplazarnos dentro de ella debemos aprender algunos comandos. Le podemos pedir a la IA una lista, es muy pequeña.</p>
 <div class="monitor-box">
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Abre la terminal (Windows + R, escribe 'cmd' y presiona Enter):</span></span>
@@ -319,13 +314,13 @@ Una buena idea es…
 <hr>
 </section>
 </section>
-<section id="preparando-el-laboratorio-entorno-virtual" class="level1">
-<h1>3. Preparando el laboratorio: Entorno Virtual</h1>
+<section id="preparando-el-laboratorio-entorno-virtual" class="level2">
+<h2 class="anchored" data-anchor-id="preparando-el-laboratorio-entorno-virtual">3. Preparando el laboratorio: Entorno Virtual</h2>
 <p>El siguiente paso es instalar el entorno virtual, que no es otra cosa que una modalidad utilizada para crear una “burbuja” de software para un objetivo específico. En nuestro caso, vamos a instalar un <strong>Entorno Virtual</strong> para análisis de datos.</p>
 <p>El estilo que recomendamos es tener un solo <strong>Entorno Virtual</strong> centralizado en una carpeta de nuestra computadora. Cuidado aquí, porque la IA siempre nos lleva al concepto de “un proyecto, un entorno virtual”, y es el punto donde tenemos que aclararle que nuestra preferencia es tener uno solo centralizado en la carpeta del curso. De esa forma, nosotros dirigimos lo que necesitamos a la IA y no al revés.</p>
 <p>Es hora de crear nuestra carpeta en el sitio <code>C:\CursoPandas</code>. Es muy importante la ruta y el nombre, porque nuestra configuración recomendada se basa en que tengamos dicha carpeta. Más adelante podrán contar con otras carpetas y otros nombres de proyectos en paralelo.</p>
-<section id="comandos-para-armar-el-laboratorio" class="level2">
-<h2 class="anchored" data-anchor-id="comandos-para-armar-el-laboratorio">3.1 Comandos para armar el laboratorio</h2>
+<section id="comandos-para-armar-el-laboratorio" class="level3">
+<h3 class="anchored" data-anchor-id="comandos-para-armar-el-laboratorio">3.1 Comandos para armar el laboratorio</h3>
 <p>Abrí la terminal en VS Code (<code>Terminal -&gt; New Terminal</code>) y ejecutá estos comandos en orden:</p>
 <div class="monitor-box">
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Creamos la carpeta (si no la creaste antes manualmente)</span></span>
@@ -362,8 +357,8 @@ Lo que estamos haciendo
 <hr>
 </section>
 </section>
-<section id="instalando-las-herramientas-de-datos" class="level1">
-<h1>4. Instalando las herramientas de datos</h1>
+<section id="instalando-las-herramientas-de-datos" class="level2">
+<h2 class="anchored" data-anchor-id="instalando-las-herramientas-de-datos">4. Instalando las herramientas de datos</h2>
 <p>Con el entorno activo <code>(venv) C:\CursoPandas&gt;</code>, instalaremos Pandas y los motores necesarios.</p>
 <div class="monitor-box">
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Actualizamos el instalador de paquetes</span></span>
@@ -399,8 +394,8 @@ Lo que estamos haciendo
 </div>
 <hr>
 </section>
-<section id="el-archivo-code-workspace-cursopandas.code-workspace" class="level1">
-<h1>5. El archivo code-workspace: <code>CursoPandas.code-workspace</code></h1>
+<section id="el-archivo-code-workspace-cursopandas.code-workspace" class="level2">
+<h2 class="anchored" data-anchor-id="el-archivo-code-workspace-cursopandas.code-workspace">5. El archivo code-workspace: <code>CursoPandas.code-workspace</code></h2>
 <p>Crea un archivo de texto en <code>C:\CursoPandas</code> llamado <code>CursoPandas.code-workspace</code> y pega este código exactamente así. ¡Cuidado con la extensión! El nombre podrá ser cualquiera, pero la extensión <code>.code-workspace</code> es <strong>MUY IMPORTANTE</strong> para que VSC la reconozca como un archivo de configuración.</p>
 <div class="monitor-box">
 <div class="sourceCode" id="cb4"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
@@ -449,22 +444,94 @@ Lo que estamos haciendo
 </div>
 </div>
 <hr>
-<section id="el-venv-rebelde" class="level2">
-<h2 class="anchored" data-anchor-id="el-venv-rebelde">5.1 El <code>(venv)</code> Rebelde</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🆘 Mesa de Ayuda:
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El archivo <code>.code-workspace</code> es un archivo de extensión JSON de configuración y es un poco “tiquismiquis” con las sangrias y los espacios. Una buena practica es pedirl a la IA que ajuste el archivo <code>.code-workspace</code> por nosotros.</p>
+</div>
+</div>
+<hr>
+<div class="gray-italic-box">
+<p><strong>Zona de Prompting:</strong> “Actúa como experto en Windows y Visual Studio Code. Genera el contenido para un archivo <code>ProyectoPandas.code-workspace</code>. Mi carpeta de proyecto es <code>C:\CursoPandas</code> y mi entorno virtual está en <code>C:\CursoPandas\venv\</code>. Asegúrate de que el <code>python.defaultInterpreterPath</code> apunte correctamente a <code>Scripts/python.exe</code> y que el terminal reconozca el venv automáticamente al abrir el espacio de trabajo. Devuélveme el código en formato JSON.”</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🆘 Mesa de Ayuda: El Workspace no reconoce mi venv
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si después de usar el prompt y crear el archivo, VS Code no activa el entorno automáticamente:</p>
+<ol type="1">
+<li><strong>Cierra y abre:</strong> VS Code a veces necesita un “reinicio” para leer los cambios del workspace.</li>
+<li><strong>Selección Manual:</strong> Presiona <code>Ctrl + Shift + P</code>, busca “Python: Select Interpreter” y elige el que está dentro de la carpeta <code>venv</code>.</li>
+<li><strong>Rutas:</strong> Verifica que en el archivo no haya quedado ninguna barra invertida simple (<code>\</code>). En los archivos de configuración de VS Code, se deben usar barras inclinadas (<code>/</code>) o doble barra (<code>\\</code>).</li>
+</ol>
+</div>
+</div>
+<section id="apertura-desde-la-terminal-cmd" class="level3">
+<h3 class="anchored" data-anchor-id="apertura-desde-la-terminal-cmd">5.1 Apertura desde la Terminal (CMD)</h3>
+<p>Lanzar el archivo ‘ProyectoPandas.code-workspace’ desde la terminal es el método más avanzado: carga configuraciones específicas y rutas predefinidas de un solo golpe.</p>
+<p><strong>Instrucciones:</strong> Abrir la terminal (<strong>Tecla Win + R</strong>, escribir ‘cmd’ y <strong>Enter</strong>).</p>
+<div class="monitor-box">
+<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- TERMINAL DE WINDOWS (CMD) ---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Navegar a la raíz del disco C:</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>cd <span class="op">\</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Entrar a la carpeta del proyecto</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>cd C:\CursoPandas</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Lanzar el Workspace de Visual Studio Code</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>code CursoPandas.code<span class="op">-</span>workspace</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lo que estamos haciendo
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><strong>Navegación:</strong> Usamos ‘cd ' para ir a la base del disco y luego ’cd C:’ para entrar en nuestra carpeta de trabajo.</li>
+<li><strong>Lanzamiento:</strong> El comando ‘code’ abre VS Code, y al pasarle el nombre del archivo ‘.code-workspace’, el editor se abre con todas nuestras preferencias ya cargadas.</li>
+</ol>
+</div>
+</div>
+<div class="gray-italic-box">
+<p><strong>Zona de Prompting:</strong> “Actúa como experto en Windows y Ciencia de Datos. Explícame el paso a paso para ingresar a mi proyecto en Visual Studio Code desde la terminal de Windows (CMD), considerando que mi carpeta de trabajo es C:y utilizo un archivo .code-workspace.”</p>
+</div>
+<hr>
+</section>
+<section id="el-venv-rebelde" class="level3">
+<h3 class="anchored" data-anchor-id="el-venv-rebelde">5.2 El <code>(venv)</code> Rebelde</h3>
 <p>En la instalación, el <code>(venv)</code> puede negarse a estar activo desde la primera vez. Es algo con lo que debemos convivir.</p>
 <p><strong>El paso manual:</strong> 1. Presiona <strong>Ctrl + Shift + P</strong>. 2. Escribe: <strong>Python: Select Interpreter</strong>. 3. Selecciona la opción. Verás una lista de los Python encontrados. 4. Si no ves el de <code>C:\CursoPandas\venv</code>, haz clic en <strong>+ Enter interpreter path…</strong>. 5. Haz clic en <strong>Find…</strong> y selecciona el ejecutable en: <code>C:\CursoPandas\venv\Scripts\python.exe</code>.</p>
 <p><strong>Otra buena práctica:</strong> &amp; 1. Presiona <strong>Ctrl + Shift + P</strong>. 2. Escribe: <strong>Recargar ventana</strong>. Esto fuerza a VSC a leer nuevamente el workspace.</p>
 </section>
-<section id="la-burbuja-muy-rebelde" class="level2">
-<h2 class="anchored" data-anchor-id="la-burbuja-muy-rebelde">5.2 La burbuja MUY rebelde</h2>
+<section id="la-burbuja-muy-rebelde" class="level3">
+<h3 class="anchored" data-anchor-id="la-burbuja-muy-rebelde">5.3 La burbuja MUY rebelde</h3>
 <p>Si sigue sin activarse, siempre podemos hacerlo manualmente en la terminal:</p>
 <div class="monitor-box">
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Presiona Ctrl + ñ. </span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Asegúrate de estar en la ruta (si no, usa cd):</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>cd C:\CursoPandas</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Activamos manualmente:</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>.\venv\Scripts\activate</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Presiona Ctrl + ñ. </span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Asegúrate de estar en la ruta (si no, usa cd):</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>cd C:\CursoPandas</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Activamos manualmente:</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>.\venv\Scripts\activate</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <hr>
 <div class="gray-italic-box">
@@ -472,32 +539,32 @@ Lo que estamos haciendo
 </div>
 </section>
 </section>
-<section id="verificación-final-de-librerías" class="level1">
-<h1>6. Verificación Final de Librerías</h1>
+<section id="verificación-final-de-librerías" class="level2">
+<h2 class="anchored" data-anchor-id="verificación-final-de-librerías">6. Verificación Final de Librerías</h2>
 <p>Antes de dar por terminada la instalación, vamos a ejecutar un pequeño archivo <code>test.py</code>. Si este código corre sin darnos errores (letras rojas), significa que tu laboratorio está 100% operativo.</p>
 <div class="monitor-box">
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- </span><span class="al">TEST</span><span class="co"> DE SALUD DEL ENTORNO test.py---</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> openpyxl</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyreadstat</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyarrow <span class="im">as</span> pa</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificamos versiones</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Pandas versión: </span><span class="sc">{</span>pd<span class="sc">.</span>__version__<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"PyArrow versión: </span><span class="sc">{</span>pa<span class="sc">.</span>__version__<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Test de funcionamiento de PyArrow</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    tabla_test <span class="op">=</span> pa.Table.from_pandas(pd.DataFrame({<span class="st">'test'</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]}))</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Motor PyArrow: ¡Operativo y Veloz!"</span>)</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Error en PyArrow: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Motores Excel y SPSS: ¡Detectados y Listos!"</span>)</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"--- Configuración Exitosa ---"</span>)</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- </span><span class="al">TEST</span><span class="co"> DE SALUD DEL ENTORNO test.py---</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> openpyxl</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyreadstat</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyarrow <span class="im">as</span> pa</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificamos versiones</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Pandas versión: </span><span class="sc">{</span>pd<span class="sc">.</span>__version__<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"PyArrow versión: </span><span class="sc">{</span>pa<span class="sc">.</span>__version__<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Test de funcionamiento de PyArrow</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    tabla_test <span class="op">=</span> pa.Table.from_pandas(pd.DataFrame({<span class="st">'test'</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]}))</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Motor PyArrow: ¡Operativo y Veloz!"</span>)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Error en PyArrow: </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">Motores Excel y SPSS: ¡Detectados y Listos!"</span>)</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"--- Configuración Exitosa ---"</span>)</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -517,12 +584,12 @@ Lo que estamos haciendo
 </div>
 </div>
 </section>
-<section id="formas-de-ejecutar-nuestro-script-test.py" class="level1">
-<h1>7. Formas de ejecutar nuestro script “test.py”</h1>
+<section id="formas-de-ejecutar-nuestro-script-test.py" class="level2">
+<h2 class="anchored" data-anchor-id="formas-de-ejecutar-nuestro-script-test.py">7. Formas de ejecutar nuestro script “test.py”</h2>
 <p>En VS Code existen tres caminos para “darle Play” a nuestro código. Aprenderlos te dará la velocidad necesaria para trabajar como un profesional.</p>
 <hr>
-<section id="opción-a-el-camino-del-mouse-visual" class="level2">
-<h2 class="anchored" data-anchor-id="opción-a-el-camino-del-mouse-visual">7.1 Opción A: El camino del Mouse (Visual)</h2>
+<section id="opción-a-el-camino-del-mouse-visual" class="level3">
+<h3 class="anchored" data-anchor-id="opción-a-el-camino-del-mouse-visual">7.1 Opción A: El camino del Mouse (Visual)</h3>
 <p>Es la forma más intuitiva al empezar.</p>
 <ul>
 <li><strong>1.</strong> Abre tu archivo <code>test.py</code> en el editor.</li>
@@ -531,8 +598,8 @@ Lo que estamos haciendo
 </ul>
 <hr>
 </section>
-<section id="opción-b-el-atajo-de-teclado-velocidad" class="level2">
-<h2 class="anchored" data-anchor-id="opción-b-el-atajo-de-teclado-velocidad">7.2 Opción B: El Atajo de Teclado (Velocidad)</h2>
+<section id="opción-b-el-atajo-de-teclado-velocidad" class="level3">
+<h3 class="anchored" data-anchor-id="opción-b-el-atajo-de-teclado-velocidad">7.2 Opción B: El Atajo de Teclado (Velocidad)</h3>
 <p>Cuando estés procesando datos, no querrás soltar el teclado. Este es el método que usan los expertos:</p>
 <ul>
 <li><strong>Atajo:</strong> Presiona la tecla <code>Ctrl + F5</code> .</li>
@@ -540,15 +607,15 @@ Lo que estamos haciendo
 </ul>
 <hr>
 </section>
-<section id="opción-c-directo-desde-la-terminal-control-total" class="level2">
-<h2 class="anchored" data-anchor-id="opción-c-directo-desde-la-terminal-control-total">7.3 Opción C: Directo desde la Terminal (Control Total)</h2>
+<section id="opción-c-directo-desde-la-terminal-control-total" class="level3">
+<h3 class="anchored" data-anchor-id="opción-c-directo-desde-la-terminal-control-total">7.3 Opción C: Directo desde la Terminal (Control Total)</h3>
 <p>Esta es la forma más “pura” y la que mejor te permite entender qué está pasando. Aquí tú tienes el mando.</p>
 <div class="monitor-box">
-<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Asegúrate de estar en la carpeta correcta:</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>(venv) C:\CursoPandas<span class="op">&gt;</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Escribe el nombre del intérprete seguido del nombre del archivo:</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>(venv) C:\CursoPandas<span class="op">&gt;</span>python test.py</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Asegúrate de estar en la carpeta correcta:</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>(venv) C:\CursoPandas<span class="op">&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Escribe el nombre del intérprete seguido del nombre del archivo:</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>(venv) C:\CursoPandas<span class="op">&gt;</span>python test.py</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -570,8 +637,8 @@ Lo que estamos haciendo
 <hr>
 </section>
 </section>
-<section id="mesa-de-ayuda-no-pasa-nada-al-ejecutar" class="level1">
-<h1>7.4 Mesa de Ayuda: “No pasa nada al ejecutar”</h1>
+<section id="mesa-de-ayuda-no-pasa-nada-al-ejecutar" class="level2">
+<h2 class="anchored" data-anchor-id="mesa-de-ayuda-no-pasa-nada-al-ejecutar">7.4 Mesa de Ayuda: “No pasa nada al ejecutar”</h2>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -593,8 +660,8 @@ Lo que estamos haciendo
 <div class="gray-italic-box">
 <p><strong>Zona de Prompting:</strong> “Actúa como experto en productividad en Visual Studio Code. Enséñame otros atajos de teclado útiles para manejar la terminal integrada (abrir, cerrar, limpiar) que me ayuden a trabajar más rápido con mis scripts de Python.”</p>
 </div>
-<section id="como-debería-verse-una-vez-ejecutado-test.py" class="level2">
-<h2 class="anchored" data-anchor-id="como-debería-verse-una-vez-ejecutado-test.py">7.5 Como debería verse una vez ejecutado <code>test.py</code> :</h2>
+<section id="como-debería-verse-una-vez-ejecutado-test.py" class="level3">
+<h3 class="anchored" data-anchor-id="como-debería-verse-una-vez-ejecutado-test.py">7.5 Como debería verse una vez ejecutado <code>test.py</code> :</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="imagenes/librerias_instaladas.png" class="img-fluid figure-img"></p>

@@ -157,13 +157,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./clase_02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Clase 02: Comenzamos a trabajar</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./clase_03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Clase 03: Exploración Progresiva con Pandas</span></a>
+ <span class="menu-text">Clase 02: Primeros comandos con Python + Pandas</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -238,11 +232,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>En esta clase aprenderemos a navegar y extraer información específica de nuestro DataFrame. Seleccionar no es solo “recortar”; es el proceso de aislar las variables (columnas) y los casos (filas) que realmente responden a nuestra pregunta de investigación.</p>
 <hr>
-<section id="selección-de-columnas-el-eje-vertical" class="level1">
-<h1>1. Selección de Columnas (El eje vertical)</h1>
+<section id="selección-de-columnas-el-eje-vertical" class="level2">
+<h2 class="anchored" data-anchor-id="selección-de-columnas-el-eje-vertical">1. Selección de Columnas (El eje vertical)</h2>
 <p>Cuando seleccionamos columnas, estamos eligiendo qué <strong>variables</strong> nos interesan de nuestra base de interés.</p>
-<section id="el-método-.filter" class="level2">
-<h2 class="anchored" data-anchor-id="el-método-.filter">1.1 El método .filter()</h2>
+<section id="el-método-.filter" class="level3">
+<h3 class="anchored" data-anchor-id="el-método-.filter">1.1 El método .filter()</h3>
 <p>Es la forma más elegante y explícita de elegir múltiples columnas. Permite mantener el código organizado, especialmente cuando la lista de variables es extensa.</p>
 <div class="monitor-box">
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selección de columnas específicas</span></span>
@@ -272,11 +266,11 @@ Lo que estamos haciendo
 <hr>
 </section>
 </section>
-<section id="selección-de-filas-el-eje-horizontal" class="level1">
-<h1>2. Selección de Filas (El eje horizontal)</h1>
+<section id="selección-de-filas-el-eje-horizontal" class="level2">
+<h2 class="anchored" data-anchor-id="selección-de-filas-el-eje-horizontal">2. Selección de Filas (El eje horizontal)</h2>
 <p>Aquí decidimos qué <strong>casos</strong> o encuestados entran en nuestro análisis según condiciones lógicas.</p>
-<section id="el-método-.query" class="level2">
-<h2 class="anchored" data-anchor-id="el-método-.query">2.1 El método .query()</h2>
+<section id="el-método-.query" class="level3">
+<h3 class="anchored" data-anchor-id="el-método-.query">2.1 El método .query()</h3>
 <p>Es la herramienta preferida para filtrar registros mediante una consulta lógica legible.</p>
 <div class="monitor-box">
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionamos solo a las personas mayores de 18 años</span></span>
@@ -304,11 +298,11 @@ Lo que estamos haciendo
 <hr>
 </section>
 </section>
-<section id="variantes-selección-técnica-.loc-e-.iloc" class="level1">
-<h1>3. Variantes: Selección Técnica (.loc e .iloc)</h1>
+<section id="variantes-selección-técnica-.loc-e-.iloc" class="level2">
+<h2 class="anchored" data-anchor-id="variantes-selección-técnica-.loc-e-.iloc">3. Variantes: Selección Técnica (.loc e .iloc)</h2>
 <p>Además de ‘.query()’, existen dos métodos fundamentales para “cortar” la base de forma precisa.</p>
-<section id="localización-por-etiquetas-.loc" class="level2">
-<h2 class="anchored" data-anchor-id="localización-por-etiquetas-.loc">3.1 Localización por etiquetas (.loc)</h2>
+<section id="localización-por-etiquetas-.loc" class="level3">
+<h3 class="anchored" data-anchor-id="localización-por-etiquetas-.loc">3.1 Localización por etiquetas (.loc)</h3>
 <p>Se usa cuando queremos filtrar filas y columnas simultáneamente usando sus nombres.</p>
 <div class="monitor-box">
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionar personas de sexo 1 (Varones) y solo ver su Edad</span></span>
@@ -316,8 +310,8 @@ Lo que estamos haciendo
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(edades_varones.head())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="localización-por-posición-.iloc" class="level2">
-<h2 class="anchored" data-anchor-id="localización-por-posición-.iloc">3.2 Localización por posición (.iloc)</h2>
+<section id="localización-por-posición-.iloc" class="level3">
+<h3 class="anchored" data-anchor-id="localización-por-posición-.iloc">3.2 Localización por posición (.iloc)</h3>
 <p>Útil cuando no conocemos los nombres pero sí la ubicación (índice) de los datos.</p>
 <div class="monitor-box">
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Traer las primeras 10 filas y las primeras 3 columnas</span></span>
@@ -343,10 +337,10 @@ Lo que estamos haciendo
 <hr>
 </section>
 </section>
-<section id="entendiendo-la-sintaxis-corchetes-vs.-paréntesis" class="level1">
-<h1>4. Entendiendo la Sintaxis: Corchetes vs.&nbsp;Paréntesis</h1>
-<section id="los-corchetes-acceso-directo" class="level2">
-<h2 class="anchored" data-anchor-id="los-corchetes-acceso-directo">4.1 Los Corchetes [] (Acceso Directo)</h2>
+<section id="entendiendo-la-sintaxis-corchetes-vs.-paréntesis" class="level2">
+<h2 class="anchored" data-anchor-id="entendiendo-la-sintaxis-corchetes-vs.-paréntesis">4. Entendiendo la Sintaxis: Corchetes vs.&nbsp;Paréntesis</h2>
+<section id="los-corchetes-acceso-directo" class="level3">
+<h3 class="anchored" data-anchor-id="los-corchetes-acceso-directo">4.1 Los Corchetes [] (Acceso Directo)</h3>
 <p>Se utilizan para <strong>señalar o entrar</strong> a una parte del objeto. Piensa en ellos como el dedo que señala un cajón.</p>
 <div class="monitor-box">
 <div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Acceso directo a una sola columna</span></span>
@@ -367,8 +361,8 @@ Lo que estamos haciendo
 </div>
 </div>
 </section>
-<section id="los-paréntesis-acciones-métodos" class="level2">
-<h2 class="anchored" data-anchor-id="los-paréntesis-acciones-métodos">4.2 Los Paréntesis () (Acciones / Métodos)</h2>
+<section id="los-paréntesis-acciones-métodos" class="level3">
+<h3 class="anchored" data-anchor-id="los-paréntesis-acciones-métodos">4.2 Los Paréntesis () (Acciones / Métodos)</h3>
 <p>Son el “disparador” de una acción. Siempre que veas paréntesis, Pandas está trabajando para darte un resultado nuevo.</p>
 <div class="monitor-box">
 <div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejecutamos la acción de calcular el promedio</span></span>
@@ -377,8 +371,8 @@ Lo que estamos haciendo
 <hr>
 </section>
 </section>
-<section id="resumen-de-herramientas" class="level1">
-<h1>5. Resumen de Herramientas</h1>
+<section id="resumen-de-herramientas" class="level2">
+<h2 class="anchored" data-anchor-id="resumen-de-herramientas">5. Resumen de Herramientas</h2>
 <table class="table">
 <colgroup>
 <col style="width: 33%">
@@ -417,14 +411,14 @@ Lo que estamos haciendo
 </table>
 <hr>
 </section>
-<section id="zona-de-prompting" class="level1">
-<h1>6. Zona de Prompting</h1>
+<section id="zona-de-prompting" class="level2">
+<h2 class="anchored" data-anchor-id="zona-de-prompting">6. Zona de Prompting</h2>
 <div class="gray-italic-box">
 <p><strong>Zona de Prompting:</strong> “Actúa como experto en Pandas. Explícame con un ejemplo práctico cuándo es mejor usar <strong>.loc</strong> versus <strong>.query()</strong> para filtrar nuestra base de interés.”</p>
 </div>
 </section>
-<section id="título-de-la-sección" class="level1">
-<h1>7. Título de la sección</h1>
+<section id="título-de-la-sección" class="level2">
+<h2 class="anchored" data-anchor-id="título-de-la-sección">7. Título de la sección</h2>
 <p>Aquí explicamos la estructura de los datos.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -432,8 +426,8 @@ Lo que estamos haciendo
 <figcaption class="figure-caption">Aspecto de un dataframe</figcaption>
 </figure>
 </div>
-<section id="subsección" class="level2">
-<h2 class="anchored" data-anchor-id="subsección">7.1 Subsección</h2>
+<section id="subsección" class="level3">
+<h3 class="anchored" data-anchor-id="subsección">7.1 Subsección</h3>
 
 
 </section>
