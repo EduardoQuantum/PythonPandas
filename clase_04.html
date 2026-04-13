@@ -8,7 +8,7 @@
 
 <meta name="author" content="Eduardo Lencina">
 
-<title>Análisis de Datos con Python + Pandas + IA - Clase 04: Herramientas de Selección</title>
+<title>Análisis de Datos con Python + Pandas + IA - Clase 04: El Paradigma Split-Apply-Combine</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -136,7 +136,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./clase_04.html">Clase 04: Herramientas de Selección</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./clase_04.html">Clase 04: El Paradigma Split-Apply-Combine</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -162,8 +162,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./clase_03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Clase 03: Arquitectura de la Selección</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./clase_04.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Clase 04: Herramientas de Selección</span></a>
+ <span class="menu-text">Clase 04: El Paradigma Split-Apply-Combine</span></a>
   </div>
 </li>
     </ul>
@@ -176,29 +182,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">En esta clase</h2>
    
   <ul>
-  <li><a href="#selección-de-columnas-el-eje-vertical" id="toc-selección-de-columnas-el-eje-vertical" class="nav-link active" data-scroll-target="#selección-de-columnas-el-eje-vertical">1. Selección de Columnas (El eje vertical)</a>
+  <li><a href="#el-dataframe-como-unidad-de-sentido" id="toc-el-dataframe-como-unidad-de-sentido" class="nav-link active" data-scroll-target="#el-dataframe-como-unidad-de-sentido">1. El DataFrame como Unidad de Sentido</a>
   <ul class="collapse">
-  <li><a href="#el-método-.filter" id="toc-el-método-.filter" class="nav-link" data-scroll-target="#el-método-.filter">1.1 El método .filter()</a></li>
+  <li><a href="#el-dataframe-frente-a-la-hoja-de-cálculo" id="toc-el-dataframe-frente-a-la-hoja-de-cálculo" class="nav-link" data-scroll-target="#el-dataframe-frente-a-la-hoja-de-cálculo">1.1 El DataFrame frente a la Hoja de Cálculo</a></li>
   </ul></li>
-  <li><a href="#selección-de-filas-el-eje-horizontal" id="toc-selección-de-filas-el-eje-horizontal" class="nav-link" data-scroll-target="#selección-de-filas-el-eje-horizontal">2. Selección de Filas (El eje horizontal)</a>
+  <li><a href="#la-pivot-table-bajo-el-paradigma-split-apply-combine" id="toc-la-pivot-table-bajo-el-paradigma-split-apply-combine" class="nav-link" data-scroll-target="#la-pivot-table-bajo-el-paradigma-split-apply-combine">2 La Pivot Table bajo el Paradigma Split-Apply-Combine</a>
   <ul class="collapse">
-  <li><a href="#el-método-.query" id="toc-el-método-.query" class="nav-link" data-scroll-target="#el-método-.query">2.1 El método .query()</a></li>
+  <li><a href="#anatomía-de-la-instrucción" id="toc-anatomía-de-la-instrucción" class="nav-link" data-scroll-target="#anatomía-de-la-instrucción">2.1 Anatomía de la instrucción</a></li>
   </ul></li>
-  <li><a href="#variantes-selección-técnica-.loc-e-.iloc" id="toc-variantes-selección-técnica-.loc-e-.iloc" class="nav-link" data-scroll-target="#variantes-selección-técnica-.loc-e-.iloc">3. Variantes: Selección Técnica (.loc e .iloc)</a>
+  <li><a href="#el-analista-en-la-era-de-la-ia-una-digresión" id="toc-el-analista-en-la-era-de-la-ia-una-digresión" class="nav-link" data-scroll-target="#el-analista-en-la-era-de-la-ia-una-digresión">1. El Analista en la Era de la IA (una digresión)</a>
   <ul class="collapse">
-  <li><a href="#localización-por-etiquetas-.loc" id="toc-localización-por-etiquetas-.loc" class="nav-link" data-scroll-target="#localización-por-etiquetas-.loc">3.1 Localización por etiquetas (.loc)</a></li>
-  <li><a href="#localización-por-posición-.iloc" id="toc-localización-por-posición-.iloc" class="nav-link" data-scroll-target="#localización-por-posición-.iloc">3.2 Localización por posición (.iloc)</a></li>
-  </ul></li>
-  <li><a href="#entendiendo-la-sintaxis-corchetes-vs.-paréntesis" id="toc-entendiendo-la-sintaxis-corchetes-vs.-paréntesis" class="nav-link" data-scroll-target="#entendiendo-la-sintaxis-corchetes-vs.-paréntesis">4. Entendiendo la Sintaxis: Corchetes vs.&nbsp;Paréntesis</a>
-  <ul class="collapse">
-  <li><a href="#los-corchetes-acceso-directo" id="toc-los-corchetes-acceso-directo" class="nav-link" data-scroll-target="#los-corchetes-acceso-directo">4.1 Los Corchetes [] (Acceso Directo)</a></li>
-  <li><a href="#los-paréntesis-acciones-métodos" id="toc-los-paréntesis-acciones-métodos" class="nav-link" data-scroll-target="#los-paréntesis-acciones-métodos">4.2 Los Paréntesis () (Acciones / Métodos)</a></li>
-  </ul></li>
-  <li><a href="#resumen-de-herramientas" id="toc-resumen-de-herramientas" class="nav-link" data-scroll-target="#resumen-de-herramientas">5. Resumen de Herramientas</a></li>
-  <li><a href="#zona-de-prompting" id="toc-zona-de-prompting" class="nav-link" data-scroll-target="#zona-de-prompting">6. Zona de Prompting</a></li>
-  <li><a href="#título-de-la-sección" id="toc-título-de-la-sección" class="nav-link" data-scroll-target="#título-de-la-sección">7. Título de la sección</a>
-  <ul class="collapse">
-  <li><a href="#subsección" id="toc-subsección" class="nav-link" data-scroll-target="#subsección">7.1 Subsección</a></li>
+  <li><a href="#aprendizaje-por-necesidad" id="toc-aprendizaje-por-necesidad" class="nav-link" data-scroll-target="#aprendizaje-por-necesidad">1.1 Aprendizaje por necesidad</a></li>
+  <li><a href="#la-ia-programa-el-analista-gobierna" id="toc-la-ia-programa-el-analista-gobierna" class="nav-link" data-scroll-target="#la-ia-programa-el-analista-gobierna">1.2 La IA programa, el Analista gobierna</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -208,8 +203,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Clase 04: Herramientas de Selección</h1>
-<p class="subtitle lead">El arte de recortar la realidad con Pandas</p>
+<h1 class="title">Clase 04: El Paradigma Split-Apply-Combine</h1>
+<p class="subtitle lead">De la Microdata al Resumen</p>
 </div>
 
 
@@ -230,204 +225,251 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>En esta clase aprenderemos a navegar y extraer información específica de nuestro DataFrame. Seleccionar no es solo “recortar”; es el proceso de aislar las variables (columnas) y los casos (filas) que realmente responden a nuestra pregunta de investigación.</p>
-<hr>
-<section id="selección-de-columnas-el-eje-vertical" class="level2">
-<h2 class="anchored" data-anchor-id="selección-de-columnas-el-eje-vertical">1. Selección de Columnas (El eje vertical)</h2>
-<p>Cuando seleccionamos columnas, estamos eligiendo qué <strong>variables</strong> nos interesan de nuestra base de interés.</p>
-<section id="el-método-.filter" class="level3">
-<h3 class="anchored" data-anchor-id="el-método-.filter">1.1 El método .filter()</h3>
-<p>Es la forma más elegante y explícita de elegir múltiples columnas. Permite mantener el código organizado, especialmente cuando la lista de variables es extensa.</p>
-<div class="monitor-box">
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Selección de columnas específicas</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>columnas_interes <span class="op">=</span> [<span class="st">'CH04'</span>, <span class="st">'CH06'</span>, <span class="st">'REGION'</span>]</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicamos el filtro y visualizamos</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>df_reducido <span class="op">=</span> df.<span class="bu">filter</span>(items<span class="op">=</span>columnas_interes)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_reducido.head())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Lo que estamos haciendo
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li><strong>Definimos una lista:</strong> Creamos ‘columnas_interes’ con los nombres técnicos.</li>
-<li><strong>Filtramos:</strong> ‘.filter(items=…)’ genera una nueva tabla solo con esas columnas.</li>
-<li><strong>Mostramos:</strong> Agregamos ‘print(df_reducido.head())’ para que el alumno pueda ver en la terminal cómo quedó su tabla recortada.</li>
-</ol>
-</div>
-</div>
-<hr>
-</section>
-</section>
-<section id="selección-de-filas-el-eje-horizontal" class="level2">
-<h2 class="anchored" data-anchor-id="selección-de-filas-el-eje-horizontal">2. Selección de Filas (El eje horizontal)</h2>
-<p>Aquí decidimos qué <strong>casos</strong> o encuestados entran en nuestro análisis según condiciones lógicas.</p>
-<section id="el-método-.query" class="level3">
-<h3 class="anchored" data-anchor-id="el-método-.query">2.1 El método .query()</h3>
-<p>Es la herramienta preferida para filtrar registros mediante una consulta lógica legible.</p>
-<div class="monitor-box">
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionamos solo a las personas mayores de 18 años</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>adultos <span class="op">=</span> df.query(<span class="st">'CH06 &gt;= 18'</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificamos el resultado</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(adultos[<span class="st">'CH06'</span>].<span class="bu">min</span>())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Lo que estamos haciendo
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li><strong>Consulta:</strong> Le pedimos a la base los registros donde la edad (‘CH06’) sea mayor o igual a 18.</li>
-<li><strong>Verificación:</strong> Al hacer ‘print(adultos[’CH06’].min())’, el alumno confirma que el valor más bajo en su nueva tabla es efectivamente 18.</li>
-</ol>
-</div>
-</div>
-<hr>
-</section>
-</section>
-<section id="variantes-selección-técnica-.loc-e-.iloc" class="level2">
-<h2 class="anchored" data-anchor-id="variantes-selección-técnica-.loc-e-.iloc">3. Variantes: Selección Técnica (.loc e .iloc)</h2>
-<p>Además de ‘.query()’, existen dos métodos fundamentales para “cortar” la base de forma precisa.</p>
-<section id="localización-por-etiquetas-.loc" class="level3">
-<h3 class="anchored" data-anchor-id="localización-por-etiquetas-.loc">3.1 Localización por etiquetas (.loc)</h3>
-<p>Se usa cuando queremos filtrar filas y columnas simultáneamente usando sus nombres.</p>
-<div class="monitor-box">
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionar personas de sexo 1 (Varones) y solo ver su Edad</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>edades_varones <span class="op">=</span> df.loc[df[<span class="st">'CH04'</span>] <span class="op">==</span> <span class="dv">1</span>, <span class="st">'CH06'</span>]</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(edades_varones.head())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="localización-por-posición-.iloc" class="level3">
-<h3 class="anchored" data-anchor-id="localización-por-posición-.iloc">3.2 Localización por posición (.iloc)</h3>
-<p>Útil cuando no conocemos los nombres pero sí la ubicación (índice) de los datos.</p>
-<div class="monitor-box">
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Traer las primeras 10 filas y las primeras 3 columnas</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>recorte_posicional <span class="op">=</span> df.iloc[<span class="dv">0</span>:<span class="dv">10</span>, <span class="dv">0</span>:<span class="dv">3</span>]</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(recorte_posicional)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Lo que estamos haciendo
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ol type="1">
-<li><strong>.loc:</strong> Trabaja con <strong>nombres</strong>. Filtramos filas (donde sexo es 1) y elegimos la columna ‘CH06’.</li>
-<li><strong>.iloc:</strong> Trabaja con <strong>posiciones numéricas</strong>. El rango ‘0:10’ trae las filas de la 0 a la 9, y ‘0:3’ las primeras tres columnas.</li>
-</ol>
-</div>
-</div>
-<hr>
-</section>
-</section>
-<section id="entendiendo-la-sintaxis-corchetes-vs.-paréntesis" class="level2">
-<h2 class="anchored" data-anchor-id="entendiendo-la-sintaxis-corchetes-vs.-paréntesis">4. Entendiendo la Sintaxis: Corchetes vs.&nbsp;Paréntesis</h2>
-<section id="los-corchetes-acceso-directo" class="level3">
-<h3 class="anchored" data-anchor-id="los-corchetes-acceso-directo">4.1 Los Corchetes [] (Acceso Directo)</h3>
-<p>Se utilizan para <strong>señalar o entrar</strong> a una parte del objeto. Piensa en ellos como el dedo que señala un cajón.</p>
-<div class="monitor-box">
-<div class="sourceCode" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Acceso directo a una sola columna</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>columna_sexo <span class="op">=</span> df[<span class="st">'CH04'</span>]</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(columna_sexo.unique())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Lo que estamos haciendo
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Accedemos al contenido de ‘’CH04’’ y con ‘.unique()’ imprimimos los valores que contiene para asegurar que estamos en la variable correcta.</p>
-</div>
-</div>
-</section>
-<section id="los-paréntesis-acciones-métodos" class="level3">
-<h3 class="anchored" data-anchor-id="los-paréntesis-acciones-métodos">4.2 Los Paréntesis () (Acciones / Métodos)</h3>
-<p>Son el “disparador” de una acción. Siempre que veas paréntesis, Pandas está trabajando para darte un resultado nuevo.</p>
-<div class="monitor-box">
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejecutamos la acción de calcular el promedio</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">'CH06'</span>].mean())</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<hr>
-</section>
-</section>
-<section id="resumen-de-herramientas" class="level2">
-<h2 class="anchored" data-anchor-id="resumen-de-herramientas">5. Resumen de Herramientas</h2>
-<table class="table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Herramienta</th>
-<th style="text-align: left;">Sintaxis</th>
-<th style="text-align: left;">Propósito</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>Filtro Col</strong></td>
-<td style="text-align: left;">‘.filter(items=[’A’, ’B’])’</td>
-<td style="text-align: left;">Elegir variables por nombre.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Filtro Filas</strong></td>
-<td style="text-align: left;">‘.query(’A &gt; 10’)’</td>
-<td style="text-align: left;">Elegir casos por lógica.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;"><strong>Precisión</strong></td>
-<td style="text-align: left;">‘.loc[filas, cols]’</td>
-<td style="text-align: left;">Selección híbrida por nombres.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Posición</strong></td>
-<td style="text-align: left;">‘.iloc[0:5, 0:2]’</td>
-<td style="text-align: left;">Selección por ubicación numérica.</td>
-</tr>
-</tbody>
-</table>
-<hr>
-</section>
-<section id="zona-de-prompting" class="level2">
-<h2 class="anchored" data-anchor-id="zona-de-prompting">6. Zona de Prompting</h2>
-<div class="gray-italic-box">
-<p><strong>Zona de Prompting:</strong> “Actúa como experto en Pandas. Explícame con un ejemplo práctico cuándo es mejor usar <strong>.loc</strong> versus <strong>.query()</strong> para filtrar nuestra base de interés.”</p>
-</div>
-</section>
-<section id="título-de-la-sección" class="level2">
-<h2 class="anchored" data-anchor-id="título-de-la-sección">7. Título de la sección</h2>
-<p>Aquí explicamos la estructura de los datos.</p>
+<section id="el-dataframe-como-unidad-de-sentido" class="level2">
+<h2 class="anchored" data-anchor-id="el-dataframe-como-unidad-de-sentido">1. El DataFrame como Unidad de Sentido</h2>
+<p>Técnicamente un <strong>DataFrame</strong> es una <strong>colección de Series (columnas) vinculadas por un Índice común</strong>. El indice <strong>no es parte</strong> de los datos de nuestro dataframe, en la imagen podemos observarlo con claridad.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="imagenes/dataframe.webp" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Aspecto de un dataframe</figcaption>
+<p><img src="../imagenes/01_table_dataframe.svg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Vista del DataFrame</figcaption>
 </figure>
 </div>
-<section id="subsección" class="level3">
-<h3 class="anchored" data-anchor-id="subsección">7.1 Subsección</h3>
+<section id="el-dataframe-frente-a-la-hoja-de-cálculo" class="level3">
+<h3 class="anchored" data-anchor-id="el-dataframe-frente-a-la-hoja-de-cálculo">1.1 El DataFrame frente a la Hoja de Cálculo</h3>
+<p>Si el Excel es un lienzo de acceso libre donde cada celda puede funcionar como una unidad independiente (una “isla” de datos con su propia lógica o formato), el DataFrame de Pandas es una entidad de datos estructurada y programática. Esta diferencia de arquitectura es fundamental para la integridad de los procesos de analisis:</p>
+<ul>
+<li><p><strong>Cohesión de Fila:</strong> En una matriz de datos (DataFrame), la fila es la unidad mínima de información. Si aplicamos una operación de reordenamiento (sorting) o un filtrado, el registro se desplaza como un bloque compacto. Esto garantiza que los atributos de una observación —por ejemplo, un <code>ID</code>, un <code>Ingreso</code> y una <code>Categoría</code>— permanezcan vinculados de forma indisoluble.</p></li>
+<li><p><strong>Tipificación de Columna:</strong> A diferencia de las celdas de una hoja de cálculo, que pueden contener tipos de datos mixtos en una misma columna, las Series de un DataFrame imponen una <strong>consistencia de tipo</strong> (<code>dtype</code>). Esta restricción es la que permite realizar cálculos vectorizados de alta performance.</p></li>
+</ul>
+<p>Nuestro enfoque es <strong>Dataframe Céntrico</strong> vamos a tratar de no irnos por las ramas de los conceptos de programación para reconocernos como <strong>usuarios de programación</strong> analistas que escribimos código funcional y ahora también asistidos por IA . Si el DataFrame está bien construido y su índice es sólido, los cálculos de agregación podremos construirlos de manera <strong>natural</strong>. El DataFrame es el mapa; los métodos de agrupación son nuestra brújula.</p>
+<hr>
+<div class="monitor-box">
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ESTRUCTURA DE LA MATRIZ Y TABLAS DE DOBLE ENTRADA ---</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 0. Preparación del DataFrame (Simulacro EPH Ampliado)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Generamos una base con 20 casos para permitir agrupamientos significativos</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'cod_hogar'</span>: [</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>      <span class="st">'H_001'</span>, <span class="st">'H_002'</span>, <span class="st">'H_003'</span>, <span class="st">'H_004'</span>, <span class="st">'H_005'</span>, </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>      <span class="st">'H_006'</span>, <span class="st">'H_007'</span>, <span class="st">'H_008'</span>, <span class="st">'H_009'</span>, <span class="st">'H_010'</span>, </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>      <span class="st">'H_011'</span>, <span class="st">'H_012'</span>, <span class="st">'H_013'</span>, <span class="st">'H_014'</span>, <span class="st">'H_015'</span>, </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>      <span class="st">'H_016'</span>, <span class="st">'H_017'</span>, <span class="st">'H_018'</span>, <span class="st">'H_019'</span>, <span class="st">'H_020'</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="st">'region'</span>: [</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>      <span class="st">'GBA'</span>, <span class="st">'NOA'</span>, <span class="st">'Patagonia'</span>, <span class="st">'Cuyo'</span>, <span class="st">'Centro'</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>      <span class="st">'GBA'</span>, <span class="st">'NOA'</span>, <span class="st">'Patagonia'</span>, <span class="st">'Cuyo'</span>, <span class="st">'Centro'</span>,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>      <span class="st">'GBA'</span>, <span class="st">'NOA'</span>, <span class="st">'Patagonia'</span>, <span class="st">'Cuyo'</span>, <span class="st">'Centro'</span>,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>      <span class="st">'GBA'</span>, <span class="st">'NOA'</span>, <span class="st">'Patagonia'</span>, <span class="st">'Cuyo'</span>, <span class="st">'Centro'</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">'tipo_vivienda'</span>: [<span class="st">'Casa'</span>, <span class="st">'Depto'</span>, <span class="st">'Casa'</span>, <span class="st">'Casa'</span>, <span class="st">'Depto'</span>, </span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>                        <span class="st">'Depto'</span>, <span class="st">'Casa'</span>, <span class="st">'Depto'</span>, <span class="st">'Casa'</span>, <span class="st">'Depto'</span>] <span class="op">*</span> <span class="dv">2</span>,</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">'ingreso'</span>: [<span class="dv">450000</span>, <span class="dv">320000</span>, <span class="dv">580000</span>, <span class="dv">310000</span>, <span class="dv">420000</span>, <span class="dv">490000</span>, <span class="dv">310000</span>, <span class="dv">620000</span>, <span class="dv">280000</span>, <span class="dv">410000</span>,</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>                <span class="dv">460000</span>, <span class="dv">335000</span>, <span class="dv">590000</span>, <span class="dv">315000</span>, <span class="dv">425000</span>, <span class="dv">500000</span>, <span class="dv">325000</span>, <span class="dv">630000</span>, <span class="dv">295000</span>, <span class="dv">415000</span>],</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">'edad_jefe'</span>: [<span class="dv">45</span>, <span class="dv">32</span>, <span class="dv">58</span>, <span class="dv">29</span>, <span class="dv">41</span>, <span class="dv">36</span>, <span class="dv">52</span>, <span class="dv">47</span>, <span class="dv">33</span>, <span class="dv">40</span>, <span class="dv">44</span>, <span class="dv">31</span>, <span class="dv">57</span>, <span class="dv">30</span>, <span class="dv">42</span>, <span class="dv">35</span>, <span class="dv">51</span>, <span class="dv">46</span>, <span class="dv">34</span>, <span class="dv">39</span>]</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data).set_index(<span class="st">'cod_hogar'</span>)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos la ruta de guardado de base </span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>ruta_entrada <span class="op">=</span> <span class="vs">r"data\input\\"</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardado de base </span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>df.to_excel(ruta_entrada<span class="op">+</span><span class="st">"base_inicial.xlsx"</span>)</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Ejecución del Pipeline: Tabla de Doble Entrada</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="co"># El objetivo es cruzar 'tipo_vivienda' (Filas) y 'region' (Columnas) </span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="co"># para observar la media de 'ingreso'.</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Etapa 1: Creación de la pivot table</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Usamos una sintaxis transparente donde cada parámetro define un eje.</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>df_resumen <span class="op">=</span> df.pivot_table(</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span><span class="st">'tipo_vivienda'</span>, </span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span><span class="st">'region'</span>, </span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    values<span class="op">=</span><span class="st">'ingreso'</span>, </span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    aggfunc<span class="op">=</span><span class="st">'mean'</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="co"># Etapa 2: Formateo de salida (Redondeo)</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicamos el método sobre el resultado anterior para limpiar la visualización.</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>df_resumen <span class="op">=</span> df_resumen.<span class="bu">round</span>(<span class="dv">2</span>)</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Paso 1: Tabla de doble entrada (Ingreso promedio por Región y Vivienda):"</span>)</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_resumen)</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-"</span> <span class="op">*</span> <span class="dv">30</span>)</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Salida a formato externo</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="co"># El dataframe resumen es una nueva unidad de sentido lista para ser compartida.</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>ruta_salida <span class="op">=</span> <span class="vs">r"data\output\\"</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="co"># Resultado</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>df_resumen.to_excel(ruta_salida<span class="op">+</span><span class="st">"resumen_ingresos.xlsx"</span>)</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+</section>
+</section>
+<section id="la-pivot-table-bajo-el-paradigma-split-apply-combine" class="level2">
+<h2 class="anchored" data-anchor-id="la-pivot-table-bajo-el-paradigma-split-apply-combine">2 La Pivot Table bajo el Paradigma Split-Apply-Combine</h2>
+<p>Para entender realmente qué está haciendo Pandas cuando ejecutamos una <code>pivot_table</code>, debemos desglosarla a través del paradigma <strong>Split-Apply-Combine</strong>. Esta es la piedra angular del procesamiento de datos y lo que nos permite pasar de una masa de microdatos a un indicador sintético.</p>
+<p>Si el DataFrame original es nuestro “universo de datos” (donde cada fila es una observación), la <strong>Pivot Table</strong> es la herramienta que nos permite plegar ese universo sobre sí mismo para obtener información agregada. Es el equivalente programático a las “Tablas Dinámicas” de las hojas de cálculo, pero con la ventaja de ser reproducible, trazable y escalable.</p>
+<p>Cuando definimos los ejes y la función de agregación, Pandas activa una secuencia de tres pasos invisibles:</p>
+<ol type="1">
+<li><p><strong>SPLIT (Dividir):</strong> El DataFrame original se “fragmenta” en subgrupos. En nuestro ejemplo, Pandas crea pequeños cubos de datos para cada intersección posible (ej: el grupo de hogares que son “Casa” y están en “GBA”, el grupo de “Depto” en “NOA”, etc.). La matriz deja de ser un bloque único para convertirse en una colección de sub-matrices. <strong>Equivalencia en Excel: activar un filtro</strong>.</p></li>
+<li><p><strong>APPLY (Aplicar):</strong> Sobre cada uno de esos pequeños grupos, se aplica de forma aislada la función que definimos en <code>aggfunc</code>. Si pedimos <code>'mean'</code>, Pandas calcula el promedio de la columna <code>values</code> (‘ingreso’) solo para los datos de ese fragmento específico. Es aquí donde ocurre el cálculo estadístico. <strong>Equivalencia en Excel: crear una métrica sobre las filas filtradas</strong>.</p></li>
+<li><p><strong>COMBINE (Combinar):</strong> Finalmente, Pandas recolecta todos los promedios calculados y los “pega” nuevamente en una estructura coherente: la tabla de doble entrada. Lo que antes eran cientos de filas, ahora son celdas en una grilla de resultados finales. <strong>Equivalencia en Excel: el resultado de tablas dinámicas</strong>.</p></li>
+</ol>
+<section id="anatomía-de-la-instrucción" class="level3">
+<h3 class="anchored" data-anchor-id="anatomía-de-la-instrucción">2.1 Anatomía de la instrucción</h3>
+<p>¿Cuáles se el rol de cada “pieza” dentro de la función <code>pivot_table()</code>? Aquí desglosamos la lógica de nuestra instrucción:</p>
+<p><code>df_resumen = df.pivot_table(index='tipo_vivienda', columns='region', values='ingreso', aggfunc='mean')</code></p>
+<ul>
+<li><p><strong><code>index='tipo_vivienda'</code> (El Eje Vertical):</strong> Determina qué variable queremos ver en las <strong>filas</strong>. Es nuestra categoría de agrupación principal. En este caso, le pedimos a Pandas que cree una fila por cada tipo de vivienda detectado en la matriz.</p></li>
+<li><p><strong><code>columns='region'</code> (El Eje Horizontal):</strong> Determina qué variable se desplegará en las <strong>columnas</strong>. Esto crea la “doble entrada”. El resultado será una grilla donde las regiones “se cruzan” con los tipos de vivienda.</p></li>
+<li><p><strong><code>values='ingreso'</code> (La Materia Prima):</strong> Es la variable numérica sobre la cual queremos realizar el cálculo. Sin esta definición, Pandas no sabría qué “medir” en las intersecciones de la tabla.</p></li>
+<li><p><strong><code>aggfunc='mean'</code> (La Función de Agregación):</strong> Es el “cómo” vamos a resumir los datos. Aquí es donde aplicamos la estadística. Al elegir <code>'mean'</code>, le indicamos que calcule el promedio de ingresos para cada celda. Podríamos usar <code>'sum'</code>, <code>'count'</code>, o <code>'median'</code> según la necesidad del análisis.</p></li>
+</ul>
+<hr>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+El concepto de Pivot Table como Transformación
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Observen lo que acaba de suceder con nuestra matriz de datos:</p>
+<ol type="1">
+<li><p><strong>De Micro a Macro:</strong> Pasamos de tener 20 filas (unidades hogar) a una tabla de 2x5. Hemos “colapsado” la realidad para encontrar patrones.</p></li>
+<li><p><strong>Sintaxis Declarativa:</strong> No le decimos a Python “cómo” calcular la media, sino “qué” queremos en cada eje.</p>
+<ul>
+<li><code>index</code>: Define lo que leeremos verticalmente.</li>
+<li><code>columns</code>: Define la apertura horizontal.</li>
+<li><code>aggfunc</code>: Define la operación estadística (en este caso, la media).</li>
+</ul></li>
+<li><p><strong>Trazabilidad:</strong> Al trabajar por etapas (Etapa 1: Crear, Etapa 2: Redondear), mantenemos el control total sobre el estado del dato antes de su exportación final a Excel.</p></li>
+</ol>
+</div>
+</div>
+<hr>
+<p>Tomemos el mismo ejemplo y le agregamos una nueva “capa” : obtenemos tres estadísticos</p>
+<div class="monitor-box">
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ESTRUCTURA DE LA MATRIZ Y TABLAS DE DOBLE ENTRADA (II) ---</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 0. Preparación del DataFrame (Simulacro EPH Ampliado)</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Generamos una base con 20 casos para permitir agrupamientos significativos</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> {</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'cod_hogar'</span>: [</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>      <span class="st">'H_001'</span>, <span class="st">'H_002'</span>, <span class="st">'H_003'</span>, <span class="st">'H_004'</span>, <span class="st">'H_005'</span>, </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>      <span class="st">'H_006'</span>, <span class="st">'H_007'</span>, <span class="st">'H_008'</span>, <span class="st">'H_009'</span>, <span class="st">'H_010'</span>, </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>      <span class="st">'H_011'</span>, <span class="st">'H_012'</span>, <span class="st">'H_013'</span>, <span class="st">'H_014'</span>, <span class="st">'H_015'</span>, </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>      <span class="st">'H_016'</span>, <span class="st">'H_017'</span>, <span class="st">'H_018'</span>, <span class="st">'H_019'</span>, <span class="st">'H_020'</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="st">'region'</span>: [</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>      <span class="st">'GBA'</span>, <span class="st">'NOA'</span>, <span class="st">'Patagonia'</span>, <span class="st">'Cuyo'</span>, <span class="st">'Centro'</span>,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>      <span class="st">'GBA'</span>, <span class="st">'NOA'</span>, <span class="st">'Patagonia'</span>, <span class="st">'Cuyo'</span>, <span class="st">'Centro'</span>,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>      <span class="st">'GBA'</span>, <span class="st">'NOA'</span>, <span class="st">'Patagonia'</span>, <span class="st">'Cuyo'</span>, <span class="st">'Centro'</span>,</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>      <span class="st">'GBA'</span>, <span class="st">'NOA'</span>, <span class="st">'Patagonia'</span>, <span class="st">'Cuyo'</span>, <span class="st">'Centro'</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    ],</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">'tipo_vivienda'</span>: [<span class="st">'Casa'</span>, <span class="st">'Depto'</span>, <span class="st">'Casa'</span>, <span class="st">'Casa'</span>, <span class="st">'Depto'</span>, </span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>                        <span class="st">'Depto'</span>, <span class="st">'Casa'</span>, <span class="st">'Depto'</span>, <span class="st">'Casa'</span>, <span class="st">'Depto'</span>] <span class="op">*</span> <span class="dv">2</span>,</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">'ingreso'</span>: [<span class="dv">450000</span>, <span class="dv">320000</span>, <span class="dv">580000</span>, <span class="dv">310000</span>, <span class="dv">420000</span>, <span class="dv">490000</span>, <span class="dv">310000</span>, <span class="dv">620000</span>, <span class="dv">280000</span>, <span class="dv">410000</span>,</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>                <span class="dv">460000</span>, <span class="dv">335000</span>, <span class="dv">590000</span>, <span class="dv">315000</span>, <span class="dv">425000</span>, <span class="dv">500000</span>, <span class="dv">325000</span>, <span class="dv">630000</span>, <span class="dv">295000</span>, <span class="dv">415000</span>],</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">'edad_jefe'</span>: [<span class="dv">45</span>, <span class="dv">32</span>, <span class="dv">58</span>, <span class="dv">29</span>, <span class="dv">41</span>, <span class="dv">36</span>, <span class="dv">52</span>, <span class="dv">47</span>, <span class="dv">33</span>, <span class="dv">40</span>, <span class="dv">44</span>, <span class="dv">31</span>, <span class="dv">57</span>, <span class="dv">30</span>, <span class="dv">42</span>, <span class="dv">35</span>, <span class="dv">51</span>, <span class="dv">46</span>, <span class="dv">34</span>, <span class="dv">39</span>]</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data).set_index(<span class="st">'cod_hogar'</span>)</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos la ruta de guardado de base </span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>ruta_entrada <span class="op">=</span> <span class="vs">r"data\input\\"</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Guardado de base </span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>df.to_excel(ruta_entrada<span class="op">+</span><span class="st">"base_inicial.xlsx"</span>)</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Ejecución del Pipeline: Tabla de Doble Entrada</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="co"># El objetivo es cruzar 'tipo_vivienda' (Filas) y 'region' (Columnas) </span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="co"># para observar la media de 'ingreso'.</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Etapa 1: Creación de la pivot table</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Usamos una sintaxis transparente donde cada parámetro define un eje.</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>df_resumen <span class="op">=</span> df.pivot_table(</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span><span class="st">'tipo_vivienda'</span>, </span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span><span class="st">'region'</span>, </span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    values<span class="op">=</span><span class="st">'ingreso'</span>, </span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    <span class="co"># le pasamos una lista de estadísticos</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>    aggfunc<span class="op">=</span>[<span class="st">'count'</span>, <span class="st">'mean'</span>,<span class="st">'sum'</span>]</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Etapa 2: Formateo de salida (Redondeo)</span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicamos el método sobre el resultado anterior para limpiar la visualización.</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>df_resumen <span class="op">=</span> df_resumen.<span class="bu">round</span>(<span class="dv">2</span>)</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a><span class="co"># Etapa 3:Lo apilamos con el metodo ".stack"</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>df_resumen_vertical <span class="op">=</span> df_resumen.stack(level<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a><span class="co"># Etapa 4: Renombrar el índice para mayor claridad</span></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>df_resumen_vertical.index.names <span class="op">=</span> [<span class="st">'Tipo de Vivienda'</span>, <span class="st">'Métrica'</span>]</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Paso 1: Tabla de doble entrada (Ingreso promedio por Región y Vivienda): 'count', 'mean','sum'"</span>)</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_resumen_vertical)</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"-"</span> <span class="op">*</span> <span class="dv">30</span>)</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Salida a formato externo</span></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a><span class="co"># El dataframe resumen es una nueva unidad de sentido lista para ser compartida.</span></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>ruta_salida <span class="op">=</span> <span class="vs">r"data\output\\"</span></span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a><span class="co"># Resultado</span></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>df_resumen_vertical.to_excel(ruta_salida<span class="op">+</span><span class="st">"resumen_ingresos.xlsx"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+<p>A continuación un print de nuestros resultados:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../imagenes/resumen_excel.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Vista Resumen</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="el-analista-en-la-era-de-la-ia-una-digresión" class="level2">
+<h2 class="anchored" data-anchor-id="el-analista-en-la-era-de-la-ia-una-digresión">1. El Analista en la Era de la IA (una digresión)</h2>
+<p>Nuestro enfoque es que la IA escribe nuestro código y arregla nuestros errores de sintaxis. No memorizamos parámetros de la documentación de Pandas: debemos saber que existen y que hacen lo que necesitamos y si lo que necesitamos es “complejo” entonces aprendemos a identificar las partes para pedirselas a la IA.</p>
+<section id="aprendizaje-por-necesidad" class="level3">
+<h3 class="anchored" data-anchor-id="aprendizaje-por-necesidad">1.1 Aprendizaje por necesidad</h3>
+<p>Proponemos un <strong>aprendizaje por necesidad</strong>. Aprendemos la herramienta cuando el problema nos lo demanda. No estudiamos “todas las funciones de agregación posibles”, sino las principales y a partir de su uso desplegaremos los detalles. La IA hace el trabajo pesado por nosotros.</p>
+</section>
+<section id="la-ia-programa-el-analista-gobierna" class="level3">
+<h3 class="anchored" data-anchor-id="la-ia-programa-el-analista-gobierna">1.2 La IA programa, el Analista gobierna</h3>
+<p>Debemos compnder una nueva realidad: <strong>la IA programa por nosotros</strong>. La sintaxis pesada puede ser resuelta por modelos de lenguaje.</p>
+<p>Nuestra tarea fundamental hoy es:</p>
+<ul>
+<li><p><strong>Controlar el estilo:</strong> Que el código sea legible para otros humanos (y para nosotros mismos en el futuro).</p></li>
+<li><p><strong>Garantizar la legibilidad:</strong> Usar el encadenamiento de métodos (pipes) para que el proceso sea una narración lógica, no un jeroglífico.</p></li>
+<li><p><strong>Vigilar los desvíos:</strong> Detectar cuándo la IA ofrece soluciones que están por encima de nuestros intereses y / o competencias.</p></li>
+</ul>
+<hr>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+La nueva forma que adquiere “saber” en programación
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>El analista debe enfocarse en <strong>estructurar el pedido</strong> más que en recordar la sintaxis y además <strong>auditar el resultado</strong>. En este módulo, nos enfocaremos en desarrollar ese criterio, en este caso para agrupar y resumir datos de nuestro dataframe.</p>
+</div>
+</div>
 
 
 </section>
